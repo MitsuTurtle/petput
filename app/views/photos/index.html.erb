@@ -1,0 +1,65 @@
+<%= render 'shared/header' %>
+
+
+
+<div class='photo-contents'>
+  <h2 class='title'>最新投稿</h2>
+  <ul class='photo-lists'>
+
+    <%# 写真がない場合のダミー %>
+    <li class='list'>
+      <%= link_to '#' do %>
+          <%= image_tag "dummy-photo_3", class: "photo-img" %>
+      <% end %>
+    </li>
+    <li class='list'>
+      <%= link_to '#' do %>
+          <%= image_tag "dummy-photo_2", class: "photo-img" %>
+      <% end %>
+    </li>
+    <li class='list'>
+      <%= link_to '#' do %>
+          <%= image_tag "dummy-photo_1", class: "photo-img" %>
+      <% end %>
+    </li>
+    <li class='list'>
+      <%= link_to '#' do %>
+          <%= image_tag "dummy-photo_3", class: "photo-img" %>
+      <% end %>
+    </li>
+    <li class='list'>
+      <%= link_to '#' do %>
+          <%= image_tag "dummy-photo_3", class: "photo-img" %>
+      <% end %>
+    </li>
+    <li class='list'>
+      <%= link_to '#' do %>
+          <%= image_tag "dummy-photo_3", class: "photo-img" %>
+      <% end %>
+    </li>
+    <li class='list'>
+      <%= link_to '#' do %>
+          <%= image_tag "dummy-photo_2", class: "photo-img" %>
+      <% end %>
+    </li>
+    <li class='list'>
+      <%= link_to '#' do %>
+          <%= image_tag "dummy-photo_1", class: "photo-img" %>
+      <% end %>
+    </li>
+    <li class='list'>
+      <%= link_to '#' do %>
+          <%= image_tag "dummy-photo_3", class: "photo-img" %>
+      <% end %>
+    </li>
+    <li class='list'>
+      <%= link_to '#' do %>
+          <%= image_tag "dummy-photo_3", class: "photo-img" %>
+      <% end %>
+    </li>
+    <%# /写真がない場合のダミー %>
+
+  </ul>
+</div>
+
+<%= render 'shared/footer' %>

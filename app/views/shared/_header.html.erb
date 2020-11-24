@@ -1,0 +1,13 @@
+    <header class='top-page-header'>
+      <%= link_to image_tag("petput-logo.png", class:"petput-icon"), "/" %>
+      <form class="search-form" action="#">
+        <input class='input-box' placeholder='検索'>
+        <button class="search-button">
+          <%= image_tag "search.png", class:"search-icon" %>
+        </button>
+      </form>
+      <ul class='header-link'>
+        <li ><%= link_to 'ユーザー名', "#", class: "name" %></li>
+        <li ><%= link_to 'ログアウト', "#", class: "logout" %></li>
+      </ul>
+    </header>

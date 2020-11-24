@@ -1,0 +1,51 @@
+.top-page-header {
+  width: 100vw;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #EEEEEE;
+  margin-bottom: 16px;
+}
+
+.petput-icon {
+  width: 7vw;
+}
+
+.search-form{
+  width: 20vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.input-box {
+  width:100%;
+  height: 30px;
+  border-color: #EEEEEE;
+  border-style: solid;
+  text-align: center;
+}
+.search-button {
+  width: 30px;
+  height: 30px;
+  background-color: #EEEEEE;
+  border: none;
+}
+.search-icon {
+  width: 100%;
+}
+
+.header-link {
+  display: flex;
+  align-items: center;
+}
+.name {
+  text-decoration: none;
+  color: #757575;
+}
+.logout {
+  margin-left: 20px;
+  text-decoration: none;
+  color: #757575;
+}
+

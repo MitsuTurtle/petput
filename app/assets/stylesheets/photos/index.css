@@ -1,0 +1,35 @@
+.photo-contents {
+  padding: 15px 20px;
+}
+
+.photo-contents>.title {
+  color: #757575;
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+
+.photo-block {
+  display: flex;
+  justify-content: center;
+}
+
+.photo-lists {
+  width: 100vw;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.photo-lists>.list {
+  margin: 0 2vw 2vw 0;
+  position: relative;
+}
+.photo-img {
+  width: 33vh;
+  height: 33vh;
+}
+
+
+
+
+
+
