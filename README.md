@@ -32,9 +32,6 @@ Things you may want to cover:
 | nickname    | string | null: false, unique: true |
 | email       | string | null: false               |
 | password    | string | null: false               |
-| family_name | string | null: false               |
-| given_name  | string | null: false               |
-| birthday    | date   | null: false               |
 
 ### Association
 
