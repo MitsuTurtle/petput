@@ -8,13 +8,14 @@ class PhotosController < ApplicationController
   end
 
   def create
+    @photo = Photo.new(photo_params)
 
   end
 
   private
 
   def photo_params
-    params.require(:photo).permit(:caption, :iamge).merge(user_id: current_user.id)
+    params.require(:photo).permit(:image,:caption, :category_id).merge(user_id: current_user.id)
   end
 
 
