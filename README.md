@@ -40,11 +40,12 @@ Things you may want to cover:
 
 ## photos テーブル
 
-| Column      | Type    | Options     |
-| ------------| ------- | ----------- |
-| (image)     |         |             |
-| caption     | text    | null: false |
-| category_id | integer | null: false |
+| Column      | Type       | Options                        |
+| ------------| ---------- | ------------------------------ |
+| (image)     |            |                                |
+| caption     | text       | null: false                    |
+| category_id | integer    | null: false                    |
+| user        | references | null: false, foreign_key: true |
 
 ### Association
 
