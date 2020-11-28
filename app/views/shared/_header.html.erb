@@ -6,7 +6,9 @@
           <%= image_tag "search.png", class:"search-icon" %>
         </button>
       </form>
+
       <ul class='header-link'>
+        <li><%= link_to '写真投稿', new_photo_path, class: "new-photo" %></li>
         <% if user_signed_in? %>
           <li ><%= link_to current_user.nickname, "#", class: "nickname" %></li>
           <li ><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></li>
