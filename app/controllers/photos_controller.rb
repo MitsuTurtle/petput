@@ -1,4 +1,6 @@
 class PhotosController < ApplicationController
+  before_action :authenticate_user!, only: [:new]
+
   def index
     @photos = Photo.all
   end
@@ -9,12 +11,13 @@ class PhotosController < ApplicationController
 
   def create
     @photo = Photo.new(photo_params)
-    if @photo.image.present? && @photo.save
+    if @photo.save
       redirect_to root_path
     else
       render :new
     end
   end
+
 
   private
 
