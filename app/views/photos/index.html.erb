@@ -9,7 +9,7 @@
     <% if @photos != nil %>
       <% @photos.each do |photo| %>
       <li class='list'>
-        <%= link_to "#" do %>
+        <%= link_to photo_path(photo.id) do %>
           <%= image_tag photo.image.variant(gravity: :center, resize:"640x640^", crop:"640x640+0+0").processed, class: "photo-img" if photo.image.attached? %>
         <% end %>
       </li>
