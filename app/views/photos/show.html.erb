@@ -1,1 +1,2 @@
-<%= @photo.image %>
+<%= image_tag @photo.image.variant(resize:"640x640") %>
+
