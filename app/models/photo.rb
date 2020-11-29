@@ -5,6 +5,10 @@ class Photo < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :category
 
-  validates :category_id, numericality: { other_than: 1 } 
+  with_options presence: true do
+    validates :image
+    validates :caption
+    validates :category_id, numericality: { other_than: 0 } 
+  end
 
 end
