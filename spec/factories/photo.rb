@@ -4,6 +4,5 @@ FactoryBot.define do
     category_id          { Faker::Number.within(range: 1..10) }
 
     association :user
-
   end
 end

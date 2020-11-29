@@ -8,7 +8,6 @@ class Photo < ApplicationRecord
   with_options presence: true do
     validates :image
     validates :caption
-    validates :category_id, numericality: { other_than: 0 } 
+    validates :category_id, numericality: { other_than: 0 }
   end
-
 end
