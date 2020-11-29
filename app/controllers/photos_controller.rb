@@ -2,7 +2,7 @@ class PhotosController < ApplicationController
   before_action :authenticate_user!, only: [:new]
 
   def index
-    @photos = Photo.all
+    @photos = Photo.order('created_at DESC')
   end
 
   def new
@@ -18,12 +18,9 @@ class PhotosController < ApplicationController
     end
   end
 
-
   private
 
   def photo_params
-    params.require(:photo).permit(:image,:caption, :category_id).merge(user_id: current_user.id)
+    params.require(:photo).permit(:image, :caption, :category_id).merge(user_id: current_user.id)
   end
-
-
 end

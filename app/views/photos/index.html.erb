@@ -6,59 +6,70 @@
   <h2 class='title'>最新投稿</h2>
   <ul class='photo-lists'>
 
-    <%# 写真がない場合のダミー %>
-    <li class='list'>
-      <%= link_to "#" do %>
-          <%= image_tag "dummy-photo_3.png", class: "photo-img" %>
-      <% end %>
-    </li>
-    <li class='list'>
-      <%= link_to '#' do %>
-          <%= image_tag "dummy-photo_2.png", class: "photo-img" %>
-      <% end %>
-    </li>
-    <li class='list'>
-      <%= link_to '#' do %>
-          <%= image_tag "dummy-photo_1.png", class: "photo-img" %>
-      <% end %>
-    </li>
-    <li class='list'>
-      <%= link_to '#' do %>
-          <%= image_tag "dummy-photo_3.png", class: "photo-img" %>
-      <% end %>
-    </li>
-    <li class='list'>
-      <%= link_to '#' do %>
-          <%= image_tag "dummy-photo_3.png", class: "photo-img" %>
-      <% end %>
-    </li>
-    <li class='list'>
-      <%= link_to '#' do %>
-          <%= image_tag "dummy-photo_3.png", class: "photo-img" %>
-      <% end %>
-    </li>
-    <li class='list'>
-      <%= link_to '#' do %>
-          <%= image_tag "dummy-photo_2.png", class: "photo-img" %>
-      <% end %>
-    </li>
-    <li class='list'>
-      <%= link_to '#' do %>
-          <%= image_tag "dummy-photo_1.png", class: "photo-img" %>
-      <% end %>
-    </li>
-    <li class='list'>
-      <%= link_to '#' do %>
-          <%= image_tag "dummy-photo_3.png", class: "photo-img" %>
-      <% end %>
-    </li>
-    <li class='list'>
-      <%= link_to '#' do %>
-          <%= image_tag "dummy-photo_3.png", class: "photo-img" %>
-      <% end %>
-    </li>
-    <%# /写真がない場合のダミー %>
+    <% if @photos != nil %>
+      <% @photos.each do |photo| %>
+      <li class='list'>
+        <%= link_to "#" do %>
+          <%= image_tag photo.image.variant(gravity: :center, resize:"640x640^", crop:"640x640+0+0").processed, class: "photo-img" if photo.image.attached? %>
+        <% end %>
+      </li>
 
+      <% end %>
+
+      <%# 写真がない場合のダミー %>
+    <% else %>
+      <li class='list'>
+        <%= link_to "#" do %>
+            <%= image_tag "dummy-photo_3.png", class: "photo-img" %>
+        <% end %>
+      </li>
+      <li class='list'>
+        <%= link_to '#' do %>
+            <%= image_tag "dummy-photo_2.png", class: "photo-img" %>
+        <% end %>
+      </li>
+      <li class='list'>
+        <%= link_to '#' do %>
+            <%= image_tag "dummy-photo_1.png", class: "photo-img" %>
+        <% end %>
+      </li>
+      <li class='list'>
+        <%= link_to '#' do %>
+            <%= image_tag "dummy-photo_3.png", class: "photo-img" %>
+        <% end %>
+      </li>
+      <li class='list'>
+        <%= link_to '#' do %>
+            <%= image_tag "dummy-photo_3.png", class: "photo-img" %>
+        <% end %>
+      </li>
+      <li class='list'>
+        <%= link_to '#' do %>
+            <%= image_tag "dummy-photo_3.png", class: "photo-img" %>
+        <% end %>
+      </li>
+      <li class='list'>
+        <%= link_to '#' do %>
+            <%= image_tag "dummy-photo_2.png", class: "photo-img" %>
+        <% end %>
+      </li>
+      <li class='list'>
+        <%= link_to '#' do %>
+            <%= image_tag "dummy-photo_1.png", class: "photo-img" %>
+        <% end %>
+      </li>
+      <li class='list'>
+        <%= link_to '#' do %>
+            <%= image_tag "dummy-photo_3.png", class: "photo-img" %>
+        <% end %>
+      </li>
+      <li class='list'>
+        <%= link_to '#' do %>
+            <%= image_tag "dummy-photo_3.png", class: "photo-img" %>
+        <% end %>
+      </li>
+      <%# /写真がない場合のダミー %>
+    <% end %>
   </ul>
 </div>
 
