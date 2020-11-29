@@ -4,6 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_many :photos
+
   with_options presence: true do
     validates :nickname, uniqueness: { case_sensitive: true }
     # パスワードは半角英数字混合での入力が必須
