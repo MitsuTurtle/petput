@@ -1,2 +1,5 @@
-<%= image_tag @photo.image.variant(resize:"640x640") %>
+<%= image_tag @photo.image.variant(resize:"x640") %>
+<%= @photo.caption %>
+<%= @photo.category.name %>
 
+<%= link_to '戻る', root_path %>
