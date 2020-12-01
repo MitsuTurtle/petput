@@ -1,5 +1,31 @@
-<%= image_tag @photo.image.variant(resize:"x640") %>
-<%= @photo.caption %>
-<%= @photo.category.name %>
+<div>
+  <%= image_tag @photo.image.variant(resize:"x640") %>
+  <%= @photo.caption %>
+  <%= @photo.category.name %>
 
-<%= link_to '戻る', root_path %>
+  <%= link_to '戻る', root_path %>
+</div>
+<div>
+  <% if user_signed_in? %>
+    <%= form_with(model: [@photo, @comment], local: true) do |form| %>
+    <%= form.text_area :text %>
+    <%= form.submit "投稿する" %>
+    <% end %>
+  <% else %>
+    <P>
+      ログインすると「いいね！」やコメントができます。
+    </P>
+  <% end %>
+
+</div>
+
+<div>
+  <% if @comments %>
+    <% @comments.each do |comment| %>
+      <p>
+        <%= link_to comment.user.nickname, "#" %>
+        <%= comment.text %>
+      </p>
+    <% end %>
+  <% end %>
+</div>
