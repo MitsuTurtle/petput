@@ -5,6 +5,13 @@
 
   <%= link_to '戻る', root_path %>
 </div>
+
+<div>
+  <% if user_signed_in? && current_user.id == @photo.user.id %>
+    <%= link_to "削除", photo_path(@photo.id), method: :delete, data: {confirm: "本当に削除しますか？"}  %>
+  <% end %>
+</div>
+
 <div>
   <% if user_signed_in? %>
     <%= form_with(model: [@photo, @comment], local: true) do |form| %>
