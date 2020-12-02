@@ -49,5 +49,4 @@ class PhotosController < ApplicationController
   def set_photo
     @photo = Photo.find(params[:id])
   end
-
 end
