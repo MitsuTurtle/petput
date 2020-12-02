@@ -1,4 +1,8 @@
 <div>
+  <%= link_to @photo.user.nickname, user_path(@photo.user.id) %>
+</div>
+
+<div>
   <%= image_tag @photo.image.variant(resize:"x640") %>
   <%= @photo.caption %>
   <%= @photo.category.name %>
