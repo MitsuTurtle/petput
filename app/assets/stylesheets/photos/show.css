@@ -1,6 +1,7 @@
 .photo-show {
   background-color: #999999;
   width: 100vw;
+  height: 100vh;
   padding: 40px 0;
   font-size:14px;
 }
