@@ -1,0 +1,109 @@
+.photo-show {
+  background-color: #999999;
+  width: 100vw;
+  padding: 40px 0;
+  font-size:14px;
+}
+
+.photo-caption-comments-box {
+  width: 935px;
+  height: 600px;
+  margin: auto;
+  display: flex;
+  background-color: white;
+}
+
+.left-box {
+  width: calc(100% - 335px);
+  text-align: center;
+  background-color: black;
+}
+.left-box-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.right-box {
+  width: 335px;
+}
+.right-box-header {
+  height: 70px;
+  display: flex;
+  align-items: center;
+  padding-left: 50px;
+  font-weight: bold;
+  border-bottom: solid 1px #EEEEEE;
+}
+.nickname-follow>.nickname {
+  color: black;
+}
+.nickname-follow>.follow {
+  color: #1E90FF;
+}
+
+.right-box-header>.link-list {
+  margin-left: auto;
+  margin-right: 16px;
+}
+li>.link {
+  color: #808080;
+  font-weight: 200;
+  text-decoration: none;
+}
+
+.right-box-caption {
+  padding: 25px 50px;
+}
+.right-box-caption>.nickname {
+  color: black;
+  font-weight: bold;
+}
+.right-box-caption>.caption {
+  color: #808080;
+}
+
+.right-box-comments {
+  padding: 0 50px;
+}
+
+.nickname-comment {
+  margin-bottom: 25px;
+}
+.nickname-comment>.nickname {
+  color: black;
+  font-weight: bold;
+}
+.nickname-comment>.comment {
+  color: #808080;
+}
+
+.right-box-comments {
+  height: calc(100% - (70px + 64px + 57px));
+}
+
+.right-box-new-comment {
+  padding: 20px 17px;
+  border-top: solid 1px  #EEEEEE;
+  height: 55px;
+}
+
+.input-comment {
+  border: none;
+  resize: none;
+  outline: none;
+  width: 75%;
+  font: inherit;
+  vertical-align: middle;
+  padding: 2px 0;
+}
+
+.submit-comment {
+  border: none;
+  color: #8EB8FF;
+  vertical-align: middle;
+  background-color: transparent;
+  height: auto;
+  font: inherit;
+  padding: 0;
+}
