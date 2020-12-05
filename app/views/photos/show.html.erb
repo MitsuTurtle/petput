@@ -1,43 +1,58 @@
-<div>
-  <%= link_to @photo.user.nickname, user_path(@photo.user.id) %>
+<div class="photo-show">
+  <div class="photo-caption-comments-box">
+    <div class="left-box">
+      <%= image_tag @photo.image.variant(resize:"640x"), class:"left-box-photo" %>
+    </div>
+
+    <div class="right-box">
+      <div class="right-box-header">
+        <div class="nickname-follow">
+          <%= link_to @photo.user.nickname, user_path(@photo.user.id), class:"nickname" %>
+          <span>・</span>
+          <span class="follow"><%= "フォローする" %></span>
+        </div>
+
+        <ul class="link-list">
+          <% if user_signed_in? && current_user.id == @photo.user.id %>
+            <li><%= link_to "編集", edit_photo_path, class: "link" %></li>
+            <li><%= link_to "削除", photo_path(@photo.id), class: "link", method: :delete, data: {confirm: "本当に削除しますか？"}  %></li>
+          <% end %>
+          <li><%= link_to '戻る', root_path, class: "link" %></li>
+        </ul>
+      </div>
+
+
+      <div class="right-box-caption">
+        <%= link_to @photo.user.nickname, user_path(@photo.user.id), class:"nickname" %>
+        <span class="caption"><%= @photo.caption %></span>
+      </div>
+
+      <div class="right-box-comments">
+        <div>
+          <% if @comments %>
+            <% @comments.each do |comment| %>
+              <div class="nickname-comment">
+                <%= link_to comment.user.nickname, "#", class:"nickname" %>
+                <span class="comment"><%= comment.text %></span>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="right-box-new-comment">
+        <% if user_signed_in? %>
+          <%= form_with(model: [@photo, @comment], local: true) do |f| %>
+            <%= f.text_area :text, class:"input-comment", rows: 1, placeholder:"コメントを追加投稿..." %>
+            <%= f.submit "投稿する", class:"submit-comment" %>
+          <% end %>
+        <% else %>
+          <P>ログインすると「いいね！」やコメントができます。</P>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
 </div>
 
-<div>
-  <%= image_tag @photo.image.variant(resize:"x640") %>
-  <%= @photo.caption %>
-  <%= @photo.category.name %>
-
-  <%= link_to '戻る', root_path %>
-</div>
-
-<div>
-  <% if user_signed_in? && current_user.id == @photo.user.id %>
-    <%= link_to "編集", edit_photo_path %>
-    <%= link_to "削除", photo_path(@photo.id), method: :delete, data: {confirm: "本当に削除しますか？"}  %>
-  <% end %>
-</div>
-
-<div>
-  <% if user_signed_in? %>
-    <%= form_with(model: [@photo, @comment], local: true) do |f| %>
-    <%= f.text_area :text %>
-    <%= f.submit "投稿する" %>
-    <% end %>
-  <% else %>
-    <P>
-      ログインすると「いいね！」やコメントができます。
-    </P>
-  <% end %>
-
-</div>
-
-<div>
-  <% if @comments %>
-    <% @comments.each do |comment| %>
-      <p>
-        <%= link_to comment.user.nickname, "#" %>
-        <%= comment.text %>
-      </p>
-    <% end %>
-  <% end %>
-</div>
+<%= @photo.category.name %>
