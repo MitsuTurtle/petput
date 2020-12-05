@@ -1,0 +1,71 @@
+.photo-new {
+  height: 100vh;
+  background-color: white;
+  padding-top: 20px;
+}
+
+.form {
+  width: 500px;
+  /* border: 1px solid black; */
+  margin: 20px auto;
+  background-color: #EEEEEE;
+  padding: 10px;
+}
+
+.click-home {
+  text-align: left;
+  margin-bottom: 25px;
+}
+.home-button {
+  text-decoration: none;
+  color: #808080;
+}
+
+.photo-new-title {
+  text-align: center;
+  font-size: 19px;
+  font-weight: bold;
+  color: #757575;
+}
+
+.click-upload {
+  text-align: left;
+  margin: 20px auto;
+}
+.click-part {
+  background-color: grey;
+  cursor: pointer;
+  padding: 5px;
+  color: white;
+}
+.file-button {
+  cursor: pointer;
+}
+.hidden {
+  display: none;
+}
+
+.photo-caption {
+  border: none;
+  resize: none;
+  outline: none;
+  width: 100%;
+  font: inherit;
+  margin-top: 5px;
+}
+
+.category-box {
+  height: 25px;
+  outline: none;
+  margin-left: 2px;
+  border: none;
+}
+
+.click-submit {
+  text-align: right;
+}
+.submit-button {
+  border: none;
+  font: inherit;
+  color: #1E90FF;
+}
