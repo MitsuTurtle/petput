@@ -1,34 +1,20 @@
-
 <div class="photo-new">
   <div class="header">
     <div class="title-box">
       <h2 class="photo-new-title">新規投稿</h2>
     </div>
+  </div>
 
   <div class="form">
-
     <div class="click-home">
       <%= link_to '戻る', root_path, class: "home-button" %>
     </div>
 
     <%= form_with model: @photo, local: true do |f| %>
 
-      <%= render "shared/error_messages", model: f.object %>
-      <%# 投稿写真 %>
-      <div class="click-upload">
-        <label for="file-button" class="click-part">
-          ファイルを選択
-        </label>
-        <%= f.file_field :image, id: "file-button", class:"hidden" %>
-        <%= f.text_area :caption, class:"photo-caption", id:"photo-info", placeholder:"キャプションを書く" ,rows:"7" ,maxlength:"1000" %>
-      </div>
-      
-      <label for="category-button" class="click-part">
-          カテゴリーを選択
-      </label>
-      <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"category-box", id:"category-button"}) %>
+    <%= render partial: "shared/form", locals: {f: f} %>
 
-      <div class="click-submit">
+       <div class="click-submit">
         <%= f.submit "シェア", class: "submit-button" %>
       </div>
 
