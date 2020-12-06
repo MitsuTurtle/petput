@@ -1,14 +1,23 @@
-<%# 後でnewと共通部分を部分テンプレートとする %>
+<div class="photo-new">
+  <div class="header">
+    <div class="title-box">
+      <h2 class="photo-new-title">情報を編集</h2>
+    </div>
+  </div>
 
-<%= form_with model: @photo, local: true do |f| %>
+  <div class="form">
+    <div class="click-home">
+      <%= link_to '戻る', root_path, class: "home-button" %>
+    </div>
 
-  <%= render "shared/error_messages", model: f.object %>
+    <%= form_with model: @photo, local: true do |f| %>
 
-  <%= f.file_field :image, id:"photo-image" %>
-  <%= f.text_area :caption, class:"photo-caption", id:"photo-info", placeholder:"キャプションを書く" ,rows:"7" ,maxlength:"1000" %>
-  <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"", id:""}) %>
-  <%= f.submit "完了", class: ""%>
+    <%= render partial: "shared/form", locals: {f: f} %>
 
-  <%= link_to '戻る', root_path %>
+       <div class="click-submit">
+        <%= f.submit "完了", class: "submit-button" %>
+      </div>
 
-<% end %>
+    <% end %>
+  </div>
+</div>
