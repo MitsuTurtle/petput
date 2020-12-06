@@ -6,10 +6,12 @@
   align-items: center;
   border-bottom: 1px solid #EEEEEE;
   margin-bottom: 16px;
+  position: fixed;
+  background-color: white;
 }
 
 .petput-icon {
-  width: 7vw;
+  width: 80px;
 }
 
 .search-form{
