@@ -6,6 +6,8 @@
   align-items: center;
   border-bottom: 1px solid #EEEEEE;
   margin-bottom: 16px;
+  position: fixed;
+  background-color: white;
 }
 
 .petput-icon {
