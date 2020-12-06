@@ -1,0 +1,12 @@
+    <% if photos != nil %>
+      <% photos.each do |photo| %>
+      <li class='list'>
+        <%= link_to photo_path(photo.id) do %>
+          <%= image_tag photo.image.variant(gravity: :center, resize:"640x640^", crop:"640x640+0+0"), class: "photo-img" if photo.image.attached? %>
+        <% end %>
+      </li>
+      <% end %>
+      <%# 写真がない場合 %>
+    <% else %>
+      <%= 投稿写真がありません %>
+    <% end %>

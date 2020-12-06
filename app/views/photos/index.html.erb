@@ -6,70 +6,8 @@
   <h2 class='title'>最新投稿</h2>
   <ul class='photo-lists'>
 
-    <% if @photos != nil %>
-      <% @photos.each do |photo| %>
-      <li class='list'>
-        <%= link_to photo_path(photo.id) do %>
-          <%= image_tag photo.image.variant(gravity: :center, resize:"640x640^", crop:"640x640+0+0"), class: "photo-img" if photo.image.attached? %>
-        <% end %>
-      </li>
+    <%= render partial:"shared/photos", locals: {photos: @photos} %>
 
-      <% end %>
-
-      <%# 写真がない場合のダミー %>
-    <% else %>
-      <li class='list'>
-        <%= link_to "#" do %>
-            <%= image_tag "dummy-photo_3.png", class: "photo-img" %>
-        <% end %>
-      </li>
-      <li class='list'>
-        <%= link_to '#' do %>
-            <%= image_tag "dummy-photo_2.png", class: "photo-img" %>
-        <% end %>
-      </li>
-      <li class='list'>
-        <%= link_to '#' do %>
-            <%= image_tag "dummy-photo_1.png", class: "photo-img" %>
-        <% end %>
-      </li>
-      <li class='list'>
-        <%= link_to '#' do %>
-            <%= image_tag "dummy-photo_3.png", class: "photo-img" %>
-        <% end %>
-      </li>
-      <li class='list'>
-        <%= link_to '#' do %>
-            <%= image_tag "dummy-photo_3.png", class: "photo-img" %>
-        <% end %>
-      </li>
-      <li class='list'>
-        <%= link_to '#' do %>
-            <%= image_tag "dummy-photo_3.png", class: "photo-img" %>
-        <% end %>
-      </li>
-      <li class='list'>
-        <%= link_to '#' do %>
-            <%= image_tag "dummy-photo_2.png", class: "photo-img" %>
-        <% end %>
-      </li>
-      <li class='list'>
-        <%= link_to '#' do %>
-            <%= image_tag "dummy-photo_1.png", class: "photo-img" %>
-        <% end %>
-      </li>
-      <li class='list'>
-        <%= link_to '#' do %>
-            <%= image_tag "dummy-photo_3.png", class: "photo-img" %>
-        <% end %>
-      </li>
-      <li class='list'>
-        <%= link_to '#' do %>
-            <%= image_tag "dummy-photo_3.png", class: "photo-img" %>
-        <% end %>
-      </li>
-      <%# /写真がない場合のダミー %>
-    <% end %>
   </ul>
 </div>
 

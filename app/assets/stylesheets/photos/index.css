@@ -1,5 +1,6 @@
 .photo-contents {
   padding: 15px 20px;
+  padding-top: 84px;
 }
 
 .photo-contents>.title {
@@ -14,6 +15,23 @@
 }
 
 .photo-lists {
+  width: 96vw;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.photo-lists>.list {
+  margin: 0 1.3vw 2.6vw 1.3vw;
+  width: 26vw;
+  height: 26vw;
+}
+.photo-img {
+  width: 100%;
+  height: 100%;
+}
+
+/* 写真の配置は後でbootstrapで修正する予定 */
+/* .photo-lists {
   width: 100vw;
   display: flex;
   flex-wrap: wrap;
@@ -26,7 +44,7 @@
 .photo-img {
   width: 33vh;
   height: 33vh;
-}
+} */
 
 
 

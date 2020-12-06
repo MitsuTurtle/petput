@@ -1,0 +1,94 @@
+.registration-page {
+  background-color: rgb(250, 250, 250);
+  height: 100vh;
+  padding-top: 22px;
+}
+
+.registration-form-wrap {
+  width: 348px;
+  height: 518px;
+  padding-top: 20px;
+  border: 1px solid #DDDDDD;
+  text-align: center;
+  margin: 0 auto;
+  background-color: #FFFFFF;
+}
+.registration-petput-icon {
+  height: 31px;
+  margin-bottom: 20px;
+}
+.registration-catchword {
+  color: #757575;
+  font-weight: bold;
+  margin: 0 40px 20px 40px;
+}
+.facebook-link, .signup-button {
+  text-decoration: none;
+  color: #FFFFFF;
+  background-color: rgba(var(--d69,0,149,246),1);
+  display: inline-block;
+  line-height: 30px;
+  width: 268px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  border: none;
+}
+
+.signup-button {
+  margin-top: 8px;
+}
+
+.or {
+  color: #8E8E8E;
+  font-size: 13px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.field {
+  width:100%;
+}
+.field-box {
+  width:268px;
+  height: 36px;
+  border-radius: 4px;
+  margin-bottom: 6px;
+  outline: none;
+  border: 1px solid #DDDDDD;
+  background-color: rgb(250, 250, 250);
+  padding: 8px;
+  font-size: 12px;
+}
+
+.registration-consent {
+  color: #8E8E8E;
+  font-size: 12px;
+  margin: 0 40px;
+}
+.font_bold {
+  font-weight: bold;
+}
+
+.login-link-wrap {
+  width: 348px;
+  height: 65px;
+  padding-top: 25px;
+  border: 1px solid #DDDDDD;
+  /* text-align: center; */
+  margin: 10px auto 0 auto;
+  background-color: #FFFFFF;
+  display: flex;
+  justify-content: center;
+}
+.registraion-question {
+  color: rgba(var(--i1d,38,38,38),1);
+  font-size: 14px;
+}
+.login-link {
+  text-decoration: none;
+  color: #1E90FF;
+  font-size: 14px;
+}
+
