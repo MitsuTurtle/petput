@@ -1,6 +1,7 @@
 .photo-show {
   background-color: #999999;
   width: 100vw;
+  height: 100vh;
   padding: 40px 0;
   font-size:14px;
 }
@@ -52,6 +53,21 @@ li>.link {
   text-decoration: none;
 }
 
+.right-box-caption-comments {
+  height: calc(100% - (70px + 57px));
+  overflow: scroll;
+  /* スクロールバーを非表示にするコード */
+  /* https://www.yoheim.net/blog.php?q=20190801 */
+  -ms-overflow-style: none;    /* IE, Edge 対応 */
+  scrollbar-width: none;    /* Firefox 対応 */
+}
+
+/* スクロールバーを非表示にするコード */
+/* https://www.yoheim.net/blog.php?q=20190801 */
+.right-box-caption-comments::-webkit-scrollbar {   /* Chrome, Safari 対応 */
+  display:none;
+}
+
 .right-box-caption {
   padding: 25px 50px;
 }
@@ -60,7 +76,9 @@ li>.link {
   font-weight: bold;
 }
 .right-box-caption>.caption {
-  color: #808080;
+  color: rgba(var(--i1d,38,38,38),1);
+  font-size: 14px;
+  line-height: 18px;
 }
 
 .right-box-comments {
@@ -75,11 +93,13 @@ li>.link {
   font-weight: bold;
 }
 .nickname-comment>.comment {
-  color: #808080;
+  color: rgba(var(--i1d,38,38,38),1);
+  font-size: 14px;
+  line-height: 18px;
 }
 
 .right-box-comments {
-  height: calc(100% - (70px + 64px + 57px));
+  /* height: calc(100% - (70px + 78px + 57px)); */
 }
 
 .right-box-new-comment {
