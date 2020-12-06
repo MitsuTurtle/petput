@@ -1,0 +1,8 @@
+/* 多くはregistration.cssのクラス名を流用 */
+/* 以下はregistration.cssのクラス名をしなかったもののみ記載 */
+
+.forget-pass {
+  text-decoration: none;
+  color: rgba(var(--fe0,0,55,107),1);
+  font-size: 12px;
+}
