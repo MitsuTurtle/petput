@@ -1,0 +1,16 @@
+<%= render "shared/error_messages", model: f.object %>
+
+      <%# 投稿写真 %>
+      <div class="click-upload">
+        <label for="file-button" class="click-part">
+          ファイルを選択
+        </label>
+        <%= f.file_field :image, id: "file-button", class:"hidden" %>
+        <%= f.text_area :caption, class:"photo-caption", id:"photo-info", placeholder:"キャプションを書く" ,rows:"7" ,maxlength:"1000" %>
+      </div>
+      <%# //投稿写真 %>
+      
+      <label for="category-button" class="click-part">
+          カテゴリーを選択
+      </label>
+      <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"category-box", id:"category-button"}) %>
