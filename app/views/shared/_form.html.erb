@@ -2,10 +2,14 @@
 
       <%# 投稿写真 %>
       <div class="click-upload">
-        <label for="file-button" class="click-part">
-          ファイルを選択
-        </label>
-        <%= f.file_field :image, id: "file-button", class:"hidden" %>
+        <div class="click-block">
+          <label for="file-button" class="click-part">
+            ファイルを選択
+          </label>
+          <%= f.file_field :image, id: "file-button", class:"hidden" %>
+        </div>
+        <div id="image-list"></div>
+
         <%= f.text_area :caption, class:"photo-caption", id:"photo-info", placeholder:"キャプションを書く" ,rows:"7" ,maxlength:"1000" %>
       </div>
       <%# //投稿写真 %>
