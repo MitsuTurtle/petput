@@ -32,17 +32,22 @@
   text-align: left;
   margin: 20px auto;
 }
+.click-block {
+  margin-bottom: 10px;
+}
 .click-part {
   background-color: grey;
   cursor: pointer;
   padding: 5px;
   color: white;
 }
-.file-button {
-  cursor: pointer;
-}
 .hidden {
   display: none;
+}
+.preview-img {
+  height: 140px;
+  width: 200px;
+  object-fit: contain;
 }
 
 .photo-caption {
