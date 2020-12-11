@@ -26,16 +26,27 @@
   border-color: #EEEEEE;
   border-style: solid;
   text-align: center;
+  outline: none;
 }
 .search-button {
   width: 30px;
   height: 30px;
   background-color: #EEEEEE;
   border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  outline: none;
 }
 .search-icon {
   width: 100%;
 }
+
+.hidden-search-button {
+  display: none;
+  cursor: pointer;
+}
+
 
 .header-link {
   display: flex;

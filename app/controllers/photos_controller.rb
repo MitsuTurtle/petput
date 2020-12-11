@@ -41,6 +41,15 @@ class PhotosController < ApplicationController
     redirect_to root_path
   end
 
+  def search
+    if params[:keyword].present?
+      @photos = Photo.where('caption LIKE ?', "%#{params[:keyword]}%")
+      @keyword = params[:keyword]
+    else
+      @photos = Photo.all
+    end
+  end
+
   private
 
   def photo_params
