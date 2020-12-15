@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_30_130846) do
+ActiveRecord::Schema.define(version: 2020_12_14_115332) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -43,6 +43,22 @@ ActiveRecord::Schema.define(version: 2020_11_30_130846) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
+  create_table "hashtags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "hashname"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["hashname"], name: "index_hashtags_on_hashname", unique: true
+  end
+
+  create_table "photo_hashtag_relations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "photo_id"
+    t.bigint "hashtag_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["hashtag_id"], name: "index_photo_hashtag_relations_on_hashtag_id"
+    t.index ["photo_id"], name: "index_photo_hashtag_relations_on_photo_id"
+  end
+
   create_table "photos", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "caption", null: false
     t.integer "category_id", null: false
@@ -68,5 +84,7 @@ ActiveRecord::Schema.define(version: 2020_11_30_130846) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "comments", "photos"
   add_foreign_key "comments", "users"
+  add_foreign_key "photo_hashtag_relations", "hashtags"
+  add_foreign_key "photo_hashtag_relations", "photos"
   add_foreign_key "photos", "users"
 end
