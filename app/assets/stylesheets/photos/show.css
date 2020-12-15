@@ -81,6 +81,12 @@ li>.link {
   line-height: 18px;
 }
 
+.right-box-caption>.caption>a {
+  text-decoration: none;
+  color: #1E90FF;
+}
+
+
 .right-box-comments {
   padding: 0 50px;
 }
