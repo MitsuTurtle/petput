@@ -51,31 +51,31 @@ Things you may want to cover:
 
 - belongs_to :user
 - has_many :comments
-- has_many :photo_tag_relations
-- has_many :tags, through: :photo_tag_relations
+- has_many :photo_hashtag_relations
+- has_many :hashtags, through: :photo_hashtag_relations
 
-## photo_tag_relations テーブル
+## photo_hashtag_relations テーブル
 
-| Column | Type       | Options                        |
-| -------| ---------- | ------------------------------ |
-| photo  | references | null: false, foreign_key: true |
-| tag    | references | null: false, foreign_key: true |
+| Column  | Type       | Options                        |
+| --------| ---------- | ------------------------------ |
+| photo   | references | null: false, foreign_key: true |
+| hashtag | references | null: false, foreign_key: true |
 
 ### Association
 
 belongs_to :photo
-belongs_to :tag
+belongs_to :hashtag
 
 ## tags テーブル
 
-| Column | Type   | Options     |
-| -------| ------ | ----------- |
-| name   | string | null: false |
+| Column   | Type   | Options     |
+| ---------| ------ | ----------- |
+| hashname | string | null: false |
 
  ### Association
 
-- has_many :photo_tag_relations
-- has_many :photos, through: :photo_tag_relations
+- has_many :photo_hashtag_relations
+- has_many :photos, through: :photo_hashtag_relations
 
 ## comments テーブル
 | Column | Type       | Options                        |
