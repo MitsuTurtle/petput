@@ -8,4 +8,6 @@ Rails.application.routes.draw do
     end
   end
   resources :users, only: :show
+  get '/photo/hashtag/:name', to: "photos#hashtag"
+
 end
