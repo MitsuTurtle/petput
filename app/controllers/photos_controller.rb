@@ -50,6 +50,13 @@ class PhotosController < ApplicationController
     end
   end
 
+  def hashtag
+    @user = current_user
+    @tag = Hashtag.find_by(hashname: params[:name])
+    @photos = @tag.photos
+    # @photo = @tag.photos.page(params[:page])
+  end
+
   private
 
   def photo_params
