@@ -24,7 +24,7 @@
       <div class="right-box-caption-comments">
         <div class="right-box-caption">
           <%= link_to @photo.user.nickname, user_path(@photo.user.id), class:"nickname" %>
-          <span class="caption"><%= render_with_hashtags(@photo.caption) %></span>
+          <span class="caption"><%= render_with_hashtags(safe_join(@photo.caption.split("\n"),tag(:br))) %></span>
           <%# <span class="caption"><%= @photo.caption</span> %>
         </div>
 
