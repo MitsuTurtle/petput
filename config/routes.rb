@@ -8,6 +8,6 @@ Rails.application.routes.draw do
     end
   end
   resources :users, only: :show
-  get '/photo/hashtag/:name', to: "photos#hashtag"
-
+  get '/photo/hashtag/:name', to: "photos#hashtag", as: :photo_hashtag
+  get '/photo/category', to: "photos#category"
 end

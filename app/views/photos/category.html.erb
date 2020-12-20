@@ -1,0 +1,13 @@
+<%= render 'shared/header' %>
+
+<div class='photo-contents'>
+  <h2 class='title'>カテゴリー <%= @category.name %></h2>
+  <%# <h2 class='title'>最新投稿</h2> %>
+  <ul class='photo-lists'>
+
+    <%= render partial:"shared/photos", locals: {photos: @photos} %>
+
+  </ul>
+</div>
+
+<%= render 'shared/footer' %>
