@@ -8,6 +8,16 @@
     <%= form.submit "検索", class: "hidden-search-button" %>
   <% end %>
 
+  <%= search_form_for @q, url: photo_category_path, class: "category-search-form", id: "category-search-button-id" do |f| %>
+    <%= f.collection_select :category_id_eq, Category.where.not(id: 0), :id, :name, {include_blank: "カテゴリー検索"}, class: "category-input-box" %>
+
+    <button form="category-search-button-id", class="search-button">
+      <%= image_tag "search.png", class:"search-icon" %>
+    </button>
+
+    <%= f.submit '検索', class: "hidden-search-button" %>
+  <% end %>
+
   <ul class='header-link'>
     <li><%= link_to '新規投稿', new_photo_path, class: "new-photo" %></li>
     <% if user_signed_in? %>
@@ -17,8 +27,5 @@
       <li ><%= link_to 'ログイン', user_session_path, class: "login" %></li>
       <li ><%= link_to '新規登録', new_user_registration_path, class: "signup" %></li>
     <% end %>
-
-
-
   </ul>
 </header>
