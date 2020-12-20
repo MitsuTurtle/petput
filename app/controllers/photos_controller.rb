@@ -1,6 +1,7 @@
 class PhotosController < ApplicationController
   before_action :authenticate_user!, only: [:new]
   before_action :set_photo, only: [:show, :edit, :update, :destroy]
+  before_action :search_category_photo, only: [:index, :category, :hashtag, :search]
 
   def index
     # @photos = Photo.order('created_at DESC')
@@ -46,7 +47,7 @@ class PhotosController < ApplicationController
       @photos = Photo.where('caption LIKE ?', "%#{params[:keyword]}%")
       @keyword = params[:keyword]
     else
-      @photos = Photo.all
+      redirect_to root_path
     end
   end
 
@@ -55,6 +56,17 @@ class PhotosController < ApplicationController
     @tag = Hashtag.find_by(hashname: params[:name])
     @photos = @tag.photos
     # @photo = @tag.photos.page(params[:page])
+  end
+
+  def category
+    # ↓includesを記入するか検討
+    @photos = @q.result
+    category_id = params[:q][:category_id_eq]
+    if category_id.present? 
+      @category = Category.find_by(id: category_id)
+    else
+      redirect_to root_path
+    end
   end
 
   private
@@ -66,4 +78,9 @@ class PhotosController < ApplicationController
   def set_photo
     @photo = Photo.find(params[:id])
   end
+
+  def search_category_photo
+    @q = Photo.ransack(params[:q])
+  end
+
 end
