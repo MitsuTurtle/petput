@@ -40,7 +40,11 @@
   color: black;
 }
 .nickname-follow>.follow {
-  color: #1E90FF;
+  /* color: #1E90FF; */
+  display: inline-block;
+}
+.btn-box {
+  margin-bottom: none;
 }
 
 .right-box-header>.link-list {

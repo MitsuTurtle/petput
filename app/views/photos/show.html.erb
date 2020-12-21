@@ -8,8 +8,11 @@
       <div class="right-box-header">
         <div class="nickname-follow">
           <%= link_to @photo.user.nickname, user_path(@photo.user.id), class:"nickname" %>
-          <span>・</span>
-          <span class="follow"><%= "フォローする" %></span>
+          <% if user_signed_in? %>
+            <span>・</span>
+            <span class="follow"><%= render 'shared/follow_button', user: @user %></span>
+          <% end %>
+
         </div>
 
         <ul class="link-list">
@@ -17,7 +20,7 @@
             <li><%= link_to "編集", edit_photo_path, class: "link" %></li>
             <li><%= link_to "削除", photo_path(@photo.id), class: "link", method: :delete, data: {confirm: "本当に削除しますか？"}  %></li>
           <% end %>
-          <li><%= link_to '戻る', root_path, class: "link" %></li>
+          <li><%= link_to '戻る', :back, class: "link" %></li>
         </ul>
       </div>
 

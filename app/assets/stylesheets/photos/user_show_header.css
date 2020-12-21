@@ -1,0 +1,10 @@
+.user-show-header {
+  display: flex;
+  margin-bottom: 16px;
+}
+.user-show-header>.title {
+  color: #262626;
+  font-weight: bold;
+  line-height: 31px;
+  margin-right: 16px;
+}

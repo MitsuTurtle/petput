@@ -2,9 +2,9 @@ class UsersController < ApplicationController
   before_action :search_category_photo, only: :show
 
   def show
-    user = User.find(params[:id])
-    @nickname = user.nickname
-    @photos = user.photos
+    @user = User.find(params[:id])
+    @nickname = @user.nickname
+    @photos = @user.photos
   end
 
   private
