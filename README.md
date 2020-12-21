@@ -37,6 +37,10 @@ Things you may want to cover:
 
 - has_many :photos
 - has_many :comments
+- has_many :relationships
+- has_many :followings, through: :relationships, source: :follow
+- has_many :reverse_of_relationships, class_name: 'Relationship', foreign_key: 'follow_id'
+- has_many :followers, through: :reverse_of_relationships, source: :user
 
 ## photos テーブル
 
@@ -66,7 +70,7 @@ Things you may want to cover:
 belongs_to :photo
 belongs_to :hashtag
 
-## tags テーブル
+## hashtags テーブル
 
 | Column   | Type   | Options     |
 | ---------| ------ | ----------- |
@@ -88,3 +92,14 @@ belongs_to :hashtag
 
 - belongs_to :user
 - belongs_to :photo
+
+## relationships テーブル
+| Column | Type       | Options                           |
+| -------| ---------- | --------------------------------- |
+| user   | references | foreign_key: true                 |
+| follow | references | foreign_key: { to_table: :users } |
+
+### Association
+
+- belongs_to :user
+- belongs_to :follow, class_name: 'User'
