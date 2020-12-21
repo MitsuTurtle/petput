@@ -10,4 +10,6 @@ Rails.application.routes.draw do
   resources :users, only: :show
   get '/photo/hashtag/:name', to: "photos#hashtag", as: :photo_hashtag
   get '/photo/category', to: "photos#category"
+
+  resources :relationships, only: [:create, :destroy]
 end
