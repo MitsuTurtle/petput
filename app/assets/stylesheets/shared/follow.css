@@ -1,0 +1,19 @@
+.following-btn {
+  color: #262626;
+  background-color: #FAFAFA;
+  border: solid 1.5px #EEEEEE;
+  padding: 5px 9px;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+.to-follow-btn {
+  color: #FFFFFF;
+  background-color:#0095F6;
+  border: solid 1.5px rgba(0,0,0,0);
+  padding: 5px 9px;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 5px;
+}
