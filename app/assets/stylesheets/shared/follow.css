@@ -6,6 +6,7 @@
   font-size: 14px;
   font-weight: bold;
   border-radius: 5px;
+  cursor: pointer;
 }
 
 .to-follow-btn {
@@ -16,4 +17,5 @@
   font-size: 14px;
   font-weight: bold;
   border-radius: 5px;
+  cursor: pointer;
 }
