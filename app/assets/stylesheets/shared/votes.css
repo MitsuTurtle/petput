@@ -1,0 +1,15 @@
+.vote-btn {
+  text-decoration: none;
+  color:#808080;
+  display: block;
+}
+
+.voter_nickname {
+  color: black;
+  font-weight: bold;
+  display: block;
+}
+
+.vote-box-inner {
+  line-height: 150%;
+}

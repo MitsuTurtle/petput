@@ -25,6 +25,7 @@ class PhotosController < ApplicationController
     @comment = Comment.new
     @comments = @photo.comments.includes(:user)
     @user = Photo.find(params[:id]).user
+    # binding.pry
   end
 
   def edit
@@ -68,6 +69,20 @@ class PhotosController < ApplicationController
     else
       redirect_to root_path
     end
+  end
+
+  # いいね
+  def like
+    # ↓あとでbefore_actionに格納する
+    @photo = Photo.find(params[:id])
+    current_user.voted_photos << @photo
+    redirect_to photo_path, notice: "いいねしました。"
+  end
+
+  # いいね削除
+  def unlike
+    current_user.voted_photos.destroy(Photo.find(params[:id]))
+    redirect_to photo_path, notice: "削除しました。"
   end
 
   private
