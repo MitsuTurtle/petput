@@ -7,6 +7,9 @@ class User < ApplicationRecord
   has_many :photos
   has_many :comments
 
+  has_many :votes, dependent: :destroy
+  has_many :voted_photos, through: :votes, source: :photo
+
   with_options presence: true do
     validates :nickname, uniqueness: { case_sensitive: true }
     # パスワードは半角英数字混合での入力が必須
@@ -33,6 +36,14 @@ class User < ApplicationRecord
 
   def following?(other_user)
     self.followings.include?(other_user)
+  end
+
+  def votable_for?(photo)
+    photo && photo.user != self && !votes.exists?(photo_id: photo.id)
+  end
+
+  def deletable_vote?(photo)
+    photo && photo.user != self && votes.exists?(photo_id: photo.id)
   end
 
 end

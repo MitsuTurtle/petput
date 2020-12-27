@@ -4,6 +4,9 @@ class Photo < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :photo_hashtag_relations
   has_many :hashtags, through: :photo_hashtag_relations
+  
+  has_many :votes, dependent: :destroy
+  has_many :voters, through: :votes, source: :user
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :category
