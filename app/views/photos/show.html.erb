@@ -19,7 +19,7 @@
             <li><%= link_to "編集", edit_photo_path, class: "link" %></li>
             <li><%= link_to "削除", photo_path(@photo.id), class: "link", method: :delete, data: {confirm: "本当に削除しますか？"}  %></li>
           <% end %>
-          <li><%= link_to '戻る', :back, class: "link" %></li>
+          <li><%= link_to '戻る', root_path, class: "link" %></li>
         </ul>
       </div>
 
@@ -44,6 +44,14 @@
         </div>
       </div>
 
+
+
+      <div class="vote-box">
+        <%= render "shared/votes" %>
+      </div>
+
+
+
       <div class="right-box-new-comment">
         <% if user_signed_in? %>
           <%= form_with(model: [@photo, @comment], local: true) do |f| %>
@@ -56,4 +64,5 @@
       </div>
     </div>
   </div>
+
 </div>

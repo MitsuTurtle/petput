@@ -36,7 +36,13 @@
   height: 100%;
 }
 
-/* 写真の配置は後でbootstrapで修正する予定 */
+/* いいね、コメント記号 */
+.vote-comment-symbol {
+  text-align: center;
+  color: #757575;
+}
+
+/* 写真の配置は後でbootstrapで修正する予定？ */
 /* .photo-lists {
   width: 100vw;
   display: flex;

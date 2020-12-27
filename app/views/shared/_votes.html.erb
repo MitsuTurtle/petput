@@ -1,0 +1,15 @@
+<div class="vote-box-inner">
+  <%# <% @photo.voters.order("votes.created_at").each do |voter| %>
+    <%#<span class="voter_nickname">♡<%= voter.nickname %><%#</span>%>
+  <%# end %>
+
+  <% if current_user && current_user.votable_for?(@photo) %>
+    <%= link_to "いいね!", like_photo_path, method: :patch, class: "vote-btn" %>
+  <% elsif current_user && current_user.deletable_vote?(@photo) %>
+    <%= link_to "いいねを削除", unlike_photo_path, method: :patch, class: "vote-btn" %>
+  <% end %>
+
+  <% if @photo.voters.present? %>
+    <p class="voter_nickname">♡<%= @photo.voters.order("votes.created_at")[0].nickname %>ら、他<%= @photo.voters.count - 1 %>人が「いいね」しました</p>
+  <% end %>
+</div>

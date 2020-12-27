@@ -4,6 +4,16 @@
         <%= link_to photo_path(photo.id) do %>
           <%= image_tag photo.image.variant(gravity: :center, resize:"640x640^", crop:"640x640+0+0"), class: "photo-img" if photo.image.attached? %>
         <% end %>
+
+        <div class="vote-comment-symbol">
+          <% if (count_votes = photo.votes.count) > 0 %>
+            <span>♡<%= count_votes %></span>
+          <% end %>
+          <% if (count_comments = photo.comments.count) > 0 %> 
+              <span>💬<%= count_comments %></span>
+          <% end %>
+        </div>
+
       </li>
       <% end %>
       <%# 写真がない場合 %>

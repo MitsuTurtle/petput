@@ -58,7 +58,9 @@ li>.link {
 }
 
 .right-box-caption-comments {
-  height: calc(100% - (70px + 57px));
+  /* height: calc(100% - (70px + 57px)); */
+  height: calc(100% - (70px + 55px + 55px));
+
   overflow: scroll;
   /* スクロールバーを非表示にするコード */
   /* https://www.yoheim.net/blog.php?q=20190801 */
@@ -90,7 +92,7 @@ li>.link {
   color: #1E90FF;
 }
 
-
+/* コメント一覧 */
 .right-box-comments {
   padding: 0 50px;
 }
@@ -108,10 +110,17 @@ li>.link {
   line-height: 18px;
 }
 
-.right-box-comments {
-  /* height: calc(100% - (70px + 78px + 57px)); */
+
+/* いいねボタンなどの箱 */
+.vote-box {
+  display: flex;
+  align-items: center;
+  padding-left: 17px;
+  border-top: solid 1px  #EEEEEE;
+  height: 55px;
 }
 
+/* 新しいコメント投稿欄 */
 .right-box-new-comment {
   padding: 20px 17px;
   border-top: solid 1px  #EEEEEE;
