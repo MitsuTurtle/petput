@@ -6,6 +6,8 @@ Rails.application.routes.draw do
     collection do
       get 'search'
     end
+    patch "like", "unlike", on: :member
+    get "voted", on: :collection
   end
   resources :users, only: :show
   get '/photo/hashtag/:name', to: "photos#hashtag", as: :photo_hashtag
