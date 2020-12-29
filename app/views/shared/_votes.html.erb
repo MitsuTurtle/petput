@@ -4,7 +4,7 @@
         <i class="far fa-heart"></i>
       <% end %>
       <span><%= photo.votes.count %></span>
-    <% elsif current_user && current_user.deletable_vote?(photo) %>
+    <% elsif current_user && current_user.deletable_for?(photo) %>
       <%= link_to unlike_photo_path(photo), method: :patch, class: "vote-btn-unlike", remote: true do %>
         <i class="fas fa-heart"></i>
       <% end %>

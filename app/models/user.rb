@@ -42,7 +42,7 @@ class User < ApplicationRecord
     photo && photo.user != self && !votes.exists?(photo_id: photo.id)
   end
 
-  def deletable_vote?(photo)
+  def deletable_for?(photo)
     photo && photo.user != self && votes.exists?(photo_id: photo.id)
   end
 
