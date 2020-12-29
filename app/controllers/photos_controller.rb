@@ -1,6 +1,6 @@
 class PhotosController < ApplicationController
   before_action :authenticate_user!, only: [:new]
-  before_action :set_photo, only: [:show, :edit, :update, :destroy]
+  before_action :set_photo, only: [:show, :edit, :update, :destroy, :like, :unlike]
   before_action :search_category_photo, only: [:index, :category, :hashtag, :search]
 
   def index
@@ -73,16 +73,16 @@ class PhotosController < ApplicationController
 
   # いいね
   def like
-    # ↓あとでbefore_actionに格納する
-    @photo = Photo.find(params[:id])
     current_user.voted_photos << @photo
-    redirect_to photo_path, notice: "いいねしました。"
+    render 'vote.js.erb'
+    # redirect_to photo_path, notice: "いいねしました。"
   end
 
   # いいね削除
   def unlike
-    current_user.voted_photos.destroy(Photo.find(params[:id]))
-    redirect_to photo_path, notice: "削除しました。"
+    current_user.voted_photos.destroy(@photo)
+    render 'vote.js.erb'
+    # redirect_to photo_path, notice: "削除しました。"
   end
 
   private
@@ -98,5 +98,4 @@ class PhotosController < ApplicationController
   def search_category_photo
     @q = Photo.ransack(params[:q])
   end
-
 end
