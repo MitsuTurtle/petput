@@ -44,13 +44,9 @@
         </div>
       </div>
 
-
-
-      <div class="vote-box">
-        <%= render "shared/votes" %>
+      <div class="vote-box" id="vote-box">
+        <%= render partial: 'shared/votes', locals: { photo: @photo } %>
       </div>
-
-
 
       <div class="right-box-new-comment">
         <% if user_signed_in? %>

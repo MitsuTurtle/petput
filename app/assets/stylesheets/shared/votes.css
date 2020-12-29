@@ -1,6 +1,18 @@
-.vote-btn {
+.vote-btn-box, .vote-result-box {
+  height: 50%;
+  display: flex;
+  align-items: center;
+}
+
+.vote-btn-like {
   text-decoration: none;
-  color:#808080;
+  color: black;
+  display: block;
+}
+
+.vote-btn-unlike {
+  text-decoration: none;
+  color: #ea3559;
   display: block;
 }
 
@@ -8,8 +20,4 @@
   color: black;
   font-weight: bold;
   display: block;
-}
-
-.vote-box-inner {
-  line-height: 150%;
 }

@@ -58,7 +58,6 @@ li>.link {
 }
 
 .right-box-caption-comments {
-  /* height: calc(100% - (70px + 57px)); */
   height: calc(100% - (70px + 55px + 55px));
 
   overflow: scroll;
@@ -113,11 +112,10 @@ li>.link {
 
 /* いいねボタンなどの箱 */
 .vote-box {
-  display: flex;
-  align-items: center;
   padding-left: 17px;
   border-top: solid 1px  #EEEEEE;
   height: 55px;
+  padding: 3px 0 3px 17px;
 }
 
 /* 新しいコメント投稿欄 */

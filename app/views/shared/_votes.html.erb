@@ -1,15 +1,23 @@
-<div class="vote-box-inner">
-  <%# <% @photo.voters.order("votes.created_at").each do |voter| %>
-    <%#<span class="voter_nickname">♡<%= voter.nickname %><%#</span>%>
-  <%# end %>
+  <div class="vote-btn-box">
+    <% if current_user && current_user.votable_for?(photo) %>
+      <%= link_to like_photo_path(photo), method: :patch, class: "vote-btn-like", remote: true do %>
+        <i class="far fa-heart"></i>
+      <% end %>
+      <span><%= photo.votes.count %></span>
+    <% elsif current_user && current_user.deletable_vote?(photo) %>
+      <%= link_to unlike_photo_path(photo), method: :patch, class: "vote-btn-unlike", remote: true do %>
+        <i class="fas fa-heart"></i>
+      <% end %>
+      <span><%= photo.votes.count %></span>
+    <% end %>
+  </div>
 
-  <% if current_user && current_user.votable_for?(@photo) %>
-    <%= link_to "いいね!", like_photo_path, method: :patch, class: "vote-btn" %>
-  <% elsif current_user && current_user.deletable_vote?(@photo) %>
-    <%= link_to "いいねを削除", unlike_photo_path, method: :patch, class: "vote-btn" %>
-  <% end %>
-
-  <% if @photo.voters.present? %>
-    <p class="voter_nickname">♡<%= @photo.voters.order("votes.created_at")[0].nickname %>ら、他<%= @photo.voters.count - 1 %>人が「いいね」しました</p>
-  <% end %>
-</div>
+  <div class="vote-result-box">
+    <% if photo.voters.present? %>
+      <% if photo.voters.count == 1 %>
+        <p class="voter_nickname"><%= photo.voters.order("votes.created_at")[0].nickname %></p><span>が「いいね」しました</span>
+      <% else %>
+        <p class="voter_nickname"><%= photo.voters.order("votes.created_at")[0].nickname %>ら、他<%= photo.voters.count - 1 %>人</p><span>が「いいね」しました</span>
+      <% end %>
+    <% end %>
+  </div>
