@@ -64,7 +64,7 @@ class PhotosController < ApplicationController
     # ↓includesを記入するか検討
     @photos = @q.result
     category_id = params[:q][:category_id_eq]
-    if category_id.present? 
+    if category_id.present?
       @category = Category.find_by(id: category_id)
     else
       redirect_to root_path

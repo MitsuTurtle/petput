@@ -12,5 +12,4 @@ class UsersController < ApplicationController
   def search_category_photo
     @q = Photo.ransack(params[:q])
   end
-
 end

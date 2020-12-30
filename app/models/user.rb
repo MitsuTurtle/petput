@@ -17,25 +17,22 @@ class User < ApplicationRecord
     validates :password, format: { with: PASSWORD_REGEX, message: 'には英字と数字の両方を含めて設定してください' }
   end
 
-
   has_many :relationships
   has_many :followings, through: :relationships, source: :follow
   has_many :reverse_of_relationships, class_name: 'Relationships', foreign_key: 'follow_id'
   has_many :followers, through: :reverse_of_relationships, source: :user
 
   def follow(other_user)
-    unless self == other_user
-      self.relationships.find_or_create_by(follow_id: other_user.id)
-    end
+    relationships.find_or_create_by(follow_id: other_user.id) unless self == other_user
   end
 
   def unfollow(other_user)
-    relationship = self.relationships.find_by(follow_id: other_user.id)
-    relationship.destroy if relationship
+    relationship = relationships.find_by(follow_id: other_user.id)
+    relationship&.destroy
   end
 
   def following?(other_user)
-    self.followings.include?(other_user)
+    followings.include?(other_user)
   end
 
   def votable_for?(photo)
@@ -45,5 +42,4 @@ class User < ApplicationRecord
   def deletable_for?(photo)
     photo && photo.user != self && votes.exists?(photo_id: photo.id)
   end
-
 end
