@@ -36,33 +36,23 @@
           <%# <span class="caption"><%= @photo.caption</span> %>
         </div>
 
-        <div class="right-box-comments">
-          <div>
-            <% if @comments %>
-              <% @comments.each do |comment| %>
-                <div class="nickname-comment">
-                  <%= link_to comment.user.nickname, "#", class:"nickname" %>
-                  <span class="comment"><%= comment.text %></span>
-                </div>
-              <% end %>
-            <% end %>
-          </div>
+        <div class="right-box-comments", id="right-box-comments">
+
+          <%= render partial: 'shared/comments', locals: { comments: @comments } %>
+
         </div>
+
+
       </div>
 
       <div class="vote-box" id="vote-box">
         <%= render partial: 'shared/votes', locals: { photo: @photo } %>
       </div>
 
-      <div class="right-box-new-comment">
-        <% if user_signed_in? %>
-          <%= form_with(model: [@photo, @comment], local: true) do |f| %>
-            <%= f.text_area :text, class:"input-comment", rows: 1, placeholder:"コメントを追加..." %>
-            <%= f.submit "投稿する", class:"submit-comment" %>
-          <% end %>
-        <% else %>
-          <P>ログインすると「いいね！」やコメントができます。</P>
-        <% end %>
+      <div class="right-box-new-comment", id="right-box-new-comment">
+
+        <%= render partial: 'shared/new_comment', locals: { photo: @photo, comment: @comment } %>
+
       </div>
     </div>
   </div>

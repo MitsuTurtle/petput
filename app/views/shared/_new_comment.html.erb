@@ -1,0 +1,8 @@
+        <% if user_signed_in? %>
+          <%= form_with(model: [photo, comment], local: false) do |f| %>
+            <%= f.text_area :text, class:"input-comment", rows: 1, placeholder:"コメントを追加..." %>
+            <%= f.submit "投稿する", class:"submit-comment" %>
+          <% end %>
+        <% else %>
+          <P>ログインすると「いいね！」やコメントができます。</P>
+        <% end %>

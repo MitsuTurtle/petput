@@ -1,0 +1,10 @@
+          <div>
+            <% if comments %>
+              <% comments.each do |comment| %>
+                <div class="nickname-comment">
+                  <%= link_to comment.user.nickname, "#", class:"nickname" %>
+                  <span class="comment"><%= safe_join(comment.text.split("\n"), tag(:br)) %></span>
+                </div>
+              <% end %>
+            <% end %>
+          </div>

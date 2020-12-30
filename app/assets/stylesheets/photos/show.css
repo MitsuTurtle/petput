@@ -146,4 +146,5 @@ li>.link {
   height: auto;
   font: inherit;
   padding: 0;
+  cursor: pointer;
 }
