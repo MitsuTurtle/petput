@@ -1,7 +1,11 @@
 class CommentsController < ApplicationController
   def create
     comment = Comment.create(comment_params)
-    redirect_to photo_path(comment.photo.id)
+    @comments = comment.photo.comments # Ajax用インスタンス変数
+    @photo = comment.photo # Ajax用インスタンス変数
+    @comment = Comment.new # Ajax用インスタンス変数
+    # redirect_to photo_path(comment.photo.id)
+    render 'comment.js.erb'
   end
 
   private
