@@ -9,7 +9,13 @@
         <div class="nickname-follow">
           <%= link_to @photo.user.nickname, user_path(@photo.user.id), class:"nickname" %>
           <% if user_signed_in? %>
-            <span class="follow"><%= render 'shared/follow_button', user: @user %></span>
+
+            <span class="follow", id="follow-btn-box">
+            
+              <%= render 'shared/follow_button', user: @user %>
+
+            </span>
+
           <% end %>
 
         </div>
