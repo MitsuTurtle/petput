@@ -4,10 +4,15 @@
 
 <div class="user-show-header">
   <h2 class='title'><%= "#{@nickname}" %></h2>
+  
   <% if user_signed_in? %>
-    <%# <span>・</span> %>
-    <span class="follow"><%= render 'shared/follow_button', user: @user %></span>
+    <span class="follow", id="follow-btn-box">
+    
+      <%= render 'shared/follow_button', user: @user %>
+
+    </span>
   <% end %>
+  
 </div>
 
   <ul class='photo-lists'>

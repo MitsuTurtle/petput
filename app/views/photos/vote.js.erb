@@ -1,1 +1,13 @@
 document.getElementById("vote-box").innerHTML = '<%= escape_javascript(render partial: 'shared/votes', locals: { photo: @photo }) %>'
+
+
+<%# ↓jQueryで書いた場合のコード %>
+<%
+=begin
+%>
+
+$('#vote-box').html('<%= escape_javascript(render partial: 'shared/votes', locals: { photo: @photo }) %>')
+
+<%
+=end
+%>
