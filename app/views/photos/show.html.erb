@@ -24,6 +24,7 @@
           <% if user_signed_in? && current_user.id == @photo.user.id %>
             <li><%= link_to "編集", edit_photo_path, class: "link" %></li>
             <li><%= link_to "削除", photo_path(@photo.id), class: "link", method: :delete, data: {confirm: "本当に削除しますか？"}  %></li>
+            <li><%= link_to "コメント削除", photo_comment_path(@photo), class: "link", method: :delete, data: {confirm:'本当に削除しますか？'} %></li>
           <% end %>
           <li><%= link_to '戻る', root_path, class: "link" %></li>
         </ul>
