@@ -4,8 +4,8 @@ class PhotosController < ApplicationController
   before_action :search_category_photo, only: [:index, :category, :hashtag, :search]
 
   def index
-    # @photos = Photo.order('created_at DESC')
-    @photos = Photo.all.shuffle
+    @photos = Photo.order('created_at DESC')
+    # @photos = Photo.all.shuffle
   end
 
   def new
