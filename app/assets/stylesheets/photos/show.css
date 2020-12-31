@@ -55,6 +55,8 @@ li>.link {
   color: #808080;
   font-weight: 200;
   text-decoration: none;
+  text-align: right;
+  display: block;
 }
 
 .right-box-caption-comments {
