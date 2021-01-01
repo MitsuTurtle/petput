@@ -2,7 +2,7 @@ class Photo < ApplicationRecord
   belongs_to :user
   has_one_attached :image
   has_many :comments, dependent: :destroy
-  has_many :photo_hashtag_relations
+  has_many :photo_hashtag_relations, dependent: :destroy
   has_many :hashtags, through: :photo_hashtag_relations
 
   has_many :votes, dependent: :destroy

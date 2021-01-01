@@ -7,7 +7,7 @@
     <div class="right-box">
       <div class="right-box-header">
         <div class="nickname-follow">
-          <%= link_to @photo.user.nickname, user_path(@photo.user.id), class:"nickname" %>
+          <%= link_to @photo.user.nickname, user_path(@photo.user_id), class:"nickname" %>
           <% if user_signed_in? %>
 
             <span class="follow", id="follow-btn-box">
@@ -21,10 +21,10 @@
         </div>
 
         <ul class="link-list">
-          <% if user_signed_in? && current_user.id == @photo.user.id %>
+          <% if user_signed_in? && current_user.id == @photo.user_id %>
             <li><%= link_to "編集", edit_photo_path, class: "link" %></li>
             <li><%= link_to "削除", photo_path(@photo.id), class: "link", method: :delete, data: {confirm: "本当に削除しますか？"}  %></li>
-            <li><%= link_to "コメント削除", photo_comment_path(@photo), class: "link", method: :delete, data: {confirm:'本当に削除しますか？'} %></li>
+            <li><%= link_to "コメント一括削除", photo_comment_path(photo_id: @photo.id, id: "a"), class: "link", method: :delete, data: {confirm:'本当に削除しますか？'} %></li>
           <% end %>
           <li><%= link_to '戻る', root_path, class: "link" %></li>
         </ul>
@@ -32,14 +32,14 @@
 
       <div class="right-box-caption-comments">
         <div class="right-box-caption">
-          <%= link_to @photo.user.nickname, user_path(@photo.user.id), class:"nickname" %>
+          <%= link_to @photo.user.nickname, user_path(@photo.user_id), class:"nickname" %>
           <span class="caption"><%= render_with_hashtags(safe_join(@photo.caption.split("\n"),tag(:br))) %></span>
           <%# <span class="caption"><%= @photo.caption</span> %>
         </div>
 
         <div class="right-box-comments", id="right-box-comments">
 
-          <%= render partial: 'shared/comments', locals: { comments: @comments } %>
+          <%= render partial: 'shared/comments', locals: { photo: @photo, comments: @comments } %>
 
         </div>
 
