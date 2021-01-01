@@ -111,6 +111,11 @@ li>.link {
   line-height: 18px;
 }
 
+.destroy-comment {
+  color: #808080;
+  text-align: right;
+  display: block;
+}
 
 /* いいねボタンなどの箱 */
 .vote-box {
