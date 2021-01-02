@@ -13,10 +13,16 @@
       <%= render "devise/shared/error_messages", model: f.object %>
 
       <div class="field">
-        <%# <%= f.label :nickname %>
-        <%# <br /> %>
         <%= f.text_field :nickname, placeholder: "ユーザーネーム", autofocus: true, autocomplete: "off", class: "field-box" %>
       </div>
+
+      <div class="field">
+        <div class="profile-pic-btn field-box">
+          プロフィール写真を選択
+          <%= f.file_field :avatar, class: "profile-pic-input" %>
+        </div>
+      </div>
+
 
       <div class="field">
         <%# <%= f.label :email %>

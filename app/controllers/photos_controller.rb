@@ -25,7 +25,6 @@ class PhotosController < ApplicationController
     @comment = Comment.new
     @comments = @photo.comments.includes(:user)
     @user = Photo.find(params[:id]).user
-    # binding.pry
   end
 
   def edit
