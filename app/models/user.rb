@@ -10,11 +10,14 @@ class User < ApplicationRecord
   has_many :votes, dependent: :destroy
   has_many :voted_photos, through: :votes, source: :photo
 
+  has_one_attached :avatar
+
   with_options presence: true do
     validates :nickname, uniqueness: { case_sensitive: true }
     # パスワードは半角英数字混合での入力が必須
     PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i.freeze
     validates :password, format: { with: PASSWORD_REGEX, message: 'には英字と数字の両方を含めて設定してください' }
+    validates :avatar
   end
 
   has_many :relationships
