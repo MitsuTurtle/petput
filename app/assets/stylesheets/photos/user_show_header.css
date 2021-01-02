@@ -1,5 +1,6 @@
 .user-show-header {
   display: flex;
+  align-items: center;
   margin-bottom: 16px;
 }
 .user-show-header>.title {

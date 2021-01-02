@@ -7,6 +7,9 @@
     <div class="right-box">
       <div class="right-box-header">
         <div class="nickname-follow">
+          <div class="avatar-box-photo-show">
+            <%= image_tag @user.avatar, class: "avatar-img" if @user.avatar.attached? %>
+          </div>
           <%= link_to @photo.user.nickname, user_path(@photo.user_id), class:"nickname" %>
           <% if user_signed_in? %>
 
@@ -32,9 +35,16 @@
 
       <div class="right-box-caption-comments">
         <div class="right-box-caption">
-          <%= link_to @photo.user.nickname, user_path(@photo.user_id), class:"nickname" %>
-          <span class="caption"><%= render_with_hashtags(safe_join(@photo.caption.split("\n"),tag(:br))) %></span>
-          <%# <span class="caption"><%= @photo.caption</span> %>
+          <div class="avatar-box-photo-show">
+            <%= image_tag @photo.user.avatar, class: "avatar-img" if @photo.user.avatar.attached? %>
+          </div>
+          <div class="nickname-caption-box">
+
+            <%= link_to @photo.user.nickname, user_path(@photo.user_id), class:"nickname" %>
+            <span class="caption"><%= render_with_hashtags(safe_join(@photo.caption.split("\n"),tag(:br))) %></span>
+            <%# <span class="caption"><%= @photo.caption</span> %>
+          </div>
+
         </div>
 
         <div class="right-box-comments", id="right-box-comments">
