@@ -3,7 +3,7 @@
               <% comments.each do |comment| %>
                 <div class="avatar-nickname-comment-box">
                     <div class="avatar-box-photo-show">
-                      <%= image_tag comment.user.avatar, class: "avatar-img" if comment.user.avatar.attached? %>
+                      <%= image_tag comment.user.avatar.variant(gravity: :center, resize:"640x640^", crop:"640x640+0+0"), class: "avatar-img" if comment.user.avatar.attached? %>
                     </div>
                     <div class="nickname-comment-box">
                       <%= link_to comment.user.nickname, user_path(comment.user_id), class:"nickname" %>

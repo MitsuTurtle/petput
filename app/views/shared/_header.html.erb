@@ -23,7 +23,7 @@
     <% if user_signed_in? %>
       <li class="avatar-nickname">
         <div class="avatar-box-header">
-          <%= image_tag current_user.avatar, class: "avatar-img" if current_user.avatar.attached? %>
+          <%= image_tag current_user.avatar.variant(gravity: :center, resize:"640x640^", crop:"640x640+0+0"), class: "avatar-img" if current_user.avatar.attached? %>
         </div>
         <%= link_to current_user.nickname, user_path(current_user.id), class: "nickname" %>
       </li>
