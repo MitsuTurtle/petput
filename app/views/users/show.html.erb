@@ -4,7 +4,7 @@
 
 <div class="user-show-header">
   <div class="avatar-box-user-show">
-    <%= image_tag @user.avatar, class: "avatar-img" if @user.avatar.attached? %>
+    <%= image_tag @user.avatar.variant(gravity: :center, resize:"640x640^", crop:"640x640+0+0"), class: "avatar-img" if @user.avatar.attached? %>
   </div>
   <h2 class='title'><%= "#{@nickname}" %></h2>
   
