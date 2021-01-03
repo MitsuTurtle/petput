@@ -6,6 +6,13 @@ class PhotosController < ApplicationController
   def index
     @photos = Photo.order('created_at DESC')
     # @photos = Photo.all.shuffle
+    @followings_photos = []
+    if user_signed_in?
+      current_user.followings.each do |following|
+        @followings_photos.concat(following.photos)
+      end
+      @followings_photos.concat(current_user.photos)
+    end
   end
 
   def new

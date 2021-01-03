@@ -3,13 +3,25 @@
 
 
 <div class='photo-contents'>
-  <%# <h2 class='order'>ランダム表示</h2> %>
-  <h2 class='title'>最新投稿</h2>
-  <ul class='photo-lists'>
 
-    <%= render partial:"shared/photos", locals: {photos: @photos} %>
+  <% if (user_signed_in? && !@followings_photos.present?) || !user_signed_in? %>
+    <h2 class='title'>最新投稿</h2>
+    <ul class='photo-lists'>
+      <%= render partial:"shared/photos", locals: {photos: @photos} %>
+    </ul>
 
-  </ul>
+  <% else %>
+      <h2 class='title'>タイムライン</h2>
+      <ul class='photo-lists'>
+        <%= render partial:"shared/photos", locals: {photos: @followings_photos} %>
+      </ul>
+      
+      <h2 class='title'>最新投稿</h2>
+      <ul class='photo-lists'>
+        <%= render partial:"shared/photos", locals: {photos: @photos} %>
+      </ul>
+  <% end %>
+
 </div>
 
 <%= render 'shared/footer' %>
