@@ -24,12 +24,20 @@
   width: 96vw;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-between;
+  padding: 0 5vw;
 }
 .photo-lists>.list {
   margin: 0 1.3vw 2.6vw 1.3vw;
   width: 26vw;
   height: 26vw;
+}
+.photo-lists:after {
+  content: "";
+  display: block;
+  width: 26vw;  /* .boxに指定したwidthと同じ幅を指定する */
+  height: 26vw;
+  margin: 0 1.3vw 2.6vw 1.3vw;
 }
 .photo-img {
   width: 100%;
