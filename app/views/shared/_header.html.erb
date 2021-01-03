@@ -27,6 +27,9 @@
         </div>
         <%= link_to current_user.nickname, user_path(current_user.id), class: "nickname" %>
       </li>
+      <li>
+        <%= link_to "登録変更", edit_user_registration_path, class: "user_edit" %>
+      </li>
       <li ><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></li>
     <% else %>
       <li ><%= link_to 'ログイン', user_session_path, class: "login" %></li>
