@@ -36,7 +36,7 @@
   content: "";
   display: block;
   width: 26vw;  /* .boxに指定したwidthと同じ幅を指定する */
-  /* height: 26vw; */
+  height: 0;
   margin: 0 1.3vw 2.6vw 1.3vw;
 }
 .photo-img {
