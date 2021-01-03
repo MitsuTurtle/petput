@@ -23,7 +23,7 @@ class PhotosController < ApplicationController
 
   def show
     @comment = Comment.new
-    @comments = @photo.comments.order(created_at: "DESC").includes(:user)
+    @comments = @photo.comments.order(created_at: "ASC").includes(:user)
     @user = Photo.find(params[:id]).user
   end
 
