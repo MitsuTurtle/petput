@@ -14,6 +14,9 @@
 
   <div class="vote-result-box">
     <% if photo.voters.present? %>
+      <div class="avatar-box-photo-show">
+        <%= image_tag @photo.user.avatar.variant(gravity: :center, resize:"640x640^", crop:"640x640+0+0"), class: "avatar-img" if @photo.user.avatar.attached? %>
+      </div>
       <% if photo.voters.count == 1 %>
         <p class="voter_nickname"><%= photo.voters.order("votes.created_at")[0].nickname %></p><span>が「いいね」しました</span>
       <% else %>
