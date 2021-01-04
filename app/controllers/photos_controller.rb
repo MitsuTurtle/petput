@@ -4,14 +4,15 @@ class PhotosController < ApplicationController
   before_action :search_category_photo, only: [:index, :category, :hashtag, :search]
 
   def index
-    @photos = Photo.order('created_at DESC')
+    @photos = Photo.order(created_at: "DESC")
     # @photos = Photo.all.shuffle
     @followings_photos = []
     if user_signed_in?
       current_user.followings.each do |following|
         @followings_photos.concat(following.photos)
       end
-      @followings_photos.concat(current_user.photos)
+    @my_timeline_photos = @followings_photos.concat(current_user.photos)
+    @my_timeline_photos = @my_timeline_photos.sort { |a, b| b[:id] <=> a[:id] }
     end
   end
 
