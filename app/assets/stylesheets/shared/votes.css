@@ -16,6 +16,10 @@
   display: block;
 }
 
+.vote-result-box>.avatar-box-photo-show {
+  width: 20px;
+  height: 20px;
+}
 .voter_nickname {
   color: black;
   font-weight: bold;
