@@ -7,6 +7,20 @@ class UsersController < ApplicationController
     @photos = @user.photos
   end
 
+  def following
+    @title = "フォロー中"
+    @user = User.find(params[:id])
+    @users = @user.followings
+    render 'show_follow'
+  end
+
+  def followers
+    @title = "フォロワー"
+    @user = User.find(params[:id])
+    @users = @user.followers
+    render 'show_follow'
+  end
+
   private
 
   def search_category_photo
