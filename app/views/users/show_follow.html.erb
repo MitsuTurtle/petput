@@ -1,0 +1,37 @@
+<div class="show-follow-box">
+  <div class="back-nickname-box">
+    <div class="back-button-box">
+      <%= link_to "⬅", user_path(@user), class: "back-button" %>
+    </div>
+    <h2 class="nickname-box"><%= link_to @user.nickname, user_path(@user), class: "show-follow-nickname" %></h2>
+  </div>
+  <div class="follow-title"><%= @title %></div>
+  <% @users.each do |user| %>
+
+    <div class="user-box">
+      <div class="avatar-box-photo-show">
+        <%= image_tag user.avatar.variant(gravity: :center, resize:"640x640^", crop:"640x640+0+0"), class: "avatar-img" if user.avatar.attached? %>
+      </div>
+      <div class="nickname-follow-profile-box">
+        <div class="nickname-follow-box">
+          <div class="nickname">
+            <%= link_to user.nickname, user_path(user.id), class:"nickname" %>
+          </div>
+          <div class="follow-box">
+            <% if user_signed_in? %>
+              <span class="follow", id=<%= "follow-btn-box-#{user.id}" %>>
+                <%= render 'shared/follow_button', user: user %>
+              </span>
+            <% end %>
+          </div>
+        </div>
+        <div>
+            プロフィール記入欄
+        </div>
+      </div>
+    </div>
+
+  <% end %>
+
+</div>
+

@@ -1,5 +1,5 @@
 class RelationshipsController < ApplicationController
-  before_action :set_user
+  before_action :set_variables
 
   def create
     following = current_user.follow(@user)
@@ -17,11 +17,11 @@ class RelationshipsController < ApplicationController
   def destroy
     following = current_user.unfollow(@user)
     if following.destroy
-      flash[:success] = 'ユーザーのフォローを解除しました'
+      # flash[:success] = 'ユーザーのフォローを解除しました'
       # redirect_to user_path(@user)
       render 'follow.js.erb'
     else
-      flash.now[:alert] = 'ユーザーのフォロー解除に失敗しました'
+      # flash.now[:alert] = 'ユーザーのフォロー解除に失敗しました'
       # redirect_to user_path(@user)
       render 'follow.js.erb'
     end
@@ -29,7 +29,8 @@ class RelationshipsController < ApplicationController
 
   private
 
-  def set_user
+  def set_variables
     @user = User.find(params[:follow_id])
+    @id_name = "follow-btn-box-#{@user.id}"
   end
 end

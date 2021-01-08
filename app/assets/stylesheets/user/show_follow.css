@@ -1,0 +1,71 @@
+.show-follow-box {
+  width: 600px;
+  height: 100vh;
+  margin: 0px auto;
+  border: 1px solid #ebeef0;
+}
+.show-follow-box .back-nickname-box {
+  display: flex;
+  align-items: center;
+  padding: 0 15px;
+}
+.show-follow-box .back-button-box{
+  width: 60px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+}
+.show-follow-box .back-button {
+  text-decoration: none;
+  color: #1da1f2;
+  font-weight: bold;
+}
+
+.show-follow-box>.nickname-box {
+  height: 50px;
+  width: 200px;
+  /* display: table-cell; */
+  /* vertical-align: middle; */
+  display: flex;
+  align-items: center;
+}
+.show-follow-nickname {
+  color: #262626;
+  font-weight: bold;
+  margin-right: 16px;
+  text-decoration: none;
+}
+.follow-title {
+  height: 50px;
+  width: 200px;
+  color: #1da1f2;
+  font-weight: bold;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: solid;
+}
+.user-box {
+  width: 600px;
+  height: 150px;
+  display: flex;
+  padding: 10px 15px;
+  border: 1px solid #ebeef0;
+}
+
+.nickname-follow-profile-box {
+  width: 100%;
+}
+.nickname-follow-profile-box .nickname-follow-box {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nickname-follow-profile-box .nickname {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}

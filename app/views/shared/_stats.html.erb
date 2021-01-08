@@ -1,0 +1,20 @@
+<%# ↓要検討、current_userはいらないかも、メイン画面で使わなければ、@userはローカル変数にした方がよさそう %>
+<% @user ||= current_user %>  
+
+<div class="stats">
+
+  <a href="<%= following_user_path(@user) %>">
+    <strong id="following" class="stat">
+      <%=@user.followings.count %>
+    </strong>
+    フォロー中
+  </a>
+
+  <a href="<%= followers_user_path(@user) %>">
+    <strong id="followers" class="stat">
+      <%= @user.followers.count %>
+    </strong>
+    フォロワー
+  </a>
+
+</div>

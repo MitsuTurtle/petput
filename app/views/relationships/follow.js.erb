@@ -1,4 +1,5 @@
-document.getElementById("follow-btn-box").innerHTML = '<%= escape_javascript(render partial: 'shared/follow_button', locals: { user: @user }) %>'
+document.getElementById("<%= @id_name %>").innerHTML = '<%= escape_javascript(render partial: 'shared/follow_button', locals: { user: @user }) %>';
+
 
 <%# ↓jQueryで書いた場合のコード %>
 <%
@@ -6,6 +7,9 @@ document.getElementById("follow-btn-box").innerHTML = '<%= escape_javascript(ren
 %>
 
 $('#follow-btn-box').html('<%= escape_javascript(render partial: 'shared/follow_button', locals: { user: @user }) %>')
+
+
+document.getElementById("@id_name").innerHTML = '<%= escape_javascript(render partial: 'shared/follow_button', locals: { user: @user }) %>'
 
 <%
 =end
