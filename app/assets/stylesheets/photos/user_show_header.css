@@ -9,3 +9,13 @@
   line-height: 31px;
   margin-right: 16px;
 }
+
+.follow-info .follow-count {
+  font-weight: bold;
+}
+
+.follow-info .follow-link {
+  text-decoration: none;
+  color: #757575;
+  margin-right: 15px;
+}
