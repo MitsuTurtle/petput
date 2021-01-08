@@ -9,7 +9,7 @@
   <h2 class='title'><%= "#{@nickname}" %></h2>
   
   <% if user_signed_in? %>
-    <span class="follow", id="follow-btn-box">
+    <span class="follow", id=<%= "follow-btn-box-#{@user.id}" %>>
     
       <%= render 'shared/follow_button', user: @user %>
 
@@ -17,6 +17,11 @@
   <% end %>
   
 </div>
+<div class="follow-info">
+  <span class="follow-count"><%= @user.followings.count %></span><%= link_to " フォロー中", following_user_path(@user.id), class: "follow-link" %>
+  <span class="follow-count"><%= @user.followers.count %></span><%= link_to " フォロワー", followers_user_path(@user.id), class: "follow-link" %>
+</div>
+<br>
 
   <ul class='photo-lists'>
 
