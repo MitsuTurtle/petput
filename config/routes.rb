@@ -9,7 +9,11 @@ Rails.application.routes.draw do
     patch "like", "unlike", on: :member
     get "voted", on: :collection
   end
-  resources :users, only: :show
+  resources :users, only: :show do
+    member do
+      get :following, :followers
+    end
+  end
   get '/photo/hashtag/:name', to: "photos#hashtag", as: :photo_hashtag
   get '/photo/category', to: "photos#category"
 
