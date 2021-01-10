@@ -35,7 +35,7 @@
 
             <ul class="link-list">
               <li><%= link_to "編集", edit_photo_path, class: "link" %></li>
-              <li><%= link_to "削除", photo_path(@photo.id), class: "link", method: :delete, data: {confirm: "本≥当に削除しますか？"}  %></li>
+              <li><%= link_to "削除", photo_path(@photo.id), class: "link", method: :delete, data: {confirm: "本当に削除しますか？"}  %></li>
               <li><%= link_to "コメント一括削除", photo_comment_path(photo_id: @photo.id, id: "a"), class: "link last-link", method: :delete, data: {confirm:'本当に削除しますか？'} %></li>
             </ul>
           <% end %>
