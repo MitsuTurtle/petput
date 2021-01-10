@@ -23,14 +23,23 @@
 
         </div>
 
-        <ul class="link-list">
-          <% if user_signed_in? && current_user.id == @photo.user_id %>
-            <li><%= link_to "編集", edit_photo_path, class: "link" %></li>
-            <li><%= link_to "削除", photo_path(@photo.id), class: "link", method: :delete, data: {confirm: "本当に削除しますか？"}  %></li>
-            <li><%= link_to "コメント一括削除", photo_comment_path(photo_id: @photo.id, id: "a"), class: "link", method: :delete, data: {confirm:'本当に削除しますか？'} %></li>
-          <% end %>
-          <li><%= link_to '戻る', root_path, class: "link" %></li>
+        <ul class="back-btn">
+          <li><%= link_to '戻る', root_path, class: "link back-link" %></li>
         </ul>
+
+        <div class="menu">
+          <% if user_signed_in? && current_user.id == @photo.user_id %>
+
+            <input type="checkbox" id="input">
+            <label for="input" class="three-lines"><div class="line"></div><div class="line"></div><div class="line"></div></label>
+
+            <ul class="link-list">
+              <li><%= link_to "編集", edit_photo_path, class: "link" %></li>
+              <li><%= link_to "削除", photo_path(@photo.id), class: "link", method: :delete, data: {confirm: "本≥当に削除しますか？"}  %></li>
+              <li><%= link_to "コメント一括削除", photo_comment_path(photo_id: @photo.id, id: "a"), class: "link last-link", method: :delete, data: {confirm:'本当に削除しますか？'} %></li>
+            </ul>
+          <% end %>
+        </div>
       </div>
 
       <div class="right-box-caption-comments">

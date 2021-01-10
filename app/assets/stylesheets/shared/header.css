@@ -10,6 +10,7 @@
   background-color: white;
 }
 
+/* アプリアイコン */
 .petput-icon {
   width: 100px;
 }
@@ -77,7 +78,7 @@
   text-decoration: none;
   color: #757575;
 }
-.logout, .signup, .user_edit {
+.signup {
   margin-left: 20px;
   text-decoration: none;
   color: #757575;
@@ -88,3 +89,56 @@
   color: #757575;
 }
 
+/* ハンバーガーメニュー */
+.menu {
+  margin-left: 20px;
+}
+#input {
+  display: none;
+}
+.three-lines {
+  cursor: pointer;
+}
+.line {
+  width: 20px;
+  height: 3px;
+  background-color: black;
+  margin: 3px;
+}
+#content {
+  background-color: white;
+  width: auto;
+  height: auto;
+  transform: translateY(-50vh);
+  position: fixed;
+  top: 150px;
+  right: 0;
+  padding: 5px;
+  /* -webkit-transition: 0.5s; */
+  /* transition: all 0.2s ; */
+  /* border: 1px solid #333333; */
+  border-radius: 2px;
+  box-shadow: 0 10px 25px 0 rgba(0, 0, 0, .5);
+}
+#input:checked ~ #content {
+  transform: translateY(-100px);
+}
+/* #input:checked ~ .back {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.8);
+} */
+
+
+.logout, .user_edit {
+  text-decoration: none;
+  color: #757575;
+  display: block;
+  margin-bottom: 10px;
+  text-align: right;
+}
+
+.logout {
+  margin-bottom: 0;
+}

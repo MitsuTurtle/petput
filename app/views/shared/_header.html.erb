@@ -27,13 +27,44 @@
         </div>
         <%= link_to current_user.nickname, user_path(current_user.id), class: "nickname" %>
       </li>
-      <li>
+      
+      <%
+=begin%>
+ <li>
         <%= link_to "登録変更", edit_user_registration_path, class: "user_edit" %>
-      </li>
-      <li ><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></li>
+        </li>
+        <li ><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %>
+      </li> 
+<%
+=end%>
+      <div class="menu">
+        <input type="checkbox" id="input">
+        <label for="input" class="three-lines"><div class="line"></div><div class="line"></div><div class="line"></div></label>
+        <%# <label for="input" class="back"></label>  %>
+
+        <%
+=begin%>
+ <label for="input" class="back"></label> 
+<%
+=end%>
+        <div id="content">
+          <ul>
+            <li>
+              <%= link_to "登録変更", edit_user_registration_path, class: "user_edit" %>
+            </li>
+            <li >
+              <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %>
+            </li>
+          </ul>
+        </div>
+      <div>
+
     <% else %>
-      <li ><%= link_to 'ログイン', user_session_path, class: "login" %></li>
-      <li ><%= link_to '新規登録', new_user_registration_path, class: "signup" %></li>
+      <li><%= link_to 'ログイン', user_session_path, class: "login" %></li>
+      <li><%= link_to '新規登録', new_user_registration_path, class: "signup" %></li>
     <% end %>
-  </ul>
+  </ul> 
 </header>
+
+
+
