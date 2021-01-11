@@ -22,6 +22,9 @@ class User < ApplicationRecord
   # 新規登録時のみの設定にしています。もし、登録更新時にパスワード更新も可能にするならば、on: :createを外すなど修正が必要です。
   validates :password, presence: true, format: { with: PASSWORD_REGEX, message: 'には英字と数字の両方を含めて設定してください' }, on: :create
 
+  validates :profile, length: {maximum: 160}
+
+
   has_many :relationships
   has_many :followings, through: :relationships, source: :follow
   has_many :reverse_of_relationships, class_name: 'Relationship', foreign_key: 'follow_id'
