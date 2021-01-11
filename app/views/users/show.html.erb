@@ -1,33 +1,48 @@
 <%= render 'shared/header' %>
 
-<div class='photo-contents'>
+<div class='user-show-wrap'>
+  <div class="user-show-header">
 
-<div class="user-show-header">
-  <div class="avatar-box-user-show">
-    <%= image_tag @user.avatar.variant(gravity: :center, resize:"640x640^", crop:"640x640+0+0"), class: "avatar-img" if @user.avatar.attached? %>
+    <div class="user-show-avatar-box">
+      <%= image_tag @user.avatar.variant(gravity: :center, resize:"640x640^", crop:"640x640+0+0"), class: "avatar-img" if @user.avatar.attached? %>
+    </div>
+
+    <div class="user-info-box">
+      <div class="nickname-link-btns">
+        <h2 class='nickname'><%= "#{@nickname}" %></h2>
+        <%# フォローボタン %>
+        <% if user_signed_in? %>
+          <div class="follow", id=<%= "follow-btn-box-#{@user.id}" %>>
+            <%= render 'shared/follow_button', user: @user %>
+          </div>
+        <% end %>
+      </div>
+
+      <%# 自己紹介 %>
+      <div class="profile-box">
+      <% if @profile.present? %>
+        <%= safe_join(@profile.split("\n"), tag(:br)) %>
+      <% end %>
+
+        
+      </div>
+
+      <div class="count-box">
+        <span class="first-count-letter">投稿</span><span class="count"><%= @photos.count %></span><span class="last-count-letter">件</span>
+
+        <%= link_to "フォロワー", followers_user_path(@user.id), class: "first-count-letter" %><span class="count"><%= @user.followers.count %></span><span class="last-count-letter">人</span>
+
+        <%= link_to " フォロー中", following_user_path(@user.id), class: "first-count-letter" %><span class="count"><%= @user.followings.count %></span><span class="last-count-letter">人</span>
+      </div>
+    </div>
   </div>
-  <h2 class='title'><%= "#{@nickname}" %></h2>
-  
-  <% if user_signed_in? %>
-    <span class="follow", id=<%= "follow-btn-box-#{@user.id}" %>>
-    
-      <%= render 'shared/follow_button', user: @user %>
+  <br>
 
-    </span>
-  <% end %>
-  
-</div>
-<div class="follow-info">
-  <span class="follow-count"><%= @user.followings.count %></span><%= link_to " フォロー中", following_user_path(@user.id), class: "follow-link" %>
-  <span class="follow-count"><%= @user.followers.count %></span><%= link_to " フォロワー", followers_user_path(@user.id), class: "follow-link" %>
-</div>
-<br>
+    <ul class='photo-lists'>
 
-  <ul class='photo-lists'>
+      <%= render partial:"shared/photos", locals: {photos: @photos} %>
 
-    <%= render partial:"shared/photos", locals: {photos: @photos} %>
-
-  </ul>
+    </ul>
 </div>
 
 <%= render 'shared/footer' %>

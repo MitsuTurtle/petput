@@ -5,6 +5,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @nickname = @user.nickname
     @photos = @user.photos
+    @profile = @user.profile
   end
 
   def following

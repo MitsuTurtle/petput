@@ -1,0 +1,57 @@
+.user-show-wrap {
+  padding: 15px 20px;
+  padding-top: 84px;
+  background-color: #FAFAFA;
+  .user-show-header {
+    display: flex;
+    // align-items: center;
+    margin-bottom: 16px;
+    .user-show-avatar-box {
+      width: 140px;
+      height: 140px;
+      margin-right: 60px;
+    }
+    .user-info-box {
+      width: 450px;
+      height: 200px;
+      .nickname-link-btns {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+        .nickname {
+          color: #262626;
+          font-weight: bold;
+          margin-right: 16px;
+        }
+        .follow {
+        }
+      }
+      // 自己紹介
+      .profile-box {
+        height: 140px;
+        padding: 5px;
+        // background-color: grey;
+        // box-shadow: 0 10px 25px 0 rgba(0, 0, 0, .5);
+        // border-radius: 2px;
+        // border: 1px solid #EEEEEE;
+        margin-bottom: 10px;
+      }
+      .count-box {
+        .first-count-letter {
+          text-decoration: none;
+          color: #757575;
+          margin-right: 5px;
+        }
+        .count {
+          font-weight: bold;
+        }
+        .last-count-letter {
+          text-decoration: none;
+          color: #757575;
+          margin-left: 5px;
+          margin-right: 15px;
+        }
+      }
+    }
+  }
+}
