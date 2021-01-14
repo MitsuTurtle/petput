@@ -1,6 +1,6 @@
-<mxfile host="65bd71144e" modified="2020-12-29T06:26:15.723Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.52.1 Chrome/83.0.4103.122 Electron/9.3.5 Safari/537.36" etag="Sbwb4GNQA9XWjW_iJ5Fl" version="13.10.0" type="embed">
+<mxfile host="65bd71144e" modified="2021-01-14T13:24:31.256Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.52.1 Chrome/83.0.4103.122 Electron/9.3.5 Safari/537.36" etag="ScLybelyBmqpVwFg2utj" version="13.10.0" type="embed">
     <diagram id="tgPKsGrlLU2FSLuXecN8" name="ページ1">
-        <mxGraphModel dx="1431" dy="1624" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="1213" dy="1889" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -58,7 +58,7 @@
                 <mxCell id="11" value="users" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" parent="1" vertex="1">
                     <mxGeometry x="40" y="210" width="500" height="300" as="geometry"/>
                 </mxCell>
-                <mxCell id="12" value="nickname&#10;email&#10;password&#10;family_name&#10;given_name&#10;birthday&#10;&#10;has_many :photos&#10;has_many :comments&#10;&#10;has_many :relationships&#10;  has_many :followings, through: :relationships, source: :follow&#10;  has_many :reverse_of_relationships, class_name: 'Relationships', foreign_key: 'follow_id'&#10;  has_many :followers, through: :reverse_of_relationships, source: :user&#10;&#10;has_many :votes, dependent: :destroy&#10;has_many :voted_photos, through: :votes, source: :photo&#10;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" parent="11" vertex="1">
+                <mxCell id="12" value="nickname&#10;email&#10;password&#10;(avatar)&#10;profile&#10;&#10;has_many :photos&#10;has_many :comments&#10;&#10;has_many :relationships&#10;  has_many :followings, through: :relationships, source: :follow&#10;  has_many :reverse_of_relationships, class_name: 'Relationships', foreign_key: 'follow_id'&#10;  has_many :followers, through: :reverse_of_relationships, source: :user&#10;&#10;has_many :votes, dependent: :destroy&#10;has_many :voted_photos, through: :votes, source: :photo&#10;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" parent="11" vertex="1">
                     <mxGeometry y="30" width="500" height="270" as="geometry"/>
                 </mxCell>
                 <mxCell id="29" value="relationships" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" parent="1" vertex="1">

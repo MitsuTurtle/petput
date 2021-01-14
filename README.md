@@ -31,6 +31,8 @@ Things you may want to cover:
 | nickname    | string | null: false, unique: true |
 | email       | string | null: false               |
 | password    | string | null: false               |
+| (avatar)    |        |                           |
+| profile     | text   |                           |
 
 ### Association
 - has_many :photos
