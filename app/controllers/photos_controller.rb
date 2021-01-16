@@ -53,7 +53,7 @@ class PhotosController < ApplicationController
 
   def search
     if params[:keyword].present?
-      @photos = Photo.where('caption LIKE ?', "%#{params[:keyword]}%")
+      @photos = Photo.where('caption LIKE ?', "%#{params[:keyword]}%").order(created_at: "DESC")
       @keyword = params[:keyword]
     else
       redirect_to root_path

@@ -4,9 +4,9 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @nickname = @user.nickname
-    @photos = @user.photos
+    @photos = @user.photos.order(created_at: "DESC")
     @profile = @user.profile
-    @favorite_photos = @user.favorite_photos
+    @favorite_photos = @user.favorite_photos.order(created_at: "DESC")
   end
 
   def following
