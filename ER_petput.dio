@@ -1,6 +1,6 @@
-<mxfile host="65bd71144e" modified="2021-01-14T13:24:31.256Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.52.1 Chrome/83.0.4103.122 Electron/9.3.5 Safari/537.36" etag="ScLybelyBmqpVwFg2utj" version="13.10.0" type="embed">
+<mxfile host="65bd71144e" modified="2021-01-15T23:10:24.893Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.52.1 Chrome/83.0.4103.122 Electron/9.3.5 Safari/537.36" etag="LfmpRsObAVsQl4CadOuO" version="13.10.0" type="embed">
     <diagram id="tgPKsGrlLU2FSLuXecN8" name="ページ1">
-        <mxGraphModel dx="1213" dy="1889" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="1512" dy="1590" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -49,11 +49,22 @@
                         </Array>
                     </mxGeometry>
                 </mxCell>
+                <mxCell id="44" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.75;exitY=0;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;startArrow=none;startFill=0;startSize=6;endArrow=ERmany;endFill=0;endSize=6;" edge="1" parent="1" source="9" target="40">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
                 <mxCell id="9" value="photos" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" parent="1" vertex="1">
-                    <mxGeometry x="620" y="210" width="325" height="220" as="geometry"/>
+                    <mxGeometry x="630" y="230" width="325" height="220" as="geometry"/>
                 </mxCell>
                 <mxCell id="10" value="(image)&#10;caption&#10;category_id&#10;user&#10;&#10;belongs_to :user&#10;has_many :comments&#10;has_many :photo_hashtag_relations&#10;has_many :hashtags, through: :photo_hashtag_relations&#10;&#10;has_many :votes, dependent: :destroy&#10;has_many :voters, through: :votes, source: :user" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" parent="9" vertex="1">
                     <mxGeometry y="30" width="325" height="190" as="geometry"/>
+                </mxCell>
+                <mxCell id="45" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.25;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;startArrow=none;startFill=0;startSize=6;endArrow=ERmany;endFill=0;endSize=6;" edge="1" parent="1" source="11" target="39">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="-260" y="285"/>
+                            <mxPoint x="-260" y="-148"/>
+                        </Array>
+                    </mxGeometry>
                 </mxCell>
                 <mxCell id="11" value="users" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" parent="1" vertex="1">
                     <mxGeometry x="40" y="210" width="500" height="300" as="geometry"/>
@@ -83,6 +94,15 @@
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="37" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.25;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;endArrow=ERmany;endFill=0;" parent="1" source="12" target="34" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="39" value="favorite" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" vertex="1" parent="1">
+                    <mxGeometry x="-10" y="-210" width="230" height="125" as="geometry"/>
+                </mxCell>
+                <mxCell id="40" value="user&#10;photo&#10;&#10;belongs_to :user&#10;  belongs_to :photo" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" vertex="1" parent="39">
+                    <mxGeometry y="30" width="230" height="95" as="geometry"/>
+                </mxCell>
+                <mxCell id="41" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="39" source="40" target="40">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
             </root>

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'favorites/create'
+  get 'favorites/destroy'
   devise_for :users
   root to: "photos#index"
   resources :photos do
@@ -8,6 +10,7 @@ Rails.application.routes.draw do
     end
     patch "like", "unlike", on: :member
     get "voted", on: :collection
+    resource :favorites, only: [:create, :destroy]
   end
   resources :users, only: :show do
     member do

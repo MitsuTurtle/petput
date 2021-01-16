@@ -6,6 +6,7 @@ class UsersController < ApplicationController
     @nickname = @user.nickname
     @photos = @user.photos
     @profile = @user.profile
+    @favorite_photos = @user.favorite_photos
   end
 
   def following
