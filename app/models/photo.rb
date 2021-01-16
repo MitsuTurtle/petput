@@ -8,6 +8,9 @@ class Photo < ApplicationRecord
   has_many :votes, dependent: :destroy
   has_many :voters, through: :votes, source: :user
 
+  has_many :favorites, dependent: :destroy
+  has_many :favorite_users, through: :favorites, source: :user
+
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :category
 
@@ -38,4 +41,9 @@ class Photo < ApplicationRecord
       photo.hashtags << tag
     end
   end
+
+  def favorited_by?(user)
+    favorites.where(user_id: user.id).exists?
+  end
+
 end

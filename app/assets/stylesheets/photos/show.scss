@@ -12,6 +12,31 @@
   margin: auto;
   display: flex;
   background-color: white;
+  position: relative;
+  .bookmark-box {
+    position:absolute;
+    top: 10px;
+    left: 10px;
+    width: 55px;
+    height: 55px;
+    // text-align: center;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .bookmark-link {
+      text-decoration: none;
+      color: gold;
+      .bookmark-icon {
+        font-size:x-large;
+      }
+      .bookmark-caption {
+        font-size: xx-small;
+        display: block;
+        margin-top: 5px;
+      }
+    }
+  }
 }
 
 .left-box {
@@ -209,3 +234,9 @@ li>.last-link, li>.back-link {
   padding: 0;
   cursor: pointer;
 }
+
+
+
+
+
+

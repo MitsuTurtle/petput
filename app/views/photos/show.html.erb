@@ -1,6 +1,12 @@
 <div class="photo-show">
   <div class="photo-caption-comments-box">
     <div class="left-box">
+
+      <%# お気に入りボタン %>
+      <div id="favorite">
+        <%= render partial: 'shared/favorite_button', locals: { photo: @photo } %>
+      </div>
+
       <%= image_tag @photo.image.variant(resize:"640x"), class:"left-box-photo" %>
     </div>
 
@@ -76,5 +82,4 @@
       </div>
     </div>
   </div>
-
 </div>
