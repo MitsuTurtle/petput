@@ -68,6 +68,10 @@
   outline: none;
   color: #757575;
   padding: 1px 2px;
+  /* ↓セレクトボックスの矢印を消す */
+  -webkit-appearance: none;/* ベンダープレフィックス(Google Chrome、Safari用) */
+  -moz-appearance: none; /* ベンダープレフィックス(Firefox用) */
+  appearance: none; /* 標準のスタイルを無効にする */
 }
 
 .header-link {
