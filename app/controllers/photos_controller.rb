@@ -63,13 +63,13 @@ class PhotosController < ApplicationController
   def hashtag
     @user = current_user
     @tag = Hashtag.find_by(hashname: params[:name])
-    @photos = @tag.photos
+    @photos = @tag.photos.order(created_at: "DESC")
     # @photo = @tag.photos.page(params[:page])
   end
 
   def category
     # ↓includesを記入するか検討
-    @photos = @q.result
+    @photos = @q.result.order(created_at: "DESC")
     category_id = params[:q][:category_id_eq]
     if category_id.present?
       @category = Category.find_by(id: category_id)
