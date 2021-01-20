@@ -16,7 +16,39 @@
             <%= render 'shared/follow_button', user: @user %>
           </div>
         <% end %>
+
+        <%# DMボタン %>
+        <div class="dm-box">
+          <% if user_signed_in? %>
+            <% if @user.id != current_user.id %>
+            <%# フォローの条件を入れるとしたら、ここに入れる %>
+              <% if @is_room == true %>
+                <%= link_to "/rooms/#{@room_id}" do %>
+                  <i class="far fa-envelope dm-icon"></i>
+                <% end %>
+              <% else %>
+                <%= form_with model: @room, local: true do |f| %>
+                  <%= fields_for @entry do |e| %>
+                    <%= e.hidden_field :user_id, value: @user.id %>
+                  <% end %>
+                  <%# <%= f.submit "DM" %>
+                  <%= button_tag type: "submit" do %>
+                    <i class="far fa-envelope dm-icon"></i>
+
+                  <% end %>
+                <% end %>
+                
+              <% end %>
+              <div class="dm-caption">
+                  メッセージ
+              </div>
+            <% end %>
+          <% end %>
+        </div>
       </div>
+
+
+
 
       <%# 自己紹介 %>
       <div class="profile-box">

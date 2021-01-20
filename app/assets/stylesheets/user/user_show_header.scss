@@ -26,7 +26,27 @@
         .nickname {
           color: #262626;
           font-weight: bold;
-          margin-right: 16px;
+          margin-right: 20px;
+        }
+        .dm-box {
+          margin-left: 20px;
+          text-align: center;
+          .dm-icon {
+            color: black;
+            font-size: xx-large;
+            -webkit-text-stroke: 1px white;
+          }
+          button {
+            padding: 0;
+            border: none;
+            background-color: transparent;
+            cursor: pointer;
+            outline: none;
+          }
+          .dm-caption {
+            font-size: xx-small;
+            font-weight: bold;
+          }
         }
         .follow {
         }
