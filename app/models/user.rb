@@ -12,6 +12,9 @@ class User < ApplicationRecord
 
   has_one_attached :avatar
 
+  has_many :messages,dependent: :destroy
+  has_many :entries, dependent: :destroy
+
   with_options presence: true do
     validates :nickname, uniqueness: { case_sensitive: true }
     # パスワードは半角英数字混合での入力が必須

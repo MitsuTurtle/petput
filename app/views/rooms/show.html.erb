@@ -1,0 +1,54 @@
+<div class="dm-wrap">
+
+  <h1 class="title">メッセージ</h1>
+
+  <% @entries.each do |entry| %>
+    <% if entry.user != current_user %>
+      <h2 class="dm-partner">
+        <%= link_to "#{entry.user.nickname}さん", user_path(entry.user), class: "nickname" %>
+      </h2>
+    <% end %>
+  <% end %>
+
+  <hr>
+  <% if @messages.present? %>
+    <% @messages.each do |message| %>
+      <div class="message-avatar-nickname-box">
+        <div><%= message.content %></div>
+        <div class="avatar-nickname-box">
+          <div class="avatar-box">
+            <%# avatar部分テンプレート %>
+            <%= render partial: 'shared/avatar', locals: { user: message.user } %>
+          </div>
+          <div class="nickname-box">
+            <%= link_to "#{message.user.nickname}", user_path(message.user), class: "nickname" %>
+          </div>
+        </div>
+      </div>
+  <hr>
+    <% end %>
+  <% else %>
+    <div class="no-message-caption"><span>メッセージはまだありません<span></div>
+    <hr>
+  <% end %>
+
+  <div class="new-dm-box">
+    <%= form_with model: @message, local: true do |f| %>
+      <%= f.text_field :content, placeholder: "メッセージを入力して下さい" , size: 70, class: "new-dm" %>
+      <%= f.hidden_field :room_id, value: @room.id %>
+      <%# <%= f.submit "投稿する" %>
+      <%= button_tag type: "submit" do %>
+        <i class="far fa-edit dm-post-icon"></i>
+        <div class="dm-post-caption">投稿</div>
+      <% end %>
+    <% end %>
+
+  </div>
+  <% if @entries[0].user_id == current_user.id %>
+    <%= link_to "ユーザーページに戻る", user_path(@entries[1].user_id) %>
+  <% else %>
+    <%= link_to "ユーザーページに戻る", user_path(@entries[0].user_id) %>
+  <% end %>
+
+
+</div>
