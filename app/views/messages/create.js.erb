@@ -1,6 +1,7 @@
 <%# HTML文字列をノードに変換する関数 %>
 <%# 参照 %>
 <%# https://qiita.com/seijikohara/items/911f886d8eb79862870b %>
+<%# アロー関数バージョン %>
 <%# var createElementFromHTML = (html) => {
     const tempEl = document.createElement('div');
     tempEl.innerHTML = html;
@@ -13,6 +14,8 @@ function createElementFromHTML(html) {
     return tempEl.firstElementChild;
 }
 
+<%# newメッセージを子ノードの末尾に追加 %>
 document.getElementById("message-wrap").appendChild(createElementFromHTML('<%= escape_javascript(render partial: 'rooms/message', locals: { message: @message }) %>'));
 
+<%# 入力ボックスをクリア %>
 document.getElementById("new-dm").value = "";
