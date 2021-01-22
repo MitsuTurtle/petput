@@ -1,0 +1,18 @@
+<%# HTML文字列をノードに変換する関数 %>
+<%# 参照 %>
+<%# https://qiita.com/seijikohara/items/911f886d8eb79862870b %>
+<%# var createElementFromHTML = (html) => {
+    const tempEl = document.createElement('div');
+    tempEl.innerHTML = html;
+    return tempEl.firstElementChild;
+} %>
+
+function createElementFromHTML(html) {
+    const tempEl = document.createElement('div');
+    tempEl.innerHTML = html;
+    return tempEl.firstElementChild;
+}
+
+document.getElementById("message-wrap").appendChild(createElementFromHTML('<%= escape_javascript(render partial: 'rooms/message', locals: { message: @message }) %>'));
+
+document.getElementById("new-dm").value = "";
