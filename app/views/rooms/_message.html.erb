@@ -1,0 +1,15 @@
+        <div>
+          <div class="message-avatar-nickname-box">
+            <div><%= message.content %></div>
+            <div class="avatar-nickname-box">
+              <div class="avatar-box">
+                <%# avatar部分テンプレート %>
+                <%= render partial: 'shared/avatar', locals: { user: message.user } %>
+              </div>
+              <div class="nickname-box">
+                <%= link_to "#{message.user.nickname}", user_path(message.user), class: "nickname" %>
+              </div>
+            </div>
+          </div>
+          <hr>
+        </div>
