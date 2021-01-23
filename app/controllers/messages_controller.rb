@@ -7,8 +7,15 @@ class MessagesController < ApplicationController
       # redirect_to "/rooms/#{@message.room_id}"
       render "create.js.erb"
     else
-      redirect_to(fallback_location: root_path)
+      redirect_back(fallback_location: root_path)
     end
+  end
+
+  def destroy
+    message = Message.find(params[:id])
+    message.destroy
+    # redirect_back(fallback_location: root_path)
+    render "destroy.js.erb"
   end
 
   private

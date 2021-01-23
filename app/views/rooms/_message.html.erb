@@ -1,6 +1,22 @@
-        <div>
+        <div class="inner-wrap", id="message-<%= message.id %>" >
           <div class="message-avatar-nickname-box">
-            <div><%= message.content %></div>
+            <%# メッセージ %>
+            <div class="message-box">
+              <%= message.content %>
+            </div>
+
+            <%# 削除ボタン %>
+            <div>
+              <% if user_signed_in? && message.user == current_user %>
+
+                <%= link_to message_path(message), method: :delete, class: "destroy-message", data: {confirm:'本当に削除しますか？'}, remote: true do %>
+                  <i class="fas fa-trash-alt"></i>
+                <% end %>
+
+              <% end %>
+            </div>
+
+            <%# ユーザー情報 %>
             <div class="avatar-nickname-box">
               <div class="avatar-box">
                 <%# avatar部分テンプレート %>

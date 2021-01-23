@@ -3,13 +3,15 @@
   margin-top: 50px;
   margin-left: auto;
   margin-right: auto;
-  text-align: center;
+  // text-align: center;
   .title{
     font-size: xx-large;
     font-weight: bold;
     margin-bottom: 10px;
+    text-align: center;
   }
   .dm-partner {
+    text-align: center;
     .nickname {
       text-decoration: none;
       font-size: x-large;
@@ -19,6 +21,14 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    .destroy-message {
+      color: #808080;
+      -webkit-text-stroke: 1px white;
+      text-align: left;
+    }
+    .message-box {
+      width: 400px;
+    }
     .avatar-nickname-box {
       display: flex;
       align-items: center;
@@ -72,6 +82,15 @@
         margin-top: 2px;
         text-align: start;
       }
+    }
+  }
+  .back-btn-box {
+    text-align: center;
+    margin-top: 10px;
+    .back-btn {
+      text-decoration: none;
+      color: #1da1f2;
+      font-weight: bold;
     }
   }
 }
