@@ -35,11 +35,13 @@
     <% end %>
   </div>
 
-  <% if @entries[0].user_id == current_user.id %>
-    <%= link_to "ユーザーページに戻る", user_path(@entries[1].user_id) %>
-  <% else %>
-    <%= link_to "ユーザーページに戻る", user_path(@entries[0].user_id) %>
-  <% end %>
+  <div class="back-btn-box">
+    <% if @entries[0].user_id == current_user.id %>
+      <%= link_to "⬅ #{@entries[1].user.nickname}さんのページ", user_path(@entries[1].user_id), class: "back-btn" %>
+    <% else %>
+      <%= link_to "⬅ #{@entries[0].user.nickname}さんのページ", user_path(@entries[0].user_id), class: "back-btn" %>
+    <% end %>
+  </div>
 
 
 </div>
