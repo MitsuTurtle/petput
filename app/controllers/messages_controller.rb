@@ -14,7 +14,8 @@ class MessagesController < ApplicationController
   def destroy
     message = Message.find(params[:id])
     message.destroy
-    redirect_back(fallback_location: root_path)
+    # redirect_back(fallback_location: root_path)
+    render "destroy.js.erb"
   end
 
   private
