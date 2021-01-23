@@ -2,7 +2,7 @@
           <div class="message-avatar-nickname-box">
             <%# メッセージ %>
             <div class="message-box">
-              <%= message.content %>
+              <%= safe_join(message.content.split("\n"), tag(:br)) %>
             </div>
 
             <%# 削除ボタン %>

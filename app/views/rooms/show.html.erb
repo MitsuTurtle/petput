@@ -24,8 +24,8 @@
   </div>
 
   <div class="new-dm-box", id="new-dm-box">
-    <%= form_with model: @message, remote: true do |f| %>
-      <%= f.text_field :content, placeholder: "メッセージを入力して下さい" , size: 70, class: "new-dm", id:"new-dm" %>
+    <%= form_with model: @message, class: "form", remote: true do |f| %>
+      <%= f.text_area :content, placeholder: "メッセージを入力して下さい" , size: 70, class: "new-dm", id:"new-dm" %>
       <%= f.hidden_field :room_id, value: @room.id %>
       <%# <%= f.submit "投稿する" %>
       <%= button_tag type: "submit" do %>
