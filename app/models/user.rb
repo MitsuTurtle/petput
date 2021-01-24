@@ -12,7 +12,7 @@ class User < ApplicationRecord
 
   has_one_attached :avatar
 
-  has_many :messages,dependent: :destroy
+  has_many :messages, dependent: :destroy
   has_many :entries, dependent: :destroy
 
   with_options presence: true do
@@ -25,8 +25,7 @@ class User < ApplicationRecord
   # 新規登録時のみの設定にしています。もし、登録更新時にパスワード更新も可能にするならば、on: :createを外すなど修正が必要です。
   validates :password, presence: true, format: { with: PASSWORD_REGEX, message: 'には英字と数字の両方を含めて設定してください' }, on: :create
 
-  validates :profile, length: {maximum: 160}
-
+  validates :profile, length: { maximum: 160 }
 
   has_many :relationships
   has_many :followings, through: :relationships, source: :follow

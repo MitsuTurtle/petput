@@ -1,6 +1,6 @@
 class FavoritesController < ApplicationController
   before_action :set_photo, only: [:create, :destroy]
-  
+
   def create
     favorite = current_user.favorites.build(photo_id: params[:photo_id])
     favorite.save
@@ -16,9 +16,8 @@ class FavoritesController < ApplicationController
   end
 
   private
+
   def set_photo
     @photo = Photo.find(params[:photo_id])
   end
-
-
 end

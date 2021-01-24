@@ -10,7 +10,7 @@ class CommentsController < ApplicationController
 
   def destroy
     photo = Photo.find(params[:photo_id])
-    if params[:id] == "a"
+    if params[:id] == 'a'
       comments = photo.comments
       comments.destroy_all
       redirect_to photo_path(photo)

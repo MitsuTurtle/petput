@@ -4,9 +4,9 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @nickname = @user.nickname
-    @photos = @user.photos.order(created_at: "DESC")
+    @photos = @user.photos.order(created_at: 'DESC')
     @profile = @user.profile
-    @favorite_photos = @user.favorite_photos.order(created_at: "DESC")
+    @favorite_photos = @user.favorite_photos.order(created_at: 'DESC')
 
     if user_signed_in?
       @current_user_entries = Entry.where(user_id: current_user.id)
@@ -30,14 +30,14 @@ class UsersController < ApplicationController
   end
 
   def following
-    @title = "フォロー中"
+    @title = 'フォロー中'
     @user = User.find(params[:id])
     @users = @user.followings
     render 'show_follow'
   end
 
   def followers
-    @title = "フォロワー"
+    @title = 'フォロワー'
     @user = User.find(params[:id])
     @users = @user.followers
     render 'show_follow'

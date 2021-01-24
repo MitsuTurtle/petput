@@ -4,15 +4,15 @@ class PhotosController < ApplicationController
   before_action :search_category_photo, only: [:index, :category, :hashtag, :search]
 
   def index
-    @photos = Photo.order(created_at: "DESC")
+    @photos = Photo.order(created_at: 'DESC')
     # @photos = Photo.all.shuffle
     @followings_photos = []
     if user_signed_in?
       current_user.followings.each do |following|
         @followings_photos.concat(following.photos)
       end
-    @my_timeline_photos = @followings_photos.concat(current_user.photos)
-    @my_timeline_photos = @my_timeline_photos.sort { |a, b| b[:id] <=> a[:id] }
+      @my_timeline_photos = @followings_photos.concat(current_user.photos)
+      @my_timeline_photos = @my_timeline_photos.sort { |a, b| b[:id] <=> a[:id] }
     end
   end
 
@@ -31,7 +31,7 @@ class PhotosController < ApplicationController
 
   def show
     @comment = Comment.new
-    @comments = @photo.comments.order(created_at: "ASC").includes(:user)
+    @comments = @photo.comments.order(created_at: 'ASC').includes(:user)
     @user = Photo.find(params[:id]).user
   end
 
@@ -53,7 +53,7 @@ class PhotosController < ApplicationController
 
   def search
     if params[:keyword].present?
-      @photos = Photo.where('caption LIKE ?', "%#{params[:keyword]}%").order(created_at: "DESC")
+      @photos = Photo.where('caption LIKE ?', "%#{params[:keyword]}%").order(created_at: 'DESC')
       @keyword = params[:keyword]
     else
       redirect_to root_path
@@ -63,13 +63,13 @@ class PhotosController < ApplicationController
   def hashtag
     @user = current_user
     @tag = Hashtag.find_by(hashname: params[:name])
-    @photos = @tag.photos.order(created_at: "DESC")
+    @photos = @tag.photos.order(created_at: 'DESC')
     # @photo = @tag.photos.page(params[:page])
   end
 
   def category
     # ↓includesを記入するか検討
-    @photos = @q.result.order(created_at: "DESC")
+    @photos = @q.result.order(created_at: 'DESC')
     category_id = params[:q][:category_id_eq]
     if category_id.present?
       @category = Category.find_by(id: category_id)
