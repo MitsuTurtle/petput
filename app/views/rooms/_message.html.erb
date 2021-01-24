@@ -1,31 +1,66 @@
         <div class="inner-wrap", id="message-<%= message.id %>" >
-          <div class="message-avatar-nickname-box">
-            <%# メッセージ %>
-            <div class="message-box">
-              <%= safe_join(message.content.split("\n"), tag(:br)) %>
-            </div>
 
-            <%# 削除ボタン %>
-            <div>
-              <% if user_signed_in? && message.user == current_user %>
+          <% if message.user == current_user %>
 
-                <%= link_to message_path(message), method: :delete, class: "destroy-message", data: {confirm:'本当に削除しますか？'}, remote: true do %>
-                  <i class="fas fa-trash-alt"></i>
+            <div class="message-avatar-nickname-box_current_user">
+              <%# メッセージ %>
+              <div class="message-box">
+                <%= safe_join(message.content.split("\n"), tag(:br)) %>
+              </div>
+
+              <%# 削除ボタン %>
+              <div>
+                <% if user_signed_in? && message.user == current_user %>
+                  <%= link_to message_path(message), method: :delete, class: "destroy-message", data: {confirm:'本当に削除しますか？'}, remote: true do %>
+                    <i class="fas fa-trash-alt"></i>
+                  <% end %>
                 <% end %>
+              </div>
 
-              <% end %>
+              <%# ユーザー情報 %>
+              <div class="avatar-nickname-box">
+                <div class="avatar-box">
+                  <%# avatar部分テンプレート %>
+                  <%= render partial: 'shared/avatar', locals: { user: message.user } %>
+                </div>
+                <div class="nickname-box">
+                  <%= link_to "#{message.user.nickname}", user_path(message.user), class: "nickname" %>
+                </div>
+              </div>
             </div>
 
-            <%# ユーザー情報 %>
-            <div class="avatar-nickname-box">
-              <div class="avatar-box">
-                <%# avatar部分テンプレート %>
-                <%= render partial: 'shared/avatar', locals: { user: message.user } %>
+          <% else %>
+
+            <div class="message-avatar-nickname-box_visited_user">
+              <%# メッセージ %>
+              <div class="message-box">
+                <%= message.content %>
               </div>
-              <div class="nickname-box">
-                <%= link_to "#{message.user.nickname}", user_path(message.user), class: "nickname" %>
+
+              <%# 削除ボタン %>
+              <div>
+                <% if user_signed_in? && message.user == current_user %>
+
+                  <%= link_to message_path(message), method: :delete, class: "destroy-message", data: {confirm:'本当に削除しますか？'}, remote: true do %>
+                    <i class="fas fa-trash-alt"></i>
+                  <% end %>
+
+                <% end %>
+              </div>
+
+              <%# ユーザー情報 %>
+              <div class="avatar-nickname-box">
+                <div class="avatar-box">
+                  <%# avatar部分テンプレート %>
+                  <%= render partial: 'shared/avatar', locals: { user: message.user } %>
+                </div>
+                <div class="nickname-box">
+                  <%= link_to "#{message.user.nickname}", user_path(message.user), class: "nickname" %>
+                </div>
               </div>
             </div>
-          </div>
+
+          <% end %>
+
           <hr>
         </div>
