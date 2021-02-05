@@ -19,3 +19,8 @@ document.getElementById("message-wrap").appendChild(createElementFromHTML('<%= e
 
 <%# 入力ボックスをクリア %>
 document.getElementById("new-dm").value = "";
+
+<%# メッセージなしの場合の説明を削除 %>
+if (document.getElementById("no-message-caption") != null) {
+  document.getElementById("no-message-caption").remove();
+}

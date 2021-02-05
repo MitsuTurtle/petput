@@ -2,13 +2,23 @@
 
   <h1 class="title">メッセージ</h1>
 
-  <% @entries.each do |entry| %>
-    <% if entry.user != current_user %>
-      <h2 class="dm-partner">
-        <%= link_to "#{entry.user.nickname}さん", user_path(entry.user), class: "nickname" %>
-      </h2>
+  <div class="avatar-nickname-box">
+    <% @entries.each do |entry| %>
+      <% if entry.user != current_user %>
+        <%= link_to user_path(entry.user) do %>
+          <%# avatar %>
+          <div class="avatar-box">
+            <%# avatar部分テンプレート %>
+            <%= render partial: 'shared/avatar', locals: { user: entry.user } %>
+          </div>
+          <%# DM相手のnickname %>
+          <h2 class="dm-partner">
+            <%= link_to "#{entry.user.nickname}さん", user_path(entry.user), class: "nickname" %>
+          </h2>
+        <% end %>
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
 
   <hr>
 
@@ -18,10 +28,11 @@
       <%= render partial: 'message', collection: @messages %>
 
     <% else %>
-      <div class="no-message-caption"><span>メッセージはまだありません<span></div>
-      <hr>
+      <div class="no-message-caption" id="no-message-caption"><span>メッセージはまだありません<span></div>
     <% end %>
   </div>
+
+  <hr>
 
   <div class="new-dm-box", id="new-dm-box">
     <%= form_with model: @message, class: "form", remote: true do |f| %>
@@ -42,6 +53,5 @@
       <%= link_to "⬅ #{@entries[0].user.nickname}さんのページ", user_path(@entries[0].user_id), class: "back-btn" %>
     <% end %>
   </div>
-
 
 </div>
