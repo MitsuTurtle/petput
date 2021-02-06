@@ -17,6 +17,9 @@ function createElementFromHTML(html) {
 <%# newメッセージを子ノードの末尾に追加 %>
 document.getElementById("message-wrap").appendChild(createElementFromHTML('<%= escape_javascript(render partial: 'rooms/message', locals: { message: @message }) %>'));
 
+
+
+
 <%# 添付画像をクリア %>
 document.getElementById("file_photo").value ="";
 
@@ -27,3 +30,10 @@ document.getElementById("new-dm").value = "";
 if (document.getElementById("no-message-caption") != null) {
   document.getElementById("no-message-caption").remove();
 }
+
+<%# 投稿後ページ最下部までスクロール %>
+var scrollToBottom = () => {
+  const target = document.getElementById('message-<%= @message.id %>');
+  target.scrollIntoView({behavior: "smooth", block: "end"});
+}
+scrollToBottom();
