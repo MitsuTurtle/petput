@@ -24,15 +24,16 @@
   </div>
 
   <div id="message-wrap">
-    <% if @messages.present? %>
+    <div id="scroll-inner">
+      <% if @messages.present? %>
 
-      <%= render partial: 'message', collection: @messages %>
+        <%= render partial: 'message', collection: @messages %>
 
-    <% else %>
-      <div class="no-message-caption" id="no-message-caption"><span>メッセージはまだありません<span></div>
-    <% end %>
+      <% else %>
+        <div class="no-message-caption" id="no-message-caption"><span>メッセージはまだありません<span></div>
+      <% end %>
+    </div>
   </div>
-
 
   <div class="footer">
     <hr>
@@ -66,3 +67,6 @@
   </div>
 
 </div>
+
+<%# ページロード時に最下部までスクロール %>
+<%= javascript_pack_tag 'message/application' %>

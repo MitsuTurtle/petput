@@ -51,7 +51,7 @@
   #message-wrap {
     padding-top: 112px;
     height: calc(100vh - 119px);
-    overflow: scroll;
+    overflow-y: scroll;
     -ms-overflow-style: none;    /* IE, Edge 対応 */
     scrollbar-width: none;       /* Firefox 対応 */
   }
@@ -213,6 +213,7 @@
           font-weight: bold;
           margin-top: 2px;
           text-align: center;
+          font-size: 14px;
         }
       }
     }
