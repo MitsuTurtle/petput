@@ -1,99 +1,162 @@
 .dm-wrap {
   width: 800px;
-  margin-top: 50px;
-  margin-left: auto;
-  margin-right: auto;
-  // text-align: center;
-  .title{
-    font-size: xx-large;
-    font-weight: bold;
+  height: 100vh;
+  margin: 0 auto;
+  background-color: #FFFFFF;
+  .header {
+    width: 800px;
+    padding-top: 20px;
+    background-color: #FFFFFF;
+    position: fixed;
+    z-index: 1;
+    .title{
+      font-size: xx-large;
+      font-weight: bold;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    .avatar-nickname-box {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .avatar-box {
+        width: 32px;
+        height: 32px;
+        margin-right: 4px;
+      }
+      .dm-partner {
+        text-align: center;
+        .nickname {
+          text-decoration: none;
+          font-size: x-large;
+        }
+      }
+    }
+
+    .avatar-box {
+      width: 32px;
+      height: 32px;
+      margin-right: 4px;
+    }
+    .dm-partner {
+      text-align: center;
+      .nickname {
+        text-decoration: none;
+        font-size: x-large;
+      }
+    }
+  }
+
+  #message-wrap {
+    padding-top: 112px;
+    height: calc(100vh - 119px);
+    overflow: scroll;
+    -ms-overflow-style: none;    /* IE, Edge 対応 */
+    scrollbar-width: none;       /* Firefox 対応 */
+  }
+  #message-wrap::-webkit-scrollbar {  /* Chrome, Safari 対応 */
+    display: none;
+  }
+
+
+
+  .message-delete-box_current_user {
+    // display: flex;
+    // align-items: center;
+    // justify-content: right;
+    text-align: right;
     margin-bottom: 10px;
-    text-align: center;
-  }
-  .dm-partner {
-    text-align: center;
-    .nickname {
-      text-decoration: none;
-      font-size: x-large;
+    padding-left: 20%;
+    margin-right: 10px;
+    .destroy-box {
+      display: none;
     }
-  }
-
-
-  .message-avatar-nickname-box_current_user {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    .destroy-message {
-      color: #808080;
-      -webkit-text-stroke: 1px white;
-      text-align: left;
-    }
-    .message-box {
-      width: 400px;
-      background-color: #1DA1F2;
-      color: white;
-      padding: 10px;
-      border-radius: 10px;
-      border-bottom-right-radius: 0;
-    }
-    .avatar-nickname-box {
-      display: flex;
-      align-items: center;
-      .avatar-box {
-        width: 32px;
-        height: 32px;
-        margin-right: 4px;
+    &:hover {
+      .destroy-box {
+        display: inline-block;
+        vertical-align: baseline;
+        .destroy-message {
+        color: #808080;
+          -webkit-text-stroke: 1px white;
+        }
       }
-      .nickname-box {
-        .nickname {
-          text-decoration: none;
-          color: black;
+    }
+    .image-message-box {
+      display: inline-block;
+      .image-box {
+        .image {
+          border-radius: 5px;
+        }
+      }
+      .message-box {
+        background-color: #1DA1F2;
+        color: white;
+        padding: 10px;
+        border-radius: 12px;
+        display: inline-block;
+        position: relative;
+        max-width: 600px;
+        text-align: left;
+        &:after {
+          content: "";
+          display: inline-block;
+          position: absolute;
+          top: 3px; 
+          right: -19px;
+          border: 8px solid transparent;
+          border-left: 18px solid #1DA1F2;
+          -webkit-transform: rotate(-35deg);
+          transform: rotate(-35deg);
         }
       }
     }
   }
 
-  .message-avatar-nickname-box_visited_user {
+  .message-avatar-box_visited_user {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    .destroy-message {
-      color: #808080;
-      -webkit-text-stroke: 1px #FFFFFF;
-      text-align: left;
+    margin-bottom: 10px;
+    .avatar-box {
+      width: 32px;
+      height: 32px;
+      margin-right: 4px;
     }
-    .message-box {
-      width: 400px;
-      background-color: #EBEEF0;
-      color: #0F1419;
-      padding: 10px;
-      border-radius: 10px;
-      border-bottom-right-radius: 0;
-    }
-    .avatar-nickname-box {
-      display: flex;
-      align-items: center;
-      .avatar-box {
-        width: 32px;
-        height: 32px;
-        margin-right: 4px;
+    .image-message-box {
+      .image-box {
+        .image {
+          border-radius: 5px;
+        }
       }
-      .nickname-box {
-        .nickname {
-          text-decoration: none;
-          color: black;
+      .message-box {
+        background-color: #EBEEF0;
+        color: #0F1419;
+        padding: 10px 15px;
+        border-radius: 12px;
+        display: inline-block;
+        position: relative;
+        margin-left: 10px;
+        &:after {
+          content: "";
+          display: inline-block;
+          position: absolute;
+          top: 3px; 
+          left: -19px;
+          border: 8px solid transparent;
+          border-right: 18px solid #EBEEF0;
+          -webkit-transform: rotate(35deg);
+          transform: rotate(35deg);
         }
       }
     }
   }
 
-
-  // .no-message-caption {
-  //   height: 50px;
-  //   display: flex;
-  //   align-items: center;
-  //   justify-content: center;
-  // }
+  .no-message-caption {
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
   .new-dm-box {
     .form {
@@ -106,15 +169,32 @@
       // デフォルトのCSSをリセット（ここまで）
       display: flex;
       justify-content: space-between;
+      .image-label {
+        cursor: pointer;
+        .image-icon {
+          font-size: xx-large;
+          -webkit-text-stroke: 1px white;
+          // color: #1da1f2;
+        }
+        .image-caption {
+          font-weight: bold;
+          // margin-top: 5px;
+          text-align: center;
+          font-size: 14px;
+          // color: #1da1f2;
+        }
+      }
       .new-dm {
-        width: 750px;
+        // width: 750px;
+        width: 88%;
         height: 50px;
-        border-radius: 15px;
+        border-radius: 5px;
         background-color: #EBEEF0;
         border: none;
         padding: 5px 10px;
         outline: none;
         display: block;
+        resize: none;
         }
       button {
         padding: 0;
@@ -123,7 +203,6 @@
         cursor: pointer;
         outline: none;
         width: 36px;
-        margin-left: 6px;
         display: block;
         .dm-post-icon {
           color: black;
@@ -146,5 +225,13 @@
       color: #1da1f2;
       font-weight: bold;
     }
+  }
+
+
+  .footer {
+    position: fixed;
+    margin-bottom: 20px;
+    width: 800px;
+    background-color: #FFFFFF;
   }
 }

@@ -1,1 +1,7 @@
+<%# メッセージを削除 %>
 document.getElementById("message-<%= params[:id] %>").remove();
+
+<%# メッセージなしの場合の説明を挿入 %>
+if (document.getElementById("message-wrap").innerText == "") {
+  document.getElementById("message-wrap").innerHTML = '<div class="no-message-caption" id="no-message-caption"><span>メッセージはまだありません<span></div>';
+}

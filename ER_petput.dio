@@ -1,6 +1,6 @@
-<mxfile host="65bd71144e" modified="2021-01-15T23:10:24.893Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.52.1 Chrome/83.0.4103.122 Electron/9.3.5 Safari/537.36" etag="LfmpRsObAVsQl4CadOuO" version="13.10.0" type="embed">
+<mxfile host="65bd71144e" modified="2021-02-05T12:06:01.105Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.53.0 Chrome/87.0.4280.141 Electron/11.2.1 Safari/537.36" etag="Lpzwi80xYKy65bJceAVQ" version="13.10.0" type="embed">
     <diagram id="tgPKsGrlLU2FSLuXecN8" name="ページ1">
-        <mxGraphModel dx="1512" dy="1590" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="2085" dy="1515" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -22,7 +22,7 @@
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="14" value="comments" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" parent="1" vertex="1">
-                    <mxGeometry x="490" y="570" width="160" height="150" as="geometry"/>
+                    <mxGeometry x="500" y="670" width="160" height="150" as="geometry"/>
                 </mxCell>
                 <mxCell id="15" value="text&#10;user&#10;photo&#10;&#10;belongs_to :user&#10;belongs_to : photo&#10;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" parent="14" vertex="1">
                     <mxGeometry y="30" width="160" height="120" as="geometry"/>
@@ -49,7 +49,7 @@
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="44" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.75;exitY=0;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;startArrow=none;startFill=0;startSize=6;endArrow=ERmany;endFill=0;endSize=6;" edge="1" parent="1" source="9" target="40">
+                <mxCell id="44" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.75;exitY=0;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;startArrow=none;startFill=0;startSize=6;endArrow=ERmany;endFill=0;endSize=6;" parent="1" source="9" target="40" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="9" value="photos" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" parent="1" vertex="1">
@@ -58,7 +58,7 @@
                 <mxCell id="10" value="(image)&#10;caption&#10;category_id&#10;user&#10;&#10;belongs_to :user&#10;has_many :comments&#10;has_many :photo_hashtag_relations&#10;has_many :hashtags, through: :photo_hashtag_relations&#10;&#10;has_many :votes, dependent: :destroy&#10;has_many :voters, through: :votes, source: :user" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" parent="9" vertex="1">
                     <mxGeometry y="30" width="325" height="190" as="geometry"/>
                 </mxCell>
-                <mxCell id="45" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.25;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;startArrow=none;startFill=0;startSize=6;endArrow=ERmany;endFill=0;endSize=6;" edge="1" parent="1" source="11" target="39">
+                <mxCell id="45" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.25;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;startArrow=none;startFill=0;startSize=6;endArrow=ERmany;endFill=0;endSize=6;" parent="1" source="11" target="39" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
                             <mxPoint x="-260" y="285"/>
@@ -66,20 +66,35 @@
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="11" value="users" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" parent="1" vertex="1">
-                    <mxGeometry x="40" y="210" width="500" height="300" as="geometry"/>
+                <mxCell id="61" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=0;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;endArrow=ERmany;endFill=0;" edge="1" parent="1" source="11" target="47">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="100" y="220"/>
+                            <mxPoint x="100" y="190"/>
+                            <mxPoint x="-230" y="190"/>
+                            <mxPoint x="-230" y="-172"/>
+                        </Array>
+                    </mxGeometry>
                 </mxCell>
-                <mxCell id="12" value="nickname&#10;email&#10;password&#10;(avatar)&#10;profile&#10;&#10;has_many :photos&#10;has_many :comments&#10;&#10;has_many :relationships&#10;  has_many :followings, through: :relationships, source: :follow&#10;  has_many :reverse_of_relationships, class_name: 'Relationships', foreign_key: 'follow_id'&#10;  has_many :followers, through: :reverse_of_relationships, source: :user&#10;&#10;has_many :votes, dependent: :destroy&#10;has_many :voted_photos, through: :votes, source: :photo&#10;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" parent="11" vertex="1">
-                    <mxGeometry y="30" width="500" height="270" as="geometry"/>
+                <mxCell id="11" value="users" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="220" width="500" height="370" as="geometry"/>
+                </mxCell>
+                <mxCell id="12" value="nickname&#10;email&#10;password&#10;(avatar)&#10;profile&#10;&#10;has_many :photos&#10;has_many :comments&#10;&#10;has_many :relationships&#10;  has_many :followings, through: :relationships, source: :follow&#10;  has_many :reverse_of_relationships, class_name: 'Relationships', foreign_key: 'follow_id'&#10;  has_many :followers, through: :reverse_of_relationships, source: :user&#10;&#10;has_many :votes, dependent: :destroy&#10;has_many :voted_photos, through: :votes, source: :photo&#10;&#10;has_many :favorites, dependent: :destroy&#10;  has_many :favorite_photos, through: :favorites, source: :photo&#10;&#10;has_many :messages, dependent: :destroy&#10;  has_many :entries, dependent: :destroy" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" parent="11" vertex="1">
+                    <mxGeometry y="30" width="500" height="340" as="geometry"/>
                 </mxCell>
                 <mxCell id="29" value="relationships" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" parent="1" vertex="1">
-                    <mxGeometry x="-50" y="570" width="230" height="155" as="geometry"/>
+                    <mxGeometry x="-50" y="630" width="230" height="155" as="geometry"/>
                 </mxCell>
                 <mxCell id="30" value="user&#10;follow&#10;&#10;belongs_to :user&#10;  belongs_to :follow, class_name: 'User'" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" parent="29" vertex="1">
                     <mxGeometry y="30" width="230" height="125" as="geometry"/>
                 </mxCell>
                 <mxCell id="31" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.209;entryY=-0.026;entryDx=0;entryDy=0;entryPerimeter=0;endArrow=ERmany;endFill=0;" parent="1" source="12" target="29" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="40" y="490"/>
+                            <mxPoint x="-2" y="490"/>
+                        </Array>
+                    </mxGeometry>
                 </mxCell>
                 <mxCell id="32" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;endArrow=ERmany;endFill=0;" parent="1" source="12" target="29" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
@@ -96,13 +111,49 @@
                 <mxCell id="37" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.25;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;endArrow=ERmany;endFill=0;" parent="1" source="12" target="34" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="39" value="favorite" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" vertex="1" parent="1">
+                <mxCell id="39" value="favorites" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" parent="1" vertex="1">
                     <mxGeometry x="-10" y="-210" width="230" height="125" as="geometry"/>
                 </mxCell>
-                <mxCell id="40" value="user&#10;photo&#10;&#10;belongs_to :user&#10;  belongs_to :photo" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" vertex="1" parent="39">
+                <mxCell id="40" value="user&#10;photo&#10;&#10;belongs_to :user&#10;  belongs_to :photo" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" parent="39" vertex="1">
                     <mxGeometry y="30" width="230" height="95" as="geometry"/>
                 </mxCell>
-                <mxCell id="41" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="39" source="40" target="40">
+                <mxCell id="41" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="39" source="40" target="40" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="46" value="entries" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" parent="1" vertex="1">
+                    <mxGeometry x="-550" y="-210" width="230" height="125" as="geometry"/>
+                </mxCell>
+                <mxCell id="47" value="user&#10;room&#10;&#10;belongs_to :user&#10;belongs_to :room" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" parent="46" vertex="1">
+                    <mxGeometry y="30" width="230" height="95" as="geometry"/>
+                </mxCell>
+                <mxCell id="48" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="46" source="47" target="47" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="51" value="messages" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" vertex="1" parent="1">
+                    <mxGeometry x="-550" y="220" width="230" height="125" as="geometry"/>
+                </mxCell>
+                <mxCell id="52" value="user&#10;room&#10;content&#10;&#10;belongs_to :user&#10;belongs_to :room" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" vertex="1" parent="51">
+                    <mxGeometry y="30" width="230" height="95" as="geometry"/>
+                </mxCell>
+                <mxCell id="53" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="51" source="52" target="52">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="58" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;endArrow=ERmany;endFill=0;" edge="1" parent="1" source="54" target="47">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="54" value="rooms" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" vertex="1" parent="1">
+                    <mxGeometry x="-550" y="20" width="230" height="125" as="geometry"/>
+                </mxCell>
+                <mxCell id="55" value="name（空白で使用）&#10;&#10;has_many :messages&#10;has_many :entries" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" vertex="1" parent="54">
+                    <mxGeometry y="30" width="230" height="95" as="geometry"/>
+                </mxCell>
+                <mxCell id="56" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="54" source="55" target="55">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="57" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;endArrow=ERmany;endFill=0;" edge="1" parent="1" source="55" target="51">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="60" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;endArrow=ERmany;endFill=0;" edge="1" parent="1" source="12" target="52">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
             </root>

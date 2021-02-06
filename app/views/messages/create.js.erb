@@ -17,5 +17,13 @@ function createElementFromHTML(html) {
 <%# newメッセージを子ノードの末尾に追加 %>
 document.getElementById("message-wrap").appendChild(createElementFromHTML('<%= escape_javascript(render partial: 'rooms/message', locals: { message: @message }) %>'));
 
+<%# 添付画像をクリア %>
+document.getElementById("file_photo").value ="";
+
 <%# 入力ボックスをクリア %>
 document.getElementById("new-dm").value = "";
+
+<%# メッセージなしの場合の説明を削除 %>
+if (document.getElementById("no-message-caption") != null) {
+  document.getElementById("no-message-caption").remove();
+}

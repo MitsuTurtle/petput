@@ -43,6 +43,10 @@ Things you may want to cover:
 - has_many :followers, through: :reverse_of_relationships, source: :user
 - has_many :votes, dependent: :destroy
 - has_many :voted_photos, through: :votes, source: :photo
+- has_many :favorites, dependent: :destroy
+- has_many :favorite_photos, through: :favorites, source: :photo
+- has_many :messages, dependent: :destroy
+- has_many :entries, dependent: :destroy
 
 ## photos テーブル
 | Column      | Type       | Options                        |
@@ -109,3 +113,45 @@ belongs_to :hashtag
 ### Association
 - belongs_to :user
 - belongs_to :photo
+
+## favorites テーブル
+| Column | Type       | Options                        |
+| -------| ---------- | ------------------------------ |
+| user   | references | null: false, foreign_key: true |
+| photo  | references | null: false, foreign_key: true |
+
+### Association
+- belongs_to :user
+- belongs_to :photo
+
+## Entries テーブル
+| Column | Type       | Options                        |
+| -------| ---------- | ------------------------------ |
+| user   | references | null: false, foreign_key: true |
+| room   | references | null: false, foreign_key: true |
+
+### Association
+- belongs_to :user
+- belongs_to :room
+
+## Messages テーブル
+| --------| ---------- | ------------------------------ |
+| user    | references | null: false, foreign_key: true |
+| room    | references | null: false, foreign_key: true |
+| content | text       |                                |
+
+### Association
+- belongs_to :user
+- belongs_to :room
+
+## Rooms テーブル
+| ---- | ------ | ----- |
+| name | string |       |
+
+### Association
+- has_many :messages
+- has_many :entries
+
+
+
+

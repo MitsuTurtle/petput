@@ -2,65 +2,66 @@
 
           <% if message.user == current_user %>
 
-            <div class="message-avatar-nickname-box_current_user">
-              <%# メッセージ %>
-              <div class="message-box">
-                <%= safe_join(message.content.split("\n"), tag(:br)) %>
-              </div>
+            <div class="message-delete-box_current_user">
 
               <%# 削除ボタン %>
-              <div>
-                <% if user_signed_in? && message.user == current_user %>
-                  <%= link_to message_path(message), method: :delete, class: "destroy-message", data: {confirm:'本当に削除しますか？'}, remote: true do %>
-                    <i class="fas fa-trash-alt"></i>
-                  <% end %>
-                <% end %>
-              </div>
 
-              <%# ユーザー情報 %>
-              <div class="avatar-nickname-box">
-                <div class="avatar-box">
-                  <%# avatar部分テンプレート %>
-                  <%= render partial: 'shared/avatar', locals: { user: message.user } %>
+                <div class="destroy-box">
+                  <% if user_signed_in? && message.user == current_user %>
+                    <%= link_to message_path(message), method: :delete, class: "destroy-message", data: {confirm:'本当に削除しますか？'}, remote: true do %>
+                      <i class="fas fa-trash-alt"></i>
+                    <% end %>
+                  <% end %>
                 </div>
-                <div class="nickname-box">
-                  <%= link_to "#{message.user.nickname}", user_path(message.user), class: "nickname" %>
+
+                <div class="image-message-box">
+                  <%# 画像 %>
+                  <% if message.dm_image.present? %>
+                    <div class="image-box">
+                      <%= image_tag message.dm_image.variant(resize: '450x'), class: "image" if message.dm_image.attached? %>
+                    </div>
+                  <% end %>
+
+                  <%# メッセージ %>
+                  <% if message.content.present? %>
+                    <div class="message-box">
+                      <%= safe_join(message.content.split("\n"), tag(:br)) %>
+                    </div>
+                  <% end %>
                 </div>
-              </div>
+
             </div>
 
           <% else %>
 
-            <div class="message-avatar-nickname-box_visited_user">
-              <%# メッセージ %>
-              <div class="message-box">
-                <%= message.content %>
-              </div>
-
-              <%# 削除ボタン %>
-              <div>
-                <% if user_signed_in? && message.user == current_user %>
-
-                  <%= link_to message_path(message), method: :delete, class: "destroy-message", data: {confirm:'本当に削除しますか？'}, remote: true do %>
-                    <i class="fas fa-trash-alt"></i>
-                  <% end %>
-
-                <% end %>
-              </div>
-
-              <%# ユーザー情報 %>
-              <div class="avatar-nickname-box">
+            <div class="message-avatar-box_visited_user">
+              
+              <%# avatar %>
+              <%= link_to user_path(message.user) do %>
                 <div class="avatar-box">
                   <%# avatar部分テンプレート %>
                   <%= render partial: 'shared/avatar', locals: { user: message.user } %>
                 </div>
-                <div class="nickname-box">
-                  <%= link_to "#{message.user.nickname}", user_path(message.user), class: "nickname" %>
-                </div>
+              <% end %>
+
+              <div class="image-message-box">
+                <%# 画像 %>
+                <% if message.dm_image.present? %>
+                  <div class="image-box">
+                    <%= image_tag message.dm_image.variant(resize: '450x'), class: "image" if message.dm_image.attached? %>
+                  </div>
+                <% end %>
+
+                <%# メッセージ %>
+                <% if message.content.present? %>
+                  <div class="message-box">
+                    <%= message.content %>
+                  </div>
+                <% end %>
               </div>
+
             </div>
 
           <% end %>
 
-          <hr>
         </div>

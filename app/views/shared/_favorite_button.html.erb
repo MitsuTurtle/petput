@@ -1,18 +1,20 @@
-<%# ログインしているユーザーがファボしたかどうかで分岐  %>
-<% if photo.favorited_by?(current_user) %> 
-  <div class="bookmark-box">
-    <%# お気に入り解除 %>
-    <%=link_to photo_favorites_path(photo.id), method: :delete, class: "bookmark-link", remote: true do %>
-      <i class="fas fa-star bookmark-icon"></i>
-      <div class="bookmark-caption">お気に入り</div>
-    <% end %>
-  </div>
-<% else %>
-  <div class="bookmark-box">
-    <%# お気に入り登録 %>
-    <%=link_to photo_favorites_path(photo.id), method: :post, class: "bookmark-link", remote: true do %>
-      <i class="far fa-star bookmark-icon"></i>
-      <div class="bookmark-caption">お気に入り</div>
-    <% end %>
-  </div>
+<% if user_signed_in? %>
+  <%# ログインしているユーザーがファボしたかどうかで分岐  %>
+  <% if photo.favorited_by?(current_user) %> 
+    <div class="bookmark-box">
+      <%# お気に入り解除 %>
+      <%=link_to photo_favorites_path(photo.id), method: :delete, class: "bookmark-link", remote: true do %>
+        <i class="fas fa-star bookmark-icon"></i>
+        <div class="bookmark-caption">お気に入り</div>
+      <% end %>
+    </div>
+  <% else %>
+    <div class="bookmark-box">
+      <%# お気に入り登録 %>
+      <%=link_to photo_favorites_path(photo.id), method: :post, class: "bookmark-link", remote: true do %>
+        <i class="far fa-star bookmark-icon"></i>
+        <div class="bookmark-caption">お気に入り</div>
+      <% end %>
+    </div>
+  <% end %>
 <% end %>
