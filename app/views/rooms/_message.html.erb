@@ -14,9 +14,20 @@
                   <% end %>
                 </div>
 
-                <%# メッセージ %>
-                <div class="message-box">
-                  <%= safe_join(message.content.split("\n"), tag(:br)) %>
+                <div class="image-message-box">
+                  <%# 画像 %>
+                  <% if message.dm_image.present? %>
+                    <div class="image-box">
+                      <%= image_tag message.dm_image.variant(resize: '450x'), class: "image" if message.dm_image.attached? %>
+                    </div>
+                  <% end %>
+
+                  <%# メッセージ %>
+                  <% if message.content.present? %>
+                    <div class="message-box">
+                      <%= safe_join(message.content.split("\n"), tag(:br)) %>
+                    </div>
+                  <% end %>
                 </div>
 
             </div>
@@ -33,9 +44,20 @@
                 </div>
               <% end %>
 
-              <%# メッセージ %>
-              <div class="message-box">
-                <%= message.content %>
+              <div class="image-message-box">
+                <%# 画像 %>
+                <% if message.dm_image.present? %>
+                  <div class="image-box">
+                    <%= image_tag message.dm_image.variant(resize: '450x'), class: "image" if message.dm_image.attached? %>
+                  </div>
+                <% end %>
+
+                <%# メッセージ %>
+                <% if message.content.present? %>
+                  <div class="message-box">
+                    <%= message.content %>
+                  </div>
+                <% end %>
               </div>
 
             </div>
