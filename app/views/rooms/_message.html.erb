@@ -28,6 +28,8 @@
                       <%= safe_join(message.content.split("\n"), tag(:br)) %>
                     </div>
                   <% end %>
+                  <% week = %w(日 月 火 水 木 金 土)[message.created_at.wday] %>
+                  <div class="created_at"><%= message.created_at.strftime("%Y年%m月%d日(#{week}) %H:%M")%></div>
                 </div>
 
             </div>
@@ -58,6 +60,8 @@
                     <%= message.content %>
                   </div>
                 <% end %>
+                <% week = %w(日 月 火 水 木 金 土)[message.created_at.wday] %>
+                <div class="created_at"><%= message.created_at.strftime("%Y年%m月%d日(#{week}) %H:%M")%></div>
               </div>
 
             </div>

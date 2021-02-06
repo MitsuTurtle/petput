@@ -110,6 +110,12 @@
           transform: rotate(-35deg);
         }
       }
+      .created_at {
+        font-size: 10px;
+        color: #757575;
+        margin-top: 5px;
+        margin-right: 5px;
+      }
     }
   }
 
@@ -147,6 +153,12 @@
           -webkit-transform: rotate(35deg);
           transform: rotate(35deg);
         }
+      }
+      .created_at {
+        font-size: 10px;
+        color: #757575;
+        margin-top: 5px;
+        margin-left: 15px;
       }
     }
   }
