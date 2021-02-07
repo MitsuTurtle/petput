@@ -6,6 +6,8 @@ class PhotosController < ApplicationController
   def index
     @photos = Photo.order(created_at: 'DESC')
     # @photos = Photo.all.shuffle
+    # ↓ページネーション用コード
+    # @photos = @photos.page(params[:page]).per(9)
     @followings_photos = []
     if user_signed_in?
       current_user.followings.each do |following|
@@ -14,6 +16,8 @@ class PhotosController < ApplicationController
       @my_timeline_photos = @followings_photos.concat(current_user.photos)
       @my_timeline_photos = @my_timeline_photos.sort { |a, b| b[:id] <=> a[:id] }
     end
+    # ↓ページネーション用コード
+    # @my_timeline_photos = Kaminari.paginate_array(@my_timeline_photos).page(params[:page]).per(9)
   end
 
   def new

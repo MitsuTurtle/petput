@@ -15,12 +15,18 @@
       <ul class='photo-lists'>
         <%= render partial:"shared/photos", locals: {photos: @my_timeline_photos} %>
       </ul>
+      <%# ↓ページネーション用コード %>
+      <%# <%= paginate @my_timeline_photos %>
       
       <h2 class='title'>最新投稿</h2>
       <%# <h2 class='title'>ランダム表示</h2> %>
       <ul class='photo-lists'>
         <%= render partial:"shared/photos", locals: {photos: @photos} %>
       </ul>
+
+      <%# ↓ページネーション用コード %>
+      <%# <%= paginate @photos %>
+
   <% end %>
 
 </div>
