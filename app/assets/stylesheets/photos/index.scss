@@ -1,0 +1,44 @@
+.photo-contents {
+  padding: 15px 20px;
+  padding-top: 84px;
+  background-color: #FAFAFA;
+  .title {
+    color: #262626;
+    font-weight: bold;
+    margin-bottom: 16px;
+  }
+}
+
+// ユーザーページの写真一覧でも使用
+.photo-lists {
+  width: 96vw;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 0 5vw;
+  &:after {
+    content: "";
+    display: block;
+    width: 26vw;  /* .boxに指定したwidthと同じ幅を指定する */
+    height: 0;
+    margin: 0 1.3vw 2.6vw 1.3vw;
+  }
+  .list {
+    margin: 0 1.3vw 2.6vw 1.3vw;
+    width: 26vw;
+    height: 26vw;
+    .photo-img {
+      width: 100%;
+      height: 100%;
+      transition: 0s;
+      &:hover {
+        filter: brightness(80%);
+      }
+    }
+    .vote-comment-symbol {
+      text-align: center;
+      color: #757575;
+      font-size: 1.3vw;
+    }
+  }
+}

@@ -8,6 +8,7 @@
   margin-bottom: 16px;
   position: fixed;
   background-color: white;
+  z-index: 1;
 }
 
 /* アプリアイコン */
