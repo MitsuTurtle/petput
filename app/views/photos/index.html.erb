@@ -2,20 +2,6 @@
 
 <div class='photo-contents'>
 
-  <%# Modal Window %>
-  <div id="open">
-    詳細を見る
-  </div>
-
-  <div id="mask" class="hidden2"></div>
-
-  <section id="modal" class="hidden2">
-    <p>写真詳細。写真詳細。写真詳細。写真詳細。写真詳細。写真詳細。写真詳細。写真詳細。写真詳細。写真詳細。写真詳細。写真詳細。写真詳細。写真詳細。写真詳細。写真詳細。写真詳細。写真詳細。写真詳細。写真詳細。写真詳細。写真詳細。写真詳細。<p>
-    <div id="close">
-      閉じる
-    </div>
-  </section>
-
   <% if (user_signed_in? && !@followings_photos.present?) || !user_signed_in? %>
     <h2 class='title'>最新投稿</h2>
     <ul class='photo-lists'>
@@ -44,27 +30,3 @@
 </div>
 
 <%= render 'shared/footer' %>
-
-<%# Modal Window %>
-<script>
-  const open = document.getElementById('open');
-  const close = document.getElementById('close');
-  const modal = document.getElementById('modal');
-  const mask = document.getElementById('mask');
-
-  open.addEventListener('click', () => {
-    modal.classList.remove('hidden2');
-    mask.classList.remove('hidden2');
-  });
-
-  close.addEventListener('click', () => {
-    modal.classList.add('hidden2');
-    mask.classList.add('hidden2');
-  });
-
-  mask.addEventListener('click', () => {
-    // modal.classList.add('hidden2');
-    // mask.classList.add('hidden2');
-    close.click();
-  });
-</script>

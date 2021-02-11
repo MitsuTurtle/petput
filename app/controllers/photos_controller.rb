@@ -37,6 +37,11 @@ class PhotosController < ApplicationController
     @comment = Comment.new
     @comments = @photo.comments.order(created_at: 'ASC').includes(:user)
     @user = Photo.find(params[:id]).user
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def edit
