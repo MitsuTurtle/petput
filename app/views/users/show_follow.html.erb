@@ -10,7 +10,7 @@
 
     <div class="user-box">
       <div class="avatar-box-photo-show">
-        <%= image_tag user.avatar.variant(gravity: :center, resize:"640x640^", crop:"640x640+0+0"), class: "avatar-img" if user.avatar.attached? %>
+        <%= render partial: 'shared/avatar', locals: { user: user } %>
       </div>
       <div class="nickname-follow-profile-box">
         <div class="nickname-follow-box">
@@ -26,7 +26,9 @@
           </div>
         </div>
         <div>
-            プロフィール記入欄
+        <% if user.profile.present? %>
+          <%= safe_join(user.profile.split("\n"), tag(:br)) %>
+        <% end %>
         </div>
       </div>
     </div>

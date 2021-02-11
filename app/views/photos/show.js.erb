@@ -1,0 +1,12 @@
+var modal = document.getElementById('modal');
+var mask = document.getElementById('mask');
+
+modal.innerHTML = '<%= escape_javascript(render partial: 'shared/photo_show', locals: { photo: @photo, comments: @comments, user: @user, comment: @comment }) %>';
+
+modal.classList.remove('hidden2');
+mask.classList.remove('hidden2');
+
+mask.addEventListener('click', () => {
+  modal.classList.add('hidden2');
+  mask.classList.add('hidden2');
+  });

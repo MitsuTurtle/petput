@@ -1,7 +1,13 @@
+      <%# Modal Window %>
+      <div id="mask" class="hidden2"></div>
+      <div id="modal" class="hidden2">
+        <p>モーダルウィンドウ<p>
+      </div>
+    
     <% if photos != nil %>
       <% photos.each do |photo| %>
       <li class='list'>
-        <%= link_to photo_path(photo.id) do %>
+        <%= link_to photo_path(photo.id), remote: true do %>
           <%= image_tag photo.image.variant(gravity: :center, resize:"640x640^", crop:"640x640+0+0"), class: "photo-img" if photo.image.attached? %>
         <% end %>
 

@@ -1,9 +1,9 @@
 .photo-show {
-  background-color: #999999;
-  width: 100vw;
-  height: 100vh;
-  padding: 40px 0;
-  font-size:14px;
+  // background-color: #999999;
+  // width: 100vw;
+  // height: 100vh;
+  // padding: 40px 0;
+  // font-size:14px;
 }
 
 .photo-caption-comments-box {
@@ -13,74 +13,82 @@
   display: flex;
   background-color: white;
   position: relative;
-  .bookmark-box {
-    position:absolute;
-    top: 10px;
-    left: 10px;
-    width: 55px;
-    height: 55px;
-    // text-align: center;
+  border-radius: 4px;
+  .left-box {
+    width: calc(100% - 335px);
+    text-align: center;
     background-color: black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    .bookmark-link {
-      text-decoration: none;
-      color: gold;
-      .bookmark-icon {
-        font-size:x-large;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    .bookmark-box {
+      position:absolute;
+      top: 10px;
+      left: 10px;
+      width: 55px;
+      height: 55px;
+      // text-align: center;
+      background-color: black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .bookmark-link {
+        text-decoration: none;
+        color: gold;
+        .bookmark-icon {
+          font-size:x-large;
+        }
+        .bookmark-caption {
+          font-size: xx-small;
+          display: block;
+          margin-top: 5px;
+        }
       }
-      .bookmark-caption {
-        font-size: xx-small;
-        display: block;
-        margin-top: 5px;
-      }
+    }
+    .left-box-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
     }
   }
 }
 
-.left-box {
-  width: calc(100% - 335px);
-  text-align: center;
-  background-color: black;
-}
-.left-box-photo {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
+
+
 
 .right-box {
   width: 335px;
-}
-.right-box-header {
-  position: relative;
-  height: 70px;
-  display: flex;
-  align-items: center;
-  padding-left: 14px;
-  font-weight: bold;
-  border-bottom: solid 1px #EEEEEE;
-}
-.nickname-follow {
-  display: flex;
-  align-items: center;
-}
-.nickname-follow>.nickname {
-  color: black;
-}
-.nickname-follow>.follow {
-  /* color: #1E90FF; */
-  display: inline-block;
-}
-.btn-box {
-  margin-bottom: none;
+  .right-box-header {
+    position: relative;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    padding-left: 14px;
+    font-weight: bold;
+    border-bottom: solid 1px #EEEEEE;
+    .nickname-follow {
+      display: flex;
+      align-items: center;
+      .avatar-box-photo-show {
+        width: 32px;
+        height: 32px;
+        margin-right: 4px;
+        display: inline-block;
+      }
+      .nickname {
+        color: black;
+      }
+      .follow {
+        /* color: #1E90FF; */
+        display: inline-block;
+      }
+    }
+    .back-btn {
+      position: absolute;
+      left: 250px;
+    }
+  }
 }
 
-.photo-show .back-btn {
-  position: absolute;
-  left: 250px;
-}
 .photo-show .menu {
   margin-left: auto;
   margin-right: 16px;
@@ -90,7 +98,7 @@
   margin-left: auto;
 }
 .photo-show .link-list {
-  transform: translateY(-50vh);
+  transform: translateY(0vh);
   background-color: white;
   padding: 5px;
   /* border: 1px solid #333333; */
@@ -171,12 +179,7 @@ li>.last-link, li>.back-link {
   display: flex;
 }
 
-.avatar-box-photo-show {
-  width: 32px;
-  height: 32px;
-  margin-right: 4px;
-  display: inline-block;
-}
+
 .nickname-comment-box {
   width: 250px;
 }

@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   get 'favorites/create'
   get 'favorites/destroy'
   devise_for :users
-  root to: "photos#index"
+  root to: "top#index"
   resources :photos do
     resources :comments, only: [:create, :destroy]
     collection do
