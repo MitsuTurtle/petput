@@ -12,6 +12,9 @@ module NotificationsHelper
       when "comment" then
         @comment = Comment.find_by(id: notification.comment_id).text
         "#{visiter}が#{your_photo}にコメントしました"
+      when "dm" then
+        dm_link = link_to "DM", room_path(notification.room.id)
+        "#{visiter}があなたに#{dm_link}を送りました"
     end
   end
 

@@ -3,4 +3,6 @@ class Notification < ApplicationRecord
   belongs_to :comment, optional: true
   belongs_to :visiter, class_name: "User"
   belongs_to :visited, class_name: "User"
+  belongs_to :room, optional: true
+  belongs_to :message, optional: true
 end

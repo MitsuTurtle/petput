@@ -4,6 +4,8 @@ class Message < ApplicationRecord
 
   has_one_attached :dm_image
 
+  has_one :notification, dependent: :destroy
+
   validates :content, presence: true, unless: :was_attached?
 
   def was_attached?
