@@ -4,8 +4,11 @@ class RelationshipsController < ApplicationController
   def create
     following = current_user.follow(@user)
     if following.save
-      #通知の作成
-      @user.create_notification_follow!(current_user)
+
+      #通知の作成（ここから）
+      @user.create_follow_notification_by(current_user)
+      #通知の作成（ここまで）
+
       # flash[:success] = 'ユーザーをフォローしました'
       # redirect_to user_path(@user)
       render 'follow.js.erb'

@@ -17,7 +17,7 @@ class MessagesController < ApplicationController
           visited_id: @room_member_not_me.user_id,
           visitor_id: current_user.id,
           action: 'dm'
-      )
+          )
       notification.save if notification.valid?
       # 通知機能（ここまで）
 

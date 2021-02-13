@@ -59,8 +59,8 @@ class User < ApplicationRecord
     photo && photo.user != self && votes.exists?(photo_id: photo.id)
   end
 
-#フォロー時の通知
-  def create_notification_follow!(current_user)
+#フォローの通知メソッド
+  def create_follow_notification_by(current_user)
     temp = Notification.where(["visitor_id = ? and visited_id = ? and action = ? ",current_user.id, id, 'follow'])
     if temp.blank?
       notification = current_user.active_notifications.new(
