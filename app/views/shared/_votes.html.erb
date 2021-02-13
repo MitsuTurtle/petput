@@ -9,6 +9,12 @@
         <i class="fas fa-heart"></i>
       <% end %>
       <span><%= photo.votes.count %></span>
+      
+    <% elsif current_user.id == photo.user_id %>
+      <span class="vote-btn-like">
+        <i class="far fa-heart"></i>
+      </span>
+      <span><%= photo.votes.count %></span>
     <% end %>
   </div>
 
