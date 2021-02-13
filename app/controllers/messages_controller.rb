@@ -15,7 +15,7 @@ class MessagesController < ApplicationController
           room_id: @room.id,
           message_id: @message.id,
           visited_id: @room_member_not_me.user_id,
-          visiter_id: current_user.id,
+          visitor_id: current_user.id,
           action: 'dm'
       )
       notification.save if notification.valid?

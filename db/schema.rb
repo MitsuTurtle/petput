@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_13_011231) do
+ActiveRecord::Schema.define(version: 2021_02_13_030832) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -79,7 +79,7 @@ ActiveRecord::Schema.define(version: 2021_02_13_011231) do
   end
 
   create_table "notifications", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "visiter_id", null: false
+    t.bigint "visitor_id", null: false
     t.bigint "visited_id", null: false
     t.bigint "photo_id"
     t.bigint "comment_id"
@@ -94,7 +94,7 @@ ActiveRecord::Schema.define(version: 2021_02_13_011231) do
     t.index ["photo_id"], name: "index_notifications_on_photo_id"
     t.index ["room_id"], name: "index_notifications_on_room_id"
     t.index ["visited_id"], name: "index_notifications_on_visited_id"
-    t.index ["visiter_id"], name: "index_notifications_on_visiter_id"
+    t.index ["visitor_id"], name: "index_notifications_on_visitor_id"
   end
 
   create_table "photo_hashtag_relations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -168,7 +168,7 @@ ActiveRecord::Schema.define(version: 2021_02_13_011231) do
   add_foreign_key "notifications", "photos"
   add_foreign_key "notifications", "rooms"
   add_foreign_key "notifications", "users", column: "visited_id"
-  add_foreign_key "notifications", "users", column: "visiter_id"
+  add_foreign_key "notifications", "users", column: "visitor_id"
   add_foreign_key "photo_hashtag_relations", "hashtags"
   add_foreign_key "photo_hashtag_relations", "photos"
   add_foreign_key "photos", "users"
