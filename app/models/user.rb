@@ -7,6 +7,14 @@ class User < ApplicationRecord
   has_many :photos, dependent: :destroy
   has_many :comments, dependent: :destroy
 
+  has_many :relationships
+  has_many :followings, through: :relationships, source: :follow
+  has_many :reverse_of_relationships, class_name: 'Relationship', foreign_key: 'follow_id'
+  has_many :followers, through: :reverse_of_relationships, source: :user
+
+  has_many :favorites, dependent: :destroy
+  has_many :favorite_photos, through: :favorites, source: :photo
+
   has_many :votes, dependent: :destroy
   has_many :voted_photos, through: :votes, source: :photo
 
@@ -14,6 +22,9 @@ class User < ApplicationRecord
 
   has_many :messages, dependent: :destroy
   has_many :entries, dependent: :destroy
+
+  has_many :active_notifications, class_name: "Notification", foreign_key: "visiter_id", dependent: :destroy
+  has_many :passive_notifications, class_name: "Notification", foreign_key: "visited_id", dependent: :destroy
 
   with_options presence: true do
     validates :nickname, uniqueness: { case_sensitive: true }
@@ -26,14 +37,6 @@ class User < ApplicationRecord
   validates :password, presence: true, format: { with: PASSWORD_REGEX, message: 'には英字と数字の両方を含めて設定してください' }, on: :create
 
   validates :profile, length: { maximum: 160 }
-
-  has_many :relationships
-  has_many :followings, through: :relationships, source: :follow
-  has_many :reverse_of_relationships, class_name: 'Relationship', foreign_key: 'follow_id'
-  has_many :followers, through: :reverse_of_relationships, source: :user
-
-  has_many :favorites, dependent: :destroy
-  has_many :favorite_photos, through: :favorites, source: :photo
 
   def follow(other_user)
     relationships.find_or_create_by(follow_id: other_user.id) unless self == other_user
@@ -55,4 +58,17 @@ class User < ApplicationRecord
   def deletable_for?(photo)
     photo && photo.user != self && votes.exists?(photo_id: photo.id)
   end
+
+#フォロー時の通知
+  def create_notification_follow!(current_user)
+    temp = Notification.where(["visiter_id = ? and visited_id = ? and action = ? ",current_user.id, id, 'follow'])
+    if temp.blank?
+      notification = current_user.active_notifications.new(
+        visited_id: id,
+        action: 'follow'
+      )
+      notification.save if notification.valid?
+    end
+  end
+
 end

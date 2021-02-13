@@ -1,6 +1,9 @@
 class CommentsController < ApplicationController
   def create
     comment = Comment.create(comment_params)
+    #通知の作成
+    @comment_photo = comment.photo
+    @comment_photo.create_notification_comment!(current_user, comment.id)
     @comments = comment.photo.comments.includes(:user) # Ajax用インスタンス変数
     @photo = comment.photo # Ajax用インスタンス変数
     @comment = Comment.new # Ajax用インスタンス変数

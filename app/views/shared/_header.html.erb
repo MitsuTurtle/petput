@@ -64,6 +64,19 @@
       <li><%= link_to '新規登録', new_user_registration_path, class: "signup" %></li>
     <% end %>
   </ul> 
+
+  <% if user_signed_in? %>
+    <% if unchecked_notifications.any? %>
+      <i class="fas fa-circle" style="color: gold;"></i>
+    <% end %>
+    <ul>
+      <li>
+        <%= link_to "NOTICE", notifications_path, class: "btn-default" %>
+      </li>
+    </ul>
+  <% end %>
+
+
 </header>
 
 
