@@ -10,7 +10,7 @@
       <% end %>
       <span><%= photo.votes.count %></span>
       
-    <% elsif current_user.id == photo.user_id %>
+    <% else %>
       <span class="vote-btn-like">
         <i class="far fa-heart"></i>
       </span>
