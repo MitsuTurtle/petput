@@ -8,16 +8,16 @@ class MessagesController < ApplicationController
       # 通知機能（ここから）
       @room = @message.room
       # 配列として取得
-      @room_member_not_me_array=Entry.where(room_id: @room.id).where.not(user_id: current_user.id)
+      @room_member_not_me_array = Entry.where(room_id: @room.id).where.not(user_id: current_user.id)
       # 配列の要素として取得
-      @room_member_not_me=@room_member_not_me_array.find_by(room_id: @room.id)
-        notification = current_user.active_notifications.new(
-          room_id: @room.id,
-          message_id: @message.id,
-          visited_id: @room_member_not_me.user_id,
-          visitor_id: current_user.id,
-          action: 'dm'
-          )
+      @room_member_not_me = @room_member_not_me_array.find_by(room_id: @room.id)
+      notification = current_user.active_notifications.new(
+        room_id: @room.id,
+        message_id: @message.id,
+        visited_id: @room_member_not_me.user_id,
+        visitor_id: current_user.id,
+        action: 'dm'
+      )
       notification.save if notification.valid?
       # 通知機能（ここまで）
 

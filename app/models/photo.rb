@@ -53,7 +53,7 @@ class Photo < ApplicationRecord
     notification = current_user.active_notifications.new(
       photo_id: id,
       visited_id: user_id,
-      action: "like"
+      action: 'like'
     )
     notification.save if notification.valid?
   end
@@ -70,7 +70,7 @@ class Photo < ApplicationRecord
     if current_user.id != user_id && !temp_ids.find_by(user_id: user_id).present?
       save_comment_notification(current_user, comment_id, user_id)
     end
-    
+
     # まだ誰もコメントしていない場合は、投稿者に通知を送る（上のコードでカバーされている）
     # save_comment_notification(current_user, comment_id, user_id) if temp_ids.blank?
   end

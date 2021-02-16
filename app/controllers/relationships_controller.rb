@@ -5,9 +5,9 @@ class RelationshipsController < ApplicationController
     following = current_user.follow(@user)
     if following.save
 
-      #通知の作成（ここから）
+      # 通知の作成（ここから）
       @user.create_follow_notification_by(current_user)
-      #通知の作成（ここまで）
+      # 通知の作成（ここまで）
 
       # flash[:success] = 'ユーザーをフォローしました'
       # redirect_to user_path(@user)
