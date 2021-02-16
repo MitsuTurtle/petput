@@ -90,7 +90,12 @@ class PhotosController < ApplicationController
   # いいね
   def like
     current_user.voted_photos << @photo
+
+    # 通知の作成（ここから）
+    @photo.create_like_notification_by(current_user)
     render 'vote.js.erb'
+    # 通知の作成（ここまで）
+
     # redirect_to photo_path, notice: "いいねしました。"
   end
 

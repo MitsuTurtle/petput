@@ -1,0 +1,26 @@
+<div class="notification-each">
+
+  <%# あとでアバターを入れる %>
+
+  <% week = %w(日 月 火 水 木 金 土)[notification.created_at.wday] %>
+  <div class="created-at"><%= notification.created_at.strftime("%Y年%m月%d日(#{week}) %H:%M")%></div>
+
+  <div class="avatar-notification-box">
+    <div class="avatar-box">
+      <%# avatar部分テンプレート %>
+      <%= render partial: 'shared/avatar', locals: { user: notification.visitor } %>
+    </div>
+    <%= notification_form(notification).html_safe %>
+
+    <%# <span><%= " (#{time_ago_in_words(notification.created_at)} 前)" %</span> %>
+  </div>
+
+  <% if !@comment.nil? %>
+  <p class="comment"><%= @comment %></p>
+  <% end %>
+
+  <% if !@dm.nil? %>
+  <p class="dm"><%= @dm %></p>
+  <% end %>
+
+</div>

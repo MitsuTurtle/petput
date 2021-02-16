@@ -1,0 +1,19 @@
+<%= render 'shared/header' %>
+
+<div class="notifications-box">
+  <div class="notification-header">
+    <h2 class="notification-header-title">お知らせ</h2>
+    <%= link_to notification_path(current_user.id), method: :delete, data: {confirm:'本当に削除しますか？'}, class: "destroy-link" do %>
+      <i class="fas fa-trash-alt" aria-hidden="true"></i>
+      <span>全削除</span>
+    <% end %>
+  </div>
+
+  <% if @notifications.exists? %>
+  <div class="notification-contents">
+    <%= render partial: 'shared/notification', collection: @notifications %>
+  </div>
+  <% else %>
+  <p>通知はありません</p>
+  <% end %>
+</div>
