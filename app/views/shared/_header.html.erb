@@ -1,83 +1,85 @@
 <header class='top-page-header'>
   <%= link_to image_tag("petput-logo.png", class:"petput-icon"), photos_path %>
   <%= form_with url: search_photos_path, local: true, method: :get, class: "search-form", id: "search-button-id" do |form| %>
-    <%= form.text_field :keyword, class: "input-box", placeholder: "検索" %>
-    <button form="search-button-id", class="search-button">
-      <%= image_tag "search.png", class:"search-icon" %>
-    </button>
-    <%= form.submit "検索", class: "hidden-search-button" %>
+  <%= form.text_field :keyword, class: "input-box", placeholder: "検索" %>
+  <button form="search-button-id" , class="search-button">
+    <%= image_tag "search.png", class:"search-icon" %>
+  </button>
+  <%= form.submit "検索", class: "hidden-search-button" %>
   <% end %>
 
   <%= search_form_for @q, url: photo_category_path, class: "category-search-form", id: "category-search-button-id" do |f| %>
-    <%= f.collection_select :category_id_eq, Category.where.not(id: 0), :id, :name, {include_blank: "カテゴリー検索"}, class: "category-input-box" %>
+  <%= f.collection_select :category_id_eq, Category.where.not(id: 0), :id, :name, {include_blank: "カテゴリー検索"}, class: "category-input-box" %>
 
-    <button form="category-search-button-id", class="search-button">
-      <%= image_tag "search.png", class:"search-icon" %>
-    </button>
+  <button form="category-search-button-id" , class="search-button">
+    <%= image_tag "search.png", class:"search-icon" %>
+  </button>
 
-    <%= f.submit '検索', class: "hidden-search-button" %>
+  <%= f.submit '検索', class: "hidden-search-button" %>
   <% end %>
 
   <ul class='header-link'>
     <li><%= link_to '新規投稿', new_photo_path, class: "new-photo" %></li>
     <% if user_signed_in? %>
-      <li class="avatar-nickname">
-        <div class="avatar-box-header">
-          <%= image_tag current_user.avatar.variant(gravity: :center, resize:"640x640^", crop:"640x640+0+0"), class: "avatar-img" if current_user.avatar.attached? %>
-        </div>
-        <%= link_to current_user.nickname, user_path(current_user.id), class: "nickname" %>
-      </li>
-      
+    <li class="avatar-nickname">
+      <div class="avatar-box-header">
+        <%= image_tag current_user.avatar.variant(gravity: :center, resize:"640x640^", crop:"640x640+0+0"), class: "avatar-img" if current_user.avatar.attached? %>
+      </div>
+      <%= link_to current_user.nickname, user_path(current_user.id), class: "nickname" %>
+    </li>
+
+    <%
+=begin%>
+    <li>
+      <%= link_to "登録変更", edit_user_registration_path, class: "user_edit" %>
+    </li>
+    <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %>
+    </li>
+    <%
+=end%>
+    <div class="menu">
+      <input type="checkbox" id="input">
+      <label for="input" class="three-lines">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+      </label>
+      <%# <label for="input" class="back"></label>  %>
+
       <%
 =begin%>
- <li>
-        <%= link_to "登録変更", edit_user_registration_path, class: "user_edit" %>
-        </li>
-        <li ><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %>
-      </li> 
-<%
+      <label for="input" class="back"></label>
+      <%
 =end%>
-      <div class="menu">
-        <input type="checkbox" id="input">
-        <label for="input" class="three-lines"><div class="line"></div><div class="line"></div><div class="line"></div></label>
-        <%# <label for="input" class="back"></label>  %>
-
-        <%
-=begin%>
- <label for="input" class="back"></label> 
-<%
-=end%>
-        <div id="content">
-          <ul>
-            <li>
-              <%= link_to "登録変更", edit_user_registration_path, class: "user_edit" %>
-            </li>
-            <li >
-              <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %>
-            </li>
-          </ul>
-        </div>
+      <div id="content">
+        <ul>
+          <li>
+            <%= link_to "登録変更", edit_user_registration_path, class: "user_edit" %>
+          </li>
+          <li>
+            <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %>
+          </li>
+        </ul>
+      </div>
       <div>
 
-    <% else %>
-      <li><%= link_to 'ログイン', user_session_path, class: "login" %></li>
-      <li><%= link_to '新規登録', new_user_registration_path, class: "signup" %></li>
-    <% end %>
-  </ul> 
+        <% else %>
+        <li><%= link_to 'ログイン', user_session_path, class: "login" %></li>
+        <li><%= link_to '新規登録', new_user_registration_path, class: "signup" %></li>
+        <% end %>
+  </ul>
 
+  <% if request.fullpath != "/notifications" %>
   <% if user_signed_in? %>
-    <% if unchecked_notifications.any? %>
-      <i class="fas fa-circle" style="color: gold;"></i>
-    <% end %>
-    <ul>
-      <li>
-        <%= link_to "NOTICE", notifications_path, class: "btn-default" %>
-      </li>
-    </ul>
+  <% if unchecked_notifications.any? %>
+  <i class="fas fa-circle" style="color: gold;"></i>
+  <% end %>
+  <ul>
+    <li>
+      <%= link_to "通知", notifications_path, class: "btn-default" %>
+    </li>
+  </ul>
+  <% end %>
   <% end %>
 
-
 </header>
-
-
-

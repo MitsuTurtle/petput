@@ -71,8 +71,8 @@ class Photo < ApplicationRecord
       save_comment_notification(current_user, comment_id, user_id)
     end
     
-    # まだ誰もコメントしていない場合は、投稿者に通知を送る
-    save_comment_notification(current_user, comment_id, user_id) if temp_ids.blank?
+    # まだ誰もコメントしていない場合は、投稿者に通知を送る（上のコードでカバーされている）
+    # save_comment_notification(current_user, comment_id, user_id) if temp_ids.blank?
   end
 
   def save_comment_notification(current_user, comment_id, visited_id)
