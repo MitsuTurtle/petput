@@ -16,35 +16,69 @@
 
 # 写真追加
 
+
+# 10.times do |num|
+
+# # カメ写真
+
+#   photo = Photo.new(caption: "#かめ #カメ #亀 #turtle\n\nカメちゃんです❗", category_id: 5, user_id: 1)
+#   photo.image.attach(io: File.open(Rails.root.join("app/assets/images/turtle#{num+1}.jpg")),filename: "turtle#{num+1}.jpg")
+#   photo.save
+
+#   # 猫写真
+
+#   photo = Photo.new(caption: "#ねこ #ネコ #猫 #cat\n\n\n 猫ちゃんです❗", category_id: 2, user_id: 2)
+#   photo.image.attach(io: File.open(Rails.root.join("app/assets/images/cat#{num+1}.jpg")),filename: "cat#{num+1}.jpg")
+#   photo.save
+
+#   # 節足動物写真
+
+#   photo = Photo.new(caption: "#虫 #むし #ムシ \n\n\n 虫です❗", category_id: 8, user_id: 3)
+#   photo.image.attach(io: File.open(Rails.root.join("app/assets/images/arthropod#{num+1}.jpg")),filename: "arthropod#{num+1}.jpg")
+#   photo.save
+
+# # うさぎ写真
+
+#   photo = Photo.new(caption: "#うさぎ #ウサギ #rabbit \n\n\n うさぎです❗", category_id: 3, user_id: 4)
+#   photo.image.attach(io: File.open(Rails.root.join("app/assets/images/rabbit#{num+1}.jpg")),filename: "rabbit#{num+1}.jpg")
+#   photo.save
+
+# end
+
+#############
+# 写真のみ挿入（置き換え）
+a = 1
+
 10.times do |num|
 
 # カメ写真
-
-  photo = Photo.new(caption: "#かめ #カメ #亀 #turtle\n\nカメちゃんです❗", category_id: 5, user_id: 1)
+  photo = Photo.find(a)
   photo.image.attach(io: File.open(Rails.root.join("app/assets/images/turtle#{num+1}.jpg")),filename: "turtle#{num+1}.jpg")
   photo.save
 
   # 猫写真
 
-  photo = Photo.new(caption: "#ねこ #ネコ #猫 #cat\n\n\n 猫ちゃんです❗", category_id: 2, user_id: 2)
+  photo = Photo.find(a + 1)
   photo.image.attach(io: File.open(Rails.root.join("app/assets/images/cat#{num+1}.jpg")),filename: "cat#{num+1}.jpg")
   photo.save
 
   # 節足動物写真
 
-  photo = Photo.new(caption: "#虫 #むし #ムシ \n\n\n 虫です❗", category_id: 8, user_id: 3)
+  photo = Photo.find(a + 2)
   photo.image.attach(io: File.open(Rails.root.join("app/assets/images/arthropod#{num+1}.jpg")),filename: "arthropod#{num+1}.jpg")
   photo.save
 
 # うさぎ写真
 
-  photo = Photo.new(caption: "#うさぎ #ウサギ #rabbit \n\n\n うさぎです❗", category_id: 3, user_id: 4)
+  photo = Photo.find(a + 3)
   photo.image.attach(io: File.open(Rails.root.join("app/assets/images/rabbit#{num+1}.jpg")),filename: "rabbit#{num+1}.jpg")
   photo.save
 
+  a += 4
 end
 
 
+#############
 
 # 猫写真
 # 10.times do |num|
