@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
   get 'favorites/create'
   get 'favorites/destroy'
-  devise_for :users
+  devise_for :users, controllers: {
+    registrations: "users/registrations"
+  }
+
+
   root to: "top#index"
   resources :photos do
     resources :comments, only: [:create, :destroy]
