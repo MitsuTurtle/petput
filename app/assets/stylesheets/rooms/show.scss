@@ -1,25 +1,86 @@
-.dm-wrap {
-  width: 800px;
-  height: 100vh;
-  margin: 0 auto;
-  background-color: #FFFFFF;
-  .header {
-    width: 800px;
-    padding-top: 20px;
-    background-color: #FFFFFF;
-    position: fixed;
-    z-index: 1;
-    .title{
-      font-size: xx-large;
-      font-weight: bold;
-      margin-bottom: 10px;
-      text-align: center;
-    }
+$dm-sidebar-width: 300px;
+$dm-main-width: calc(95vw - 300px);
+$border: 1px solid #ebeef0;
+$border-color: #ebeef0;
 
-    .avatar-nickname-box {
-      display: flex;
-      justify-content: center;
-      align-items: center;
+.dm-wrap {
+
+  display: flex;
+  .dm-sidebar {
+    margin-top: 61px;
+    padding: 10px;
+    width: $dm-sidebar-width;
+    margin-left: 10px;
+    border: {
+      left: $border;
+      right: $border;
+    }
+    a {
+      text-decoration: none;
+      color: black;
+    }
+    .sidebar-each-box {
+      height: 90px;
+      border-bottom: $border;
+      margin-bottom: 10px;
+      .avatar-nickname-box {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+        .avatar-box {
+          width: 32px;
+          height: 32px;
+          margin-right: 4px;
+        }
+        .nickname {
+          font-weight: bold;
+          color: black;
+        }
+      }
+      .latest-message {
+        color: #757575;
+        margin-bottom: 10px;
+      }
+    }
+  }
+
+  .dm-main {
+    width: $dm-main-width;
+    height: 100vh;
+    margin: 0 auto;
+    background-color: #ffffff;
+    .header {
+      width: $dm-main-width;
+      margin-top: 61px;
+      padding-top: 10px;
+      background-color: #ffffff;
+      position: fixed;
+      z-index: 1;
+      .title {
+        font-size: xx-large;
+        font-weight: bold;
+        margin-bottom: 10px;
+        text-align: center;
+      }
+
+      .avatar-nickname-box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .avatar-box {
+          width: 32px;
+          height: 32px;
+          margin-right: 4px;
+        }
+        .dm-partner {
+          text-align: center;
+          .nickname {
+            text-decoration: none;
+            font-size: x-large;
+          }
+        }
+      }
+
       .avatar-box {
         width: 32px;
         height: 32px;
@@ -34,217 +95,202 @@
       }
     }
 
-    .avatar-box {
-      width: 32px;
-      height: 32px;
-      margin-right: 4px;
+    #message-wrap {
+      padding-top: 169px;
+      height: calc(100vh - 80px);
+      overflow-y: scroll;
+      -ms-overflow-style: none; /* IE, Edge 対応 */
+      scrollbar-width: none; /* Firefox 対応 */
     }
-    .dm-partner {
-      text-align: center;
-      .nickname {
-        text-decoration: none;
-        font-size: x-large;
-      }
-    }
-  }
-
-  #message-wrap {
-    padding-top: 112px;
-    height: calc(100vh - 119px);
-    overflow-y: scroll;
-    -ms-overflow-style: none;    /* IE, Edge 対応 */
-    scrollbar-width: none;       /* Firefox 対応 */
-  }
-  #message-wrap::-webkit-scrollbar {  /* Chrome, Safari 対応 */
-    display: none;
-  }
-
-
-
-  .message-delete-box_current_user {
-    // display: flex;
-    // align-items: center;
-    // justify-content: right;
-    text-align: right;
-    margin-bottom: 10px;
-    padding-left: 20%;
-    margin-right: 10px;
-    .destroy-box {
+    #message-wrap::-webkit-scrollbar {
+      /* Chrome, Safari 対応 */
       display: none;
     }
-    &:hover {
+
+    .message-delete-box_current_user {
+      // display: flex;
+      // align-items: center;
+      // justify-content: right;
+      text-align: right;
+      margin-bottom: 10px;
+      padding-left: 20%;
+      margin-right: 10px;
       .destroy-box {
-        display: inline-block;
-        vertical-align: baseline;
-        .destroy-message {
-        color: #808080;
-          -webkit-text-stroke: 1px white;
-        }
+        display: none;
       }
-    }
-    .image-message-box {
-      display: inline-block;
-      .image-box {
-        .image {
-          border-radius: 5px;
-        }
-      }
-      .message-box {
-        background-color: #1DA1F2;
-        color: white;
-        padding: 10px;
-        border-radius: 12px;
-        display: inline-block;
-        position: relative;
-        max-width: 600px;
-        text-align: left;
-        &:after {
-          content: "";
+      &:hover {
+        .destroy-box {
           display: inline-block;
-          position: absolute;
-          top: 3px; 
-          right: -19px;
-          border: 8px solid transparent;
-          border-left: 18px solid #1DA1F2;
-          -webkit-transform: rotate(-35deg);
-          transform: rotate(-35deg);
+          vertical-align: baseline;
+          .destroy-message {
+            color: #808080;
+            -webkit-text-stroke: 1px white;
+          }
         }
       }
-      .created_at {
-        font-size: 10px;
-        color: #757575;
-        margin-top: 5px;
-        margin-right: 5px;
-      }
-    }
-  }
-
-  .message-avatar-box_visited_user {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-    .avatar-box {
-      width: 32px;
-      height: 32px;
-      margin-right: 4px;
-    }
-    .image-message-box {
-      .image-box {
-        .image {
-          border-radius: 5px;
-        }
-      }
-      .message-box {
-        background-color: #EBEEF0;
-        color: #0F1419;
-        padding: 10px 15px;
-        border-radius: 12px;
+      .image-message-box {
         display: inline-block;
-        position: relative;
-        margin-left: 10px;
-        &:after {
-          content: "";
+        .image-box {
+          .image {
+            border-radius: 5px;
+          }
+        }
+        .message-box {
+          background-color: #1da1f2;
+          color: white;
+          padding: 10px;
+          border-radius: 12px;
           display: inline-block;
-          position: absolute;
-          top: 3px; 
-          left: -19px;
-          border: 8px solid transparent;
-          border-right: 18px solid #EBEEF0;
-          -webkit-transform: rotate(35deg);
-          transform: rotate(35deg);
+          position: relative;
+          max-width: 600px;
+          text-align: left;
+          &:after {
+            content: "";
+            display: inline-block;
+            position: absolute;
+            top: 3px;
+            right: -19px;
+            border: 8px solid transparent;
+            border-left: 18px solid #1da1f2;
+            -webkit-transform: rotate(-35deg);
+            transform: rotate(-35deg);
+          }
+        }
+        .created_at {
+          font-size: 10px;
+          color: #757575;
+          margin-top: 5px;
+          margin-right: 5px;
         }
       }
-      .created_at {
-        font-size: 10px;
-        color: #757575;
-        margin-top: 5px;
-        margin-left: 15px;
-      }
     }
-  }
 
-  .no-message-caption {
-    height: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .new-dm-box {
-    .form {
-      // デフォルトのCSSをリセット
-      width: auto;
-      border: none;
-      margin: 0;
-      background-color: transparent;
-      padding: 0;
-      // デフォルトのCSSをリセット（ここまで）
+    .message-avatar-box_visited_user {
       display: flex;
-      justify-content: space-between;
-      .image-label {
-        cursor: pointer;
-        .image-icon {
-          font-size: xx-large;
-          -webkit-text-stroke: 1px white;
-          // color: #1da1f2;
+      align-items: center;
+      margin-bottom: 10px;
+      .avatar-box {
+        width: 32px;
+        height: 32px;
+        margin-right: 4px;
+      }
+      .image-message-box {
+        .image-box {
+          .image {
+            border-radius: 5px;
+          }
         }
-        .image-caption {
-          font-weight: bold;
-          // margin-top: 5px;
-          text-align: center;
-          font-size: 14px;
-          // color: #1da1f2;
+        .message-box {
+          background-color: #ebeef0;
+          color: #0f1419;
+          padding: 10px 15px;
+          border-radius: 12px;
+          display: inline-block;
+          position: relative;
+          margin-left: 10px;
+          &:after {
+            content: "";
+            display: inline-block;
+            position: absolute;
+            top: 3px;
+            left: -19px;
+            border: 8px solid transparent;
+            border-right: 18px solid #ebeef0;
+            -webkit-transform: rotate(35deg);
+            transform: rotate(35deg);
+          }
+        }
+        .created_at {
+          font-size: 10px;
+          color: #757575;
+          margin-top: 5px;
+          margin-left: 15px;
         }
       }
-      .new-dm {
-        // width: 750px;
-        width: 88%;
-        height: 50px;
-        border-radius: 5px;
-        background-color: #EBEEF0;
+    }
+
+    .no-message-caption {
+      height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .new-dm-box {
+      .form {
+        // デフォルトのCSSをリセット
+        width: auto;
         border: none;
-        padding: 5px 10px;
-        outline: none;
-        display: block;
-        resize: none;
-        }
-      button {
-        padding: 0;
-        border: none;
+        margin: 0;
         background-color: transparent;
-        cursor: pointer;
-        outline: none;
-        width: 36px;
-        display: block;
-        .dm-post-icon {
-          color: black;
-          font-size: xx-large;
-          -webkit-text-stroke: 1px white;
+        padding: 0;
+        // デフォルトのCSSをリセット（ここまで）
+        display: flex;
+        justify-content: space-between;
+        .image-label {
+          cursor: pointer;
+          .image-icon {
+            font-size: xx-large;
+            -webkit-text-stroke: 1px white;
+            // color: #1da1f2;
+          }
+          .image-caption {
+            font-weight: bold;
+            // margin-top: 5px;
+            text-align: center;
+            font-size: 14px;
+            // color: #1da1f2;
+          }
         }
-        .dm-post-caption {
-          font-weight: bold;
-          margin-top: 2px;
-          text-align: center;
-          font-size: 14px;
+        .new-dm {
+          // width: 750px;
+          width: 88%;
+          height: 50px;
+          border-radius: 5px;
+          background-color: #ebeef0;
+          border: none;
+          padding: 5px 10px;
+          outline: none;
+          display: block;
+          resize: none;
+        }
+        button {
+          padding: 0;
+          border: none;
+          background-color: transparent;
+          cursor: pointer;
+          outline: none;
+          width: 36px;
+          display: block;
+          .dm-post-icon {
+            color: black;
+            font-size: xx-large;
+            -webkit-text-stroke: 1px white;
+          }
+          .dm-post-caption {
+            font-weight: bold;
+            margin-top: 2px;
+            text-align: center;
+            font-size: 14px;
+          }
         }
       }
     }
-  }
-  .back-btn-box {
-    text-align: center;
-    margin-top: 10px;
-    .back-btn {
-      text-decoration: none;
-      color: #1da1f2;
-      font-weight: bold;
+    .back-btn-box {
+      text-align: center;
+      margin-top: 10px;
+      .back-btn {
+        text-decoration: none;
+        color: #1da1f2;
+        font-weight: bold;
+      }
     }
-  }
 
-
-  .footer {
-    position: fixed;
-    margin-bottom: 20px;
-    width: 800px;
-    background-color: #FFFFFF;
+    .footer {
+      position: fixed;
+      margin-bottom: 20px;
+      width: $dm-main-width;
+      background-color: #ffffff;
+    }
   }
 }

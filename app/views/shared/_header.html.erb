@@ -78,6 +78,17 @@
     <li>
       <%= link_to "通知", notifications_path, class: "btn-default" %>
     </li>
+    <li>
+      <% if user_signed_in? && current_user.entries.present? %>
+        <%= link_to "/rooms/#{@cu_latest_room_id}" do %>
+        <i class="far fa-envelope dm-icon"></i>
+        <% end %>
+      <% else %>
+        <%= link_to "#" do %>
+        <i class="far fa-envelope dm-icon"></i>
+        <% end %>
+      <% end %>
+    </li>
   </ul>
   <% end %>
   <% end %>
