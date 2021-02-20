@@ -71,22 +71,25 @@
 
   <% if request.fullpath != "/notifications" %>
   <% if user_signed_in? %>
-  <% if unchecked_notifications.any? %>
-  <i class="fas fa-circle" style="color: gold;"></i>
-  <% end %>
-  <ul>
+
+  <ul class="list">
     <li>
-      <%= link_to "通知", notifications_path, class: "btn-default" %>
+      <% if unchecked_notifications.any? %>
+      <i class="fas fa-circle" style="color: gold;"></i>
+      <% end %>
+      <%= link_to notifications_path, class: "btn-default" do %>
+      <i class="far fa-bell"></i>
+      <% end %>
     </li>
     <li>
       <% if user_signed_in? && current_user.entries.present? %>
-        <%= link_to "/rooms/#{@cu_latest_room_id}" do %>
-        <i class="far fa-envelope dm-icon"></i>
-        <% end %>
+      <%= link_to "/rooms/#{@cu_latest_room_id}" do %>
+      <i class="far fa-envelope dm-icon"></i>
+      <% end %>
       <% else %>
-        <%= link_to "#" do %>
-        <i class="far fa-envelope dm-icon"></i>
-        <% end %>
+      <%= link_to "#" do %>
+      <i class="far fa-envelope dm-icon"></i>
+      <% end %>
       <% end %>
     </li>
   </ul>
