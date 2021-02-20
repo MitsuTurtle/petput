@@ -1,45 +1,71 @@
+<%= render 'shared/header' %>
+
 <div class="dm-wrap">
-  <div class="header">
-    <h1 class="title">メッセージ</h1>
 
-    <div class="avatar-nickname-box">
-      <% @entries.each do |entry| %>
-        <% if entry.user != current_user %>
-          <%= link_to user_path(entry.user) do %>
-            <%# avatar %>
-            <div class="avatar-box">
-              <%# avatar部分テンプレート %>
-              <%= render partial: 'shared/avatar', locals: { user: entry.user } %>
-            </div>
-            <%# DM相手のnickname %>
-            <h2 class="dm-partner">
-              <%= link_to "#{entry.user.nickname}さん", user_path(entry.user), class: "nickname" %>
-            </h2>
-          <% end %>
-        <% end %>
-      <% end %>
+  <div class="dm-sidebar">
+    <% @current_user_entries.each do |current_user_entry| %>
+    <%= link_to room_path(current_user_entry.room_id) do %>
+    <% room = Room.find(current_user_entry.room_id) %>
+    <% room.entries.each do |entry| %>
+    <% if entry.user_id != current_user.id%>
+    <div class="sidebar-each-box">
+      <div class="avatar-nickname-box">
+        <div class="avatar-box">
+          <%# avatar部分テンプレート %>
+          <%= render partial: 'shared/avatar', locals: { user: entry.user } %>
+        </div>
+        <div class="nickname"><%= entry.user.nickname %></div>
+      </div>
+      <div class="latest-message"><%= room.messages.order(created_at: 'DESC').take.try(:content) %></div>
     </div>
-
-    <hr>
+    <% end %>
+    <% end %>
+    <% end %>
+    <% end %>
   </div>
 
-  <div id="message-wrap">
-    <div id="scroll-inner">
-      <% if @messages.present? %>
+  <div class="dm-main">
+    <div class="header">
+      <%# <h1 class="title">メッセージ</h1> %>
+
+      <div class="avatar-nickname-box">
+        <% @entries.each do |entry| %>
+        <% if entry.user != current_user %>
+        <%= link_to user_path(entry.user) do %>
+        <%# avatar %>
+        <div class="avatar-box">
+          <%# avatar部分テンプレート %>
+          <%= render partial: 'shared/avatar', locals: { user: entry.user } %>
+        </div>
+        <%# DM相手のnickname %>
+        <h2 class="dm-partner">
+          <%= link_to "#{entry.user.nickname}", user_path(entry.user), class: "nickname" %>
+        </h2>
+        <% end %>
+        <% end %>
+        <% end %>
+      </div>
+
+      <hr>
+    </div>
+
+    <div id="message-wrap">
+      <div id="scroll-inner">
+        <% if @messages.present? %>
 
         <%= render partial: 'message', collection: @messages %>
 
-      <% else %>
+        <% else %>
         <div class="no-message-caption" id="no-message-caption"><span>メッセージはまだありません<span></div>
-      <% end %>
+        <% end %>
+      </div>
     </div>
-  </div>
 
-  <div class="footer">
-    <hr>
+    <div class="footer">
+      <hr>
 
-    <div class="new-dm-box", id="new-dm-box">
-      <%= form_with model: @message, class: "form", remote: true, data: {"turbolinks"=>false} do |f| %>
+      <div class="new-dm-box" , id="new-dm-box">
+        <%= form_with model: @message, class: "form", remote: true, data: {"turbolinks"=>false} do |f| %>
         <label for="file_photo" class="image-label">
           <i class="far fa-image image-icon"></i>
           <%= f.file_field :dm_image, id: "file_photo", style: "display: none;" %>
@@ -51,21 +77,28 @@
 
         <%# <%= f.submit "投稿する" %>
         <%= button_tag type: "submit" do %>
-          <i class="far fa-edit dm-post-icon"></i>
-          <div class="dm-post-caption">投稿</div>
+        <i class="far fa-edit dm-post-icon"></i>
+        <div class="dm-post-caption">投稿</div>
         <% end %>
-      <% end %>
-    </div>
-  
-    <div class="back-btn-box">
-      <% if @entries[0].user_id == current_user.id %>
-        <%= link_to "⬅ #{@entries[1].user.nickname}さんのページ", user_path(@entries[1].user_id), class: "back-btn" %>
-      <% else %>
-        <%= link_to "⬅ #{@entries[0].user.nickname}さんのページ", user_path(@entries[0].user_id), class: "back-btn" %>
-      <% end %>
-    </div>
-  </div>
+        <% end %>
+      </div>
 
+      <%
+=begin
+%>
+      <div class="back-btn-box">
+        <% if @entries[0].user_id == current_user.id %>
+        <%= link_to "⬅ #{@entries[1].user.nickname}さんのページ", user_path(@entries[1].user_id), class: "back-btn" %>
+        <% else %>
+        <%= link_to "⬅ #{@entries[0].user.nickname}さんのページ", user_path(@entries[0].user_id), class: "back-btn" %>
+        <% end %>
+      </div>
+      <%
+=end
+%>
+    </div>
+
+  </div>
 </div>
 
 <%# ページロード時に最下部までスクロール %>
