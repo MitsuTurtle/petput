@@ -28,13 +28,13 @@ class User < ApplicationRecord
 
   with_options presence: true do
     validates :nickname, uniqueness: { case_sensitive: true }
-    # パスワードは半角英数字混合での入力が必須
-    PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i.freeze
-    validates :avatar
+    validates :avatar, presence: {message: 'を選択してください'}
   end
 
   # 新規登録時のみの設定にしています。もし、登録更新時にパスワード更新も可能にするならば、on: :createを外すなど修正が必要です。
-  validates :password, presence: true, format: { with: PASSWORD_REGEX, message: 'には英字と数字の両方を含めて設定してください' }, on: :create
+  # パスワードは半角英数字混合での入力が必須
+  PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i.freeze
+  validates :password, presence: true, format: { with: PASSWORD_REGEX, message: 'は英数字混合で入力してください' }, on: :create
 
   validates :profile, length: { maximum: 160 }
 

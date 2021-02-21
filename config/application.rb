@@ -22,5 +22,8 @@ module Petput
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
     config.time_zone = 'Tokyo'
+
+    # 日本語の言語設定
+    config.i18n.default_locale = :ja
   end
 end

@@ -34,7 +34,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 4.0.0'
   gem 'factory_bot_rails'
   gem 'faker'
-  
+
   gem 'capistrano'
   gem 'capistrano-rbenv'
   gem 'capistrano-bundler'
@@ -79,3 +79,4 @@ gem "aws-sdk-s3", require: false
 
 gem 'ransack'
 gem 'kaminari'
+gem 'rails-i18n'

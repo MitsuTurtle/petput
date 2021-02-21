@@ -17,9 +17,9 @@ class Photo < ApplicationRecord
   belongs_to :category
 
   with_options presence: true do
-    validates :image
+    validates :image, presence: {message: 'を選択してください'}
     validates :caption
-    validates :category_id, numericality: { other_than: 0 }
+    validates :category_id, numericality: { other_than: 0, message: 'を選択してください' }
   end
 
   # DBへのコミット直前に実施する

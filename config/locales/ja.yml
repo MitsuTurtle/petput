@@ -1,0 +1,11 @@
+ja:
+  activerecord:
+    attributes:
+      user:
+        nickname: ユーザーネーム
+        avatar: プロフィール画像
+        email: メールアドレス
+      photo:
+        image: 画像
+        caption: キャプション
+        category_id: カテゴリー
