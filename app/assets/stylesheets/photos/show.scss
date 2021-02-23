@@ -1,3 +1,5 @@
+$grey-color:#757575;
+
 .photo-show {
   // background-color: #999999;
   // width: 100vw;
@@ -21,7 +23,7 @@
     border-top-left-radius: 4px;
     border-bottom-left-radius: 4px;
     .bookmark-box {
-      position:absolute;
+      position: absolute;
       top: 10px;
       left: 10px;
       width: 55px;
@@ -35,7 +37,7 @@
         text-decoration: none;
         color: gold;
         .bookmark-icon {
-          font-size:x-large;
+          font-size: x-large;
         }
         .bookmark-caption {
           font-size: xx-small;
@@ -52,9 +54,6 @@
   }
 }
 
-
-
-
 .right-box {
   width: 335px;
   .right-box-header {
@@ -64,7 +63,7 @@
     align-items: center;
     padding-left: 14px;
     font-weight: bold;
-    border-bottom: solid 1px #EEEEEE;
+    border-bottom: solid 1px #eeeeee;
     .nickname-follow {
       display: flex;
       align-items: center;
@@ -82,45 +81,69 @@
         display: inline-block;
       }
     }
-    .back-btn {
-      position: absolute;
-      left: 250px;
+    // .back-btn {
+    //   position: absolute;
+    //   left: 250px;
+    // }
+    .menu {
+      display: flex;
+      justify-content: space-between;
+      width: 190px;
+      margin-left: 30px;
+      .link {
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        .link-icon {
+          color: $grey-color;
+          font-size: 1.3em;
+        }
+        .link-title {
+          color: $grey-color;
+          font-weight: normal;
+          font-size: x-small;
+          text-align: center;
+          line-height: 1.2;
+          margin-left: 3px;
+        }
+      }
     }
   }
 }
 
-.photo-show .menu {
-  margin-left: auto;
-  margin-right: 16px;
-  margin-top: 72px;
-}
-.photo-show .line {
-  margin-left: auto;
-}
-.photo-show .link-list {
-  transform: translateY(0vh);
-  background-color: white;
-  padding: 5px;
-  /* border: 1px solid #333333; */
-  /* transition: all 0.2s ; */
-  border-radius: 2px;
-  box-shadow: 0 10px 25px 0 rgba(0, 0, 0, .5);
-}
-#input:checked ~ .link-list {
-  transform: translateY(10px);
-}
+// ハンバーガーメニュー
+// .photo-show .menu {
+//   margin-left: auto;
+//   margin-right: 16px;
+//   margin-top: 72px;
+// }
+// .photo-show .line {
+//   margin-left: auto;
+// }
+// .photo-show .link-list {
+//   transform: translateY(0vh);
+//   background-color: white;
+//   padding: 5px;
+//   /* border: 1px solid #333333; */
+//   /* transition: all 0.2s ; */
+//   border-radius: 2px;
+//   box-shadow: 0 10px 25px 0 rgba(0, 0, 0, .5);
+// }
+// #input:checked ~ .link-list {
+//   transform: translateY(10px);
+// }
 
-li>.link {
-  color: #808080;
-  font-weight: 200;
-  text-decoration: none;
-  text-align: right;
-  display: block;
-  margin-bottom: 10px;
-}
-li>.last-link, li>.back-link {
-  margin-bottom: 0;
-}
+// li>.link {
+//   color: #808080;
+//   font-weight: 200;
+//   text-decoration: none;
+//   text-align: right;
+//   display: block;
+//   margin-bottom: 10px;
+// }
+// li>.last-link, li>.back-link {
+//   margin-bottom: 0;
+// }
 
 .right-box-caption-comments {
   height: calc(600px - (70px + 55px + 55px));
@@ -128,14 +151,15 @@ li>.last-link, li>.back-link {
   overflow: scroll;
   /* スクロールバーを非表示にするコード */
   /* https://www.yoheim.net/blog.php?q=20190801 */
-  -ms-overflow-style: none;    /* IE, Edge 対応 */
-  scrollbar-width: none;    /* Firefox 対応 */
+  -ms-overflow-style: none; /* IE, Edge 対応 */
+  scrollbar-width: none; /* Firefox 対応 */
 }
 
 /* スクロールバーを非表示にするコード */
 /* https://www.yoheim.net/blog.php?q=20190801 */
-.right-box-caption-comments::-webkit-scrollbar {   /* Chrome, Safari 対応 */
-  display:none;
+.right-box-caption-comments::-webkit-scrollbar {
+  /* Chrome, Safari 対応 */
+  display: none;
 }
 
 /* キャプション部分 */
@@ -146,18 +170,18 @@ li>.last-link, li>.back-link {
 .nickname-caption-box {
   width: 250px;
 }
-.nickname-caption-box>.nickname {
+.nickname-caption-box > .nickname {
   color: black;
   font-weight: bold;
 }
-.nickname-caption-box>.caption {
-  color: rgba(var(--i1d,38,38,38),1);
+.nickname-caption-box > .caption {
+  color: rgba(var(--i1d, 38, 38, 38), 1);
   font-size: 14px;
   line-height: 18px;
 }
-.nickname-caption-box>.caption>a {
+.nickname-caption-box > .caption > a {
   text-decoration: none;
-  color: #1E90FF;
+  color: #1e90ff;
 }
 
 /* コメント一覧、アバター */
@@ -179,16 +203,15 @@ li>.last-link, li>.back-link {
   display: flex;
 }
 
-
 .nickname-comment-box {
   width: 250px;
 }
-.nickname-comment-box>.nickname {
+.nickname-comment-box > .nickname {
   color: black;
   font-weight: bold;
 }
-.nickname-comment-box>.comment {
-  color: rgba(var(--i1d,38,38,38),1);
+.nickname-comment-box > .comment {
+  color: rgba(var(--i1d, 38, 38, 38), 1);
   font-size: 14px;
   line-height: 18px;
 }
@@ -203,18 +226,18 @@ li>.last-link, li>.back-link {
 /* いいねボタンなどの箱 */
 .vote-box {
   padding-left: 17px;
-  border-top: solid 1px  #EEEEEE;
+  border-top: solid 1px #eeeeee;
   height: 55px;
   padding: 3px 0 3px 17px;
 }
 
 /* 新しいコメント投稿欄 */
 .right-box-new-comment {
-  padding: 20px 17px;
-  border-top: solid 1px  #EEEEEE;
+  padding: 16px 17px;
+  border-top: solid 1px #eeeeee;
   height: 55px;
 }
-.nickname-follow>.nickname {
+.nickname-follow > .nickname {
   margin-right: 5px;
 }
 
@@ -230,7 +253,7 @@ li>.last-link, li>.back-link {
 
 .submit-comment {
   border: none;
-  color: #8EB8FF;
+  color: #8eb8ff;
   vertical-align: middle;
   background-color: transparent;
   height: auto;
@@ -238,9 +261,3 @@ li>.last-link, li>.back-link {
   padding: 0;
   cursor: pointer;
 }
-
-
-
-
-
-
