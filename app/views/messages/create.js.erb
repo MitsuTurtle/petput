@@ -35,5 +35,7 @@ if (document.getElementById("no-message-caption") != null) {
 var scrollToBottom = () => {
   const target = document.getElementById('message-<%= @message.id %>');
   target.scrollIntoView({behavior: "smooth", block: "end"});
-}
+};
 scrollToBottom();
+
+
