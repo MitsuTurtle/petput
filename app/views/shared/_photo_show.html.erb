@@ -102,6 +102,8 @@
             <%= link_to photo.user.nickname, user_path(photo.user_id), class:"nickname" %>
             <span class="caption"><%= render_with_hashtags(safe_join(photo.caption.split("\n"),tag(:br))) %></span>
             <%# <span class="caption"><%= photo.caption</span> %>
+            <% week = %w(日 月 火 水 木 金 土)[photo.created_at.wday] %>
+            <div class="created_at"><%= photo.created_at.strftime("%Y年%m月%d日(#{week}) %H:%M")%></div>
           </div>
 
         </div>
