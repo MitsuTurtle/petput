@@ -1,7 +1,7 @@
-          <div>
+          <div id="comment-wrap">
             <% if comments %>
               <% comments.each do |comment| %>
-                <div class="avatar-nickname-comment-box">
+                <div class="avatar-nickname-comment-box" id="comment-<%= comment.id %>">
                     <div class="avatar-box-photo-show">
                       <%= image_tag comment.user.avatar.variant(gravity: :center, resize:"640x640^", crop:"640x640+0+0"), class: "avatar-img" if comment.user.avatar.attached? %>
                     </div>
@@ -13,7 +13,7 @@
 
                   <% if user_signed_in? && current_user.id == comment.user_id %>
                     <div>
-                      <%= link_to photo_comment_path(photo_id: photo.id, id: comment.id), method: :delete, class: "destroy-comment", data: {confirm:'本当に削除しますか？'} do %>
+                      <%= link_to photo_comment_path(photo_id: photo.id, id: comment.id), method: :delete, class: "destroy-comment", data: {confirm:'本当に削除しますか？'}, remote: true do %>
                         <i class="fas fa-trash-alt"></i>
                       <% end %>
                     </div>

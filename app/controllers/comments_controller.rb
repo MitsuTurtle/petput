@@ -19,11 +19,14 @@ class CommentsController < ApplicationController
     if params[:id] == 'a'
       comments = photo.comments
       comments.destroy_all
-      redirect_to photo_path(photo)
+      # redirect_to photo_path(photo)
+      render 'destroy_all.js.erb'
     else
       comment = Comment.find(params[:id])
       comment.destroy
-      redirect_to photo_path(photo)
+      @comment_id = params[:id]
+      # redirect_to photo_path(photo)
+      render 'destroy.js.erb'
     end
   end
 

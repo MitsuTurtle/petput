@@ -50,15 +50,15 @@
     </div>
 
     <div id="message-wrap">
-      <div id="scroll-inner">
-        <% if @messages.present? %>
+      <% if @messages.present? %>
 
-        <%= render partial: 'message', collection: @messages %>
-
-        <% else %>
-        <div class="no-message-caption" id="no-message-caption"><span>メッセージはまだありません<span></div>
-        <% end %>
+      <div id="message-box">
+      <%= render partial: 'message', collection: @messages %>
       </div>
+
+      <% else %>
+      <div class="no-message-caption" id="no-message-caption"><span>メッセージはまだありません<span></div>
+      <% end %>
     </div>
 
     <div class="footer">

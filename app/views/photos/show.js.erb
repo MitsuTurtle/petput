@@ -6,6 +6,10 @@ modal.innerHTML = '<%= escape_javascript(render partial: 'shared/photo_show', lo
 modal.classList.remove('hidden2');
 mask.classList.remove('hidden2');
 
+<%# 下端の（最新の）コメントを表示させる %>
+var target = document.getElementById('comment-wrap');
+target.scrollIntoView({behavior: "auto", block: "end"});
+
 mask.addEventListener('click', () => {
   modal.classList.add('hidden2');
   mask.classList.add('hidden2');
