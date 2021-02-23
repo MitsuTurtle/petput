@@ -1,5 +1,16 @@
 $grey-color:#757575;
 
+// show.html.erb用
+.show_html_erb_wrap {
+  padding-top: 79px;
+  .photo-caption-comments-box {
+  // border: 1px solid $grey-color;
+  box-shadow: 0 0 8px gray;
+  }
+}
+// show.html.erb用（ここまで）
+
+
 .photo-show {
   // background-color: #999999;
   // width: 100vw;

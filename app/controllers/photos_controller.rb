@@ -1,7 +1,7 @@
 class PhotosController < ApplicationController
   before_action :authenticate_user!, only: [:new]
   before_action :set_photo, only: [:show, :edit, :update, :destroy, :like, :unlike]
-  before_action :search_category_photo, only: [:index, :category, :hashtag, :search]
+  before_action :search_category_photo, only: [:index, :category, :hashtag, :search, :show]
   before_action :set_dm_room_id, only: [:index, :category, :hashtag, :search]
 
   def index
