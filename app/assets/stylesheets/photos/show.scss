@@ -198,9 +198,22 @@ $grey-color:#757575;
   padding: 0 14px;
 }
 
+
+
 .avatar-nickname-comment-box {
   margin-bottom: 25px;
   display: flex;
+  .destroy-comment {
+    display: none;
+  }
+  &:hover {
+    .destroy-comment {
+    color: #808080;
+    text-align: right;
+    display: block;
+    -webkit-text-stroke: 1px white;
+    }
+  }
 }
 
 .nickname-comment-box {
@@ -216,12 +229,7 @@ $grey-color:#757575;
   line-height: 18px;
 }
 
-.destroy-comment {
-  color: #808080;
-  text-align: right;
-  display: block;
-  -webkit-text-stroke: 1px white;
-}
+
 
 /* いいねボタンなどの箱 */
 .vote-box {
