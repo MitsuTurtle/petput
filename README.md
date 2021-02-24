@@ -135,6 +135,7 @@ belongs_to :hashtag
 - belongs_to :room
 
 ## Messages テーブル
+| Column | Type        | Options                        |
 | --------| ---------- | ------------------------------ |
 | user    | references | null: false, foreign_key: true |
 | room    | references | null: false, foreign_key: true |
@@ -145,8 +146,9 @@ belongs_to :hashtag
 - belongs_to :room
 
 ## Rooms テーブル
-| ---- | ------ | ----- |
-| name | string |       |
+| Column | Type   | Options |
+| ------ | ------ | ------- |
+| name   | string |         |
 
 ### Association
 - has_many :messages
