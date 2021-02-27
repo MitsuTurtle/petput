@@ -18,82 +18,125 @@
   <%= f.submit '検索', class: "hidden-search-button" %>
   <% end %>
 
-  <ul class='header-link'>
-    <li><%= link_to '新規投稿', new_photo_path, class: "new-photo" %></li>
-    <% if user_signed_in? %>
-    <li class="avatar-nickname">
-      <div class="avatar-box-header">
-        <%= image_tag current_user.avatar.variant(gravity: :center, resize:"640x640^", crop:"640x640+0+0"), class: "avatar-img" if current_user.avatar.attached? %>
-      </div>
-      <%= link_to current_user.nickname, user_path(current_user.id), class: "nickname" %>
-    </li>
-
-    <%
-=begin%>
-    <li>
-      <%= link_to "登録変更", edit_user_registration_path, class: "user_edit" %>
-    </li>
-    <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %>
-    </li>
-    <%
-=end%>
-    <div class="menu">
-      <input type="checkbox" id="input">
-      <label for="input" class="three-lines">
-        <div class="line"></div>
-        <div class="line"></div>
-        <div class="line"></div>
-      </label>
-      <%# <label for="input" class="back"></label>  %>
-
-      <%
-=begin%>
-      <label for="input" class="back"></label>
-      <%
-=end%>
-      <div id="content">
-        <ul>
-          <li>
-            <%= link_to "登録変更", edit_user_registration_path, class: "user_edit" %>
-          </li>
-          <li>
-            <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %>
-          </li>
-        </ul>
-      </div>
-      <div>
-
-        <% else %>
-        <li><%= link_to 'ログイン', user_session_path, class: "login" %></li>
-        <li><%= link_to '新規登録', new_user_registration_path, class: "signup" %></li>
-        <% end %>
-  </ul>
-
-  <% if request.fullpath != "/notifications" %>
   <% if user_signed_in? %>
+  <div class="avatar-nickname">
+    <%= link_to user_path(current_user.id) do %>
+    <div class="avatar-box">
+      <%# avatar部分テンプレート %>
+      <%= render partial: 'shared/avatar', locals: { user: current_user } %>
+    </div>
+    <p class="nickname"><%= current_user.nickname %></p>
+    <% end %>
+  </div>
 
-  <ul class="list">
-    <li>
-      <% if unchecked_notifications.any? %>
-      <i class="fas fa-circle" style="color: gold;"></i>
-      <% end %>
-      <%= link_to notifications_path, class: "btn-default" do %>
-      <i class="far fa-bell"></i>
+  #メニュー
+  <ul class="menu">
+    <li class="link-box">
+      <%= link_to new_photo_path, class: "link" do %>
+      <i class="far fa-plus-square link-icon"></i>
+      <p class="link-title">新規投稿</p>
       <% end %>
     </li>
-    <li>
+
+    <li class="link-box">
+      <%= link_to photos_path, class: "link" do %>
+      <i class="far fa-clock link-icon"></i>
+      <p class="link-title">ホーム</p>
+      <% end %>
+    </li>
+
+    <li class="link-box">
+      <%= link_to "#", class: "link" do %>
+      <i class="far fa-star bookmark-icon link-icon"></i>
+      <p class="link-title">お気に入り</p>
+      <% end %>
+    </li>
+
+    <% if request.fullpath != "/notifications" %>
+    <li class="link-box">
+      <%= link_to notifications_path, class: "link" do %>
+      <div>
+        <i class="far fa-bell link-icon bell"></i>
+        <% if unchecked_notifications.any? %>
+        <i class="fas fa-circle mark"></i>
+        <% end %>
+      </div>
+      <p class="link-title">お知らせ</p>
+      <% end %>
+    </li>
+    <% end %>
+
+    <li class="link-box">
       <% if user_signed_in? && current_user.entries.present? %>
-      <%= link_to "/rooms/#{@cu_latest_room_id}" do %>
-      <i class="far fa-envelope dm-icon"></i>
+      <%= link_to "/rooms/#{@cu_latest_room_id}", class: "link" do %>
+      <i class="far fa-envelope dm-icon link-icon"></i>
+      <p class="link-title">DM</p>
       <% end %>
       <% else %>
-      <%= link_to "#" do %>
-      <i class="far fa-envelope dm-icon"></i>
+      <%= link_to "#", class: "link" do %>
+      <i class="far fa-envelope dm-icon link-icon"></i>
+      <p class="link-title">DM</p>
       <% end %>
       <% end %>
     </li>
+
+    <li class="link-box">
+      <%= link_to root_path, class: "link" do %>
+      <i class="fas fa-door-open link-icon"></i>
+      <p class="link-title">入り口</p>
+      <% end %>
+    </li>
+
+    <li class="link-box">
+      <%= link_to edit_user_registration_path, class: "link" do %>
+      <i class="far fa-address-card link-icon"></i>
+      <p class="link-title">登録変更</p>
+      <% end %>
+    </li>
+
+    <li class="link-box">
+      <%= link_to destroy_user_session_path, method: :delete, class: "link" do %>
+      <i class="fas fa-sign-out-alt link-icon"></i>
+      <p class="link-title">ログアウト</p>
+      <% end %>
+    </li>
   </ul>
-  <% end %>
-  <% end %>
+
+
+  <%
+=begin
+%>
+  <div class="menu">
+    <input type="checkbox" id="input">
+    <label for="input" class="three-lines">
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+    </label>
+    <%# <label for="input" class="back"></label>  %>
+
+    <label for="input" class="back"></label>
+
+
+    <div id="content">
+      <ul>
+        <li>
+          <%= link_to "登録変更", edit_user_registration_path, class: "user_edit" %>
+        </li>
+        <li>
+          <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %>
+        </li>
+      </ul>
+    </div>
+    <div>
+      <%
+=end
+%>
+
+      <% else %>
+      <li><%= link_to 'ログイン', user_session_path, class: "login" %></li>
+      <li><%= link_to '新規登録', new_user_registration_path, class: "signup" %></li>
+      <% end %>
+      </ul>
 
 </header>

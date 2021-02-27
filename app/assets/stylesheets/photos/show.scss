@@ -20,6 +20,9 @@ $grey-color:#757575;
 }
 
 .photo-caption-comments-box {
+  a {
+    text-decoration: none;
+  }
   width: 935px;
   height: 600px;
   margin: auto;
