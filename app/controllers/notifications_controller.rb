@@ -1,5 +1,6 @@
 class NotificationsController < ApplicationController
-  before_action :search_category_photo, only: [:index]
+  before_action :search_category_photo, only: :index
+  before_action :set_dm_room_id, only: :index
 
   def index
     if user_signed_in?
@@ -24,5 +25,13 @@ class NotificationsController < ApplicationController
 
   def search_category_photo
     @q = Photo.ransack(params[:q])
+  end
+
+  def set_dm_room_id
+    #DM用インスタンス変数 
+    if user_signed_in? && current_user.entries.present?
+      cu_latest_entry = current_user.entries.order(created_at: 'DESC').take
+      @cu_latest_room_id = Room.find(cu_latest_entry.room_id).id
+    end
   end
 end

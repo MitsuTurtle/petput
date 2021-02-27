@@ -29,10 +29,50 @@
 
         </div>
 
+        <% if current_user == user %>
+        <ul class="menu">
+          <div>
+            <li>
+              <%= link_to edit_photo_path, class: "link", data: {confirm: "投稿を編集しますか？"} do %>
+              <i class="fas fa-pen-square link-icon"></i>
+              <p class="link-title">投稿<br>編集</p>
+              <% end %>
+            </li>
+          </div>
+          <div>
+            <li>
+              <%= link_to photo_path(photo.id), class: "link", method: :delete, data: {confirm: "投稿を削除しますか？"} do %>
+              <i class="fas fa-trash-alt link-icon"></i>
+              <p class="link-title">投稿<br>削除</p>
+              <% end %>
+            </li>
+          </div>
+          <div>
+            <li>
+              <%= link_to photo_comment_path(photo_id: photo.id, id: "a"), class: "link", method: :delete, data: {confirm:'コメントをすべて削除しますか？'}, remote: true do %>
+              <i class="fas fa-comment-slash link-icon"></i>
+              <p class="link-title">コメント<br>全削除</p>
+              <% end %>
+            </li>
+          </div>
+        </ul>
+        <% end %>
+
+<%
+=begin
+%>
         <ul class="back-btn">
           <li><%= link_to '戻る', :back, class: "link back-link" %></li>
         </ul>
+<%
+=end
+%>
 
+
+<%# ハンバーガーメニュー %>
+<%
+=begin
+%>
         <div class="menu">
           <% if user_signed_in? && current_user.id == photo.user_id %>
 
@@ -46,6 +86,10 @@
             </ul>
           <% end %>
         </div>
+<%
+=end
+%>
+
       </div>
 
       <div class="right-box-caption-comments">
@@ -58,6 +102,8 @@
             <%= link_to photo.user.nickname, user_path(photo.user_id), class:"nickname" %>
             <span class="caption"><%= render_with_hashtags(safe_join(photo.caption.split("\n"),tag(:br))) %></span>
             <%# <span class="caption"><%= photo.caption</span> %>
+            <% week = %w(日 月 火 水 木 金 土)[photo.created_at.wday] %>
+            <div class="created_at"><%= photo.created_at.strftime("%Y年%m月%d日(#{week}) %H:%M")%></div>
           </div>
 
         </div>

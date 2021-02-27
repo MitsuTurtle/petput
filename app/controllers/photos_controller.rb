@@ -1,7 +1,7 @@
 class PhotosController < ApplicationController
-  before_action :authenticate_user!, only: [:new]
+  before_action :authenticate_user!
   before_action :set_photo, only: [:show, :edit, :update, :destroy, :like, :unlike]
-  before_action :search_category_photo, only: [:index, :category, :hashtag, :search]
+  before_action :search_category_photo, only: [:index, :category, :hashtag, :search, :show]
   before_action :set_dm_room_id, only: [:index, :category, :hashtag, :search]
 
   def index
@@ -66,13 +66,7 @@ class PhotosController < ApplicationController
       @photos = Photo.where('caption LIKE ?', "%#{params[:keyword]}%").order(created_at: 'DESC')
       @keyword = params[:keyword]
     else
-      redirect_to root_path
-    end
-
-    #DM用インスタンス変数 
-    if current_user.entries.present?
-      cu_latest_entry = current_user.entries.order(created_at: 'DESC').take
-      @cu_latest_room_id = Room.find(cu_latest_entry.room_id).id
+      redirect_to request.referer
     end
   end
 
@@ -90,7 +84,7 @@ class PhotosController < ApplicationController
     if category_id.present?
       @category = Category.find_by(id: category_id)
     else
-      redirect_to root_path
+      redirect_to request.referer
     end
   end
 

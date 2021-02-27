@@ -1,14 +1,71 @@
+$icon-color: #757575;
+
+
 .top-page-header {
   width: 100vw;
-  padding: 15px 20px;
+  padding: 10.5px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid #EEEEEE;
+  border-bottom: 1px solid #eeeeee;
   margin-bottom: 16px;
   position: fixed;
   background-color: white;
   z-index: 1;
+
+  .avatar-nickname {
+    a {
+      text-decoration: none;
+    }
+    .avatar-box {
+      width: 25px;
+      height: 25px;
+      margin: 0 auto;
+    }
+    .nickname {
+      color: #757575;
+      font-size: x-small;
+      text-align: center;
+      margin-top: 3px;
+    }
+  }
+
+  .menu {
+    display: flex;
+    justify-content: center;
+    width: 360px;
+    margin-right: 10px;
+    margin-left: 10px;
+    .link-box {
+      position: relative;
+      .link {
+        text-decoration: none;
+        display: block;
+        width: 50px;
+        .link-icon {
+          color: $icon-color;
+          font-size: 1.5em;
+          display: flex;
+          justify-content: center;
+        }
+        .mark {
+          color: #ffc0cb;
+          font-size: 60%;
+          position: absolute;
+          top: -5px;
+          right: 12px;
+        }
+        .link-title {
+          color: $icon-color;
+          font-weight: normal;
+          font-size: x-small;
+          text-align: center;
+          line-height: 1.2;
+          margin-top: 3px;
+        }
+      }
+    }
+  }
 }
 
 /* アプリアイコン */
@@ -17,16 +74,16 @@
 }
 
 /* キャプション検索 */
-.search-form{
+.search-form {
   width: 20vw;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 .input-box {
-  width:100%;
+  width: 100%;
   height: 30px;
-  border-color: #EEEEEE;
+  border-color: #eeeeee;
   border-style: solid;
   text-align: center;
   outline: none;
@@ -35,7 +92,7 @@
 .search-button {
   width: 30px;
   height: 30px;
-  background-color: #EEEEEE;
+  background-color: #eeeeee;
   border: none;
   display: flex;
   justify-content: center;
@@ -53,16 +110,16 @@
 }
 
 /* カテゴリー検索 */
-.category-search-form{
-  width: 20vw;
+.category-search-form {
+  width: 15vw;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .category-input-box {
-  width:100%;
+  width: 100%;
   height: 30px;
-  border-color: #EEEEEE;
+  border-color: #eeeeee;
   border-style: solid;
   border-width: 2px;
   text-align-last: center;
@@ -70,64 +127,65 @@
   color: #757575;
   padding: 1px 2px;
   /* ↓セレクトボックスの矢印を消す */
-  -webkit-appearance: none;/* ベンダープレフィックス(Google Chrome、Safari用) */
+  -webkit-appearance: none; /* ベンダープレフィックス(Google Chrome、Safari用) */
   -moz-appearance: none; /* ベンダープレフィックス(Firefox用) */
   appearance: none; /* 標準のスタイルを無効にする */
 }
 
-.header-link {
-  display: flex;
-  align-items: center;
-}
-.login, .nickname {
-  text-decoration: none;
-  color: #757575;
-}
-.signup {
-  margin-left: 20px;
-  text-decoration: none;
-  color: #757575;
-}
-.new-photo {
-  margin-right: 20px;
-  text-decoration: none;
-  color: #757575;
-}
+// .header-link {
+//   display: flex;
+//   align-items: center;
+// }
+// .login,
+// .nickname {
+//   text-decoration: none;
+//   color: #757575;
+// }
+// .signup {
+//   margin-left: 20px;
+//   text-decoration: none;
+//   color: #757575;
+// }
+// .new-photo {
+//   margin-right: 20px;
+//   text-decoration: none;
+//   color: #757575;
+// }
 
 /* ハンバーガーメニュー */
-.menu {
-  margin-left: 20px;
-}
-#input {
-  display: none;
-}
-.three-lines {
-  cursor: pointer;
-}
-.line {
-  width: 20px;
-  height: 3px;
-  background-color: black;
-  margin: 3px;
-}
-#content {
-  background-color: white;
-  width: auto;
-  height: auto;
-  transform: translateY(-50vh);
-  position: fixed;
-  top: 150px;
-  right: 0;
-  padding: 5px;
-  /* -webkit-transition: 0.5s; */
-  /* transition: all 0.2s ; */
-  /* border: 1px solid #333333; */
-  border-radius: 2px;
-  box-shadow: 0 10px 25px 0 rgba(0, 0, 0, .5);
-}
-#input:checked ~ #content {
-  transform: translateY(-100px);
-}
+// .menu {
+//   margin-left: 20px;
+// }
+// #input {
+//   display: none;
+// }
+// .three-lines {
+//   cursor: pointer;
+// }
+// .line {
+//   width: 20px;
+//   height: 3px;
+//   background-color: black;
+//   margin: 3px;
+// }
+// #content {
+//   background-color: white;
+//   width: auto;
+//   height: auto;
+//   transform: translateY(-50vh);
+//   position: fixed;
+//   top: 150px;
+//   right: 0;
+//   padding: 5px;
+//   /* -webkit-transition: 0.5s; */
+//   /* transition: all 0.2s ; */
+//   /* border: 1px solid #333333; */
+//   border-radius: 2px;
+//   box-shadow: 0 10px 25px 0 rgba(0, 0, 0, 0.5);
+// }
+// #input:checked ~ #content {
+//   transform: translateY(-100px);
+// }
 /* #input:checked ~ .back {
   position: absolute;
   width: 100vw;
@@ -135,14 +193,13 @@
   background-color: rgba(0,0,0,0.8);
 } */
 
-
-.logout, .user_edit {
-  text-decoration: none;
-  color: #757575;
-  display: block;
-  margin-bottom: 10px;
-  text-align: right;
-}
+// .logout, .user_edit {
+//   text-decoration: none;
+//   color: #757575;
+//   display: block;
+//   margin-bottom: 10px;
+//   text-align: right;
+// }
 
 .logout {
   margin-bottom: 0;

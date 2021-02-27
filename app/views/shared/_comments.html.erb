@@ -9,8 +9,15 @@
                       <%= link_to comment.user.nickname, user_path(comment.user_id), class:"nickname" %>
                     
                       <span class="comment"><%= safe_join(comment.text.split("\n"), tag(:br)) %></span>
+
+                      <% week = %w(日 月 火 水 木 金 土)[comment.created_at.wday] %>
+                      <div class="created_at">
+                        <%= comment.created_at.strftime("%Y年%m月%d日(#{week}) %H:%M")%>
+                      </div>
                     </div>
 
+
+                  <%# 削除ボタン %>
                   <% if user_signed_in? && current_user.id == comment.user_id %>
                     <div>
                       <%= link_to photo_comment_path(photo_id: photo.id, id: comment.id), method: :delete, class: "destroy-comment", data: {confirm:'本当に削除しますか？'}, remote: true do %>
