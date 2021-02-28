@@ -1,9 +1,9 @@
 class UsersController < ApplicationController
-  before_action :search_category_photo, only: :show
+  before_action :set_user, only: [:show, :favorites]
+  before_action :search_category_photo, only: [:show, :favorites]
   before_action :set_dm_room_id, only: :show
 
   def show
-    @user = User.find(params[:id])
     @nickname = @user.nickname
     @photos = @user.photos.order(created_at: 'DESC')
     @profile = @user.profile
@@ -44,7 +44,15 @@ class UsersController < ApplicationController
     render 'show_follow'
   end
 
+  def favorites
+    @favorite_photos = @user.favorite_photos.order(created_at: 'DESC')
+  end
+
   private
+
+  def set_user
+    @user = User.find(params[:id])
+  end
 
   def search_category_photo
     @q = Photo.ransack(params[:q])

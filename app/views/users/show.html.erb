@@ -78,11 +78,5 @@
 
     </ul>
 
-<%# ユーザーのお気に入り写真 %>
-  <h2 class='title'><%= "#{@user.nickname}のお気に入り" %></h2>
-    <ul class='photo-lists'>
-      <%= render partial:"shared/photos", locals: {photos: @favorite_photos } %>
-
-    </ul>
 </div>
 <%= render 'shared/footer' %>
