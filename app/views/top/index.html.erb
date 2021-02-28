@@ -1,9 +1,12 @@
-<h1>トップページをここに作ります</h1>
+<%= render 'shared/header' %>
 
-<%= link_to '入り口', photos_path %>
+<div class='photo-contents'>
 
-<%= link_to 'ログイン', user_session_path %>
+  <h2 class='title'>最新投稿</h2>
+  <ul class='photo-lists'>
+    <%= render partial:"shared/photos", locals: {photos: @photos} %>
+  </ul>
 
-<%= link_to '新規登録', new_user_registration_path %>
+</div>
 
-<p>ゲストユーザー</p>
+<%= render 'shared/footer' %>
