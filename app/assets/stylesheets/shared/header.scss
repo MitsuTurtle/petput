@@ -66,6 +66,11 @@ $icon-color: #757575;
       }
     }
   }
+
+  .menu-in-top {
+    // トップページのメニュー
+    justify-content: flex-end;
+  }
 }
 
 /* アプリアイコン */

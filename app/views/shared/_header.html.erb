@@ -1,5 +1,9 @@
 <header class='top-page-header'>
   <%= link_to image_tag("petput-logo.png", class:"petput-icon"), photos_path %>
+
+  <%# トップページには表示しない（ここから） %>
+  <% if request.path_info != "/" %>
+
   <%= form_with url: search_photos_path, local: true, method: :get, class: "search-form", id: "search-button-id" do |form| %>
   <%= form.text_field :keyword, class: "input-box", placeholder: "検索" %>
   <button form="search-button-id" , class="search-button">
@@ -17,6 +21,13 @@
 
   <%= f.submit '検索', class: "hidden-search-button" %>
   <% end %>
+
+  <% end %>
+  <%# トップページには表示しない（ここまで） %>
+
+
+  <%# トップページには表示しない（ここから） %>
+  <% if request.path_info != "/" %>
 
   <% if user_signed_in? %>
   <div class="avatar-nickname">
@@ -40,7 +51,8 @@
 
     <li class="link-box">
       <%= link_to photos_path, class: "link" do %>
-      <i class="far fa-clock link-icon"></i>
+      <%# <i class="far fa-clock link-icon"></i> %>
+      <i class="fas fa-home link-icon"></i>
       <p class="link-title">ホーム</p>
       <% end %>
     </li>
@@ -102,6 +114,9 @@
     </li>
   </ul>
 
+  <% end %>
+  <%# トップページには表示しない（ここまで） %>
+
 
   <%
 =begin
@@ -134,9 +149,42 @@
 %>
 
       <% else %>
-      <li><%= link_to 'ログイン', user_session_path, class: "login" %></li>
-      <li><%= link_to '新規登録', new_user_registration_path, class: "signup" %></li>
-      <% end %>
+      <ul class="menu menu-in-top">
+
+        <% if user_signed_in? %>
+
+        <li class="link-box">
+          <%= link_to photos_path, class: "link" do %>
+          <%# <i class="far fa-clock link-icon"></i> %>
+          <i class="fas fa-home link-icon"></i>
+          <p class="link-title">ホーム</p>
+          <% end %>
+        </li>
+
+        <li class="link-box">
+          <%= link_to destroy_user_session_path, method: :delete, class: "link" do %>
+          <i class="fas fa-sign-out-alt link-icon"></i>
+          <p class="link-title">ログアウト</p>
+          <% end %>
+        </li>
+
+        <% else %>
+        <li class="link-box">
+          <%= link_to user_session_path, class: "link" do %>
+          <i class="fas fa-sign-in-alt link-icon"></i>
+          <p class="link-title">ログイン</p>
+          <% end %>
+        </li>
+
+        <li class="link-box">
+          <%= link_to new_user_registration_path, class: "link" do %>
+          <i class="fas fa-user-plus link-icon"></i>
+          <p class="link-title">新規登録</p>
+          <% end %>
+        </li>
+
+        <% end %>
+        <% end %>
       </ul>
 
 </header>
