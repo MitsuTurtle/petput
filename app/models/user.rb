@@ -34,7 +34,7 @@ class User < ApplicationRecord
   # 新規登録時のみの設定にしています。もし、登録更新時にパスワード更新も可能にするならば、on: :createを外すなど修正が必要です。
   # パスワードは半角英数字混合での入力が必須
   PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i.freeze
-  validates :password, presence: true, format: { with: PASSWORD_REGEX, message: 'は英数字混合で入力してください' }, on: :create
+  validates :password, presence: true, format: { with: PASSWORD_REGEX, message: 'は半角英数字混合で入力してください' }, on: :create
 
   validates :profile, length: { maximum: 160 }
 
