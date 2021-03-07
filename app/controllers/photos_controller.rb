@@ -122,7 +122,7 @@ class PhotosController < ApplicationController
   end
 
   def set_dm_room_id
-    #DM用インスタンス変数 
+    # DM用インスタンス変数
     if user_signed_in? && current_user.entries.present?
       cu_latest_entry = current_user.entries.order(created_at: 'DESC').take
       @cu_latest_room_id = Room.find(cu_latest_entry.room_id).id

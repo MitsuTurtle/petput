@@ -3,7 +3,6 @@ class RoomsController < ApplicationController
   before_action :search_category_photo, only: :show
   before_action :set_dm_room_id, only: :show
 
-
   def create
     @room = Room.create
     @entry1 = Entry.create(room_id: @room.id, user_id: current_user.id)
@@ -35,7 +34,7 @@ class RoomsController < ApplicationController
   end
 
   def set_dm_room_id
-    #DM用インスタンス変数 
+    # DM用インスタンス変数
     if user_signed_in? && current_user.entries.present?
       cu_latest_entry = current_user.entries.order(created_at: 'DESC').take
       @cu_latest_room_id = Room.find(cu_latest_entry.room_id).id

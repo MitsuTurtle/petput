@@ -28,7 +28,7 @@ class User < ApplicationRecord
 
   with_options presence: true do
     validates :nickname, uniqueness: { case_sensitive: true }
-    validates :avatar, presence: {message: 'を選択してください'}
+    validates :avatar, presence: { message: 'を選択してください' }
   end
 
   # 新規登録時のみの設定にしています。もし、登録更新時にパスワード更新も可能にするならば、on: :createを外すなど修正が必要です。

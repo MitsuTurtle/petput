@@ -17,12 +17,12 @@ RSpec.describe Photo, type: :model do
       it '画像ファイルが未選択だと投稿できないこと' do
         @photo.image = nil
         @photo.valid?
-        expect(@photo.errors.full_messages).to include("画像を選択してください")
+        expect(@photo.errors.full_messages).to include('画像を選択してください')
       end
       it 'キャプションが未入力だと投稿できない' do
         @photo.caption = ''
         @photo.valid?
-        expect(@photo.errors.full_messages).to include("キャプションを入力してください")
+        expect(@photo.errors.full_messages).to include('キャプションを入力してください')
       end
       it 'カテゴリーが未選択だと出品できない' do
         @photo.category_id = 0
