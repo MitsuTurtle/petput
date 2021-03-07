@@ -27,7 +27,7 @@ RSpec.describe User, type: :model do
         @user_a.nickname = Faker::Name.initials(number: 4)
         expect(@user_a).to be_valid
       end
-      
+
       it 'ニックネームが15文字だと登録できること' do
         @user_a.nickname = Faker::Name.initials(number: 15)
         expect(@user_a).to be_valid
@@ -46,7 +46,7 @@ RSpec.describe User, type: :model do
         @user_a.valid?
         expect(@user_a.errors.full_messages).to include('ユーザーネームは4文字以上で入力してください')
       end
-      
+
       it 'ニックネームが16文字だと登録できないこと' do
         @user_a.nickname = Faker::Name.initials(number: 16)
         @user_a.valid?

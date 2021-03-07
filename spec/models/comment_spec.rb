@@ -25,13 +25,13 @@ RSpec.describe Comment, type: :model do
         @comment.user = nil
         @comment.photo = nil
         @comment.valid?
-        expect(@comment.errors.full_messages).to include("Userを入力してください", "Photoを入力してください")
+        expect(@comment.errors.full_messages).to include('Userを入力してください', 'Photoを入力してください')
       end
 
       it '写真が紐付いていないと投稿できないこと' do
         @comment.photo = nil
         @comment.valid?
-        expect(@comment.errors.full_messages).to include("Photoを入力してください")
+        expect(@comment.errors.full_messages).to include('Photoを入力してください')
       end
 
       it 'ユーザーが紐付いていないと投稿できないこと' do
