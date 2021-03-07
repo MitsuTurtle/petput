@@ -13,7 +13,7 @@
       <%= render "devise/shared/error_messages", model: f.object %>
 
       <div class="field">
-        <%= f.text_field :nickname, placeholder: "ユーザーネーム", autofocus: true, autocomplete: "off", class: "field-box" %>
+        <%= f.text_field :nickname, placeholder: "ユーザーネーム（4文字以上15文字以下）", autofocus: true, autocomplete: "off", class: "field-box" %>
       </div>
 
       <div class="field">

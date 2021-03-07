@@ -22,6 +22,16 @@ RSpec.describe User, type: :model do
         @user_a.profile = ''
         expect(@user_a).to be_valid
       end
+
+      it 'ニックネームが4文字だと登録できること' do
+        @user_a.nickname = Faker::Name.initials(number: 4)
+        expect(@user_a).to be_valid
+      end
+      
+      it 'ニックネームが15文字だと登録できること' do
+        @user_a.nickname = Faker::Name.initials(number: 15)
+        expect(@user_a).to be_valid
+      end
     end
 
     context '新規登録できない場合' do
@@ -31,10 +41,28 @@ RSpec.describe User, type: :model do
         expect(@user_a.errors.full_messages).to include('ユーザーネームを入力してください')
       end
 
-      it 'ニックネームが既登録だと登録できないこと' do
+      it 'ニックネームが3文字だと登録できないこと' do
+        @user_a.nickname = Faker::Name.initials(number: 3)
+        @user_a.valid?
+        expect(@user_a.errors.full_messages).to include('ユーザーネームは4文字以上で入力してください')
+      end
+      
+      it 'ニックネームが16文字だと登録できないこと' do
+        @user_a.nickname = Faker::Name.initials(number: 16)
+        @user_a.valid?
+        expect(@user_a.errors.full_messages).to include('ユーザーネームは15文字以内で入力してください')
+      end
+
+      it '既登録のニックネームだと登録できないこと' do
         @user_a.nickname = @user_b.nickname
         @user_a.valid?
         expect(@user_a.errors.full_messages).to include('ユーザーネームはすでに存在します')
+      end
+
+      it 'プロフィール画像が未選択だと登録できないこと' do
+        @user_a.avatar = nil
+        @user_a.valid?
+        expect(@user_a.errors.full_messages).to include('プロフィール画像を選択してください')
       end
 
       it 'メールアドレスが未入力だと登録できないこと' do
