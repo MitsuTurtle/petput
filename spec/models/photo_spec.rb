@@ -2,8 +2,13 @@ require 'rails_helper'
 
 RSpec.describe Photo, type: :model do
   before do
-    @photo = FactoryBot.build(:photo)
+    @user = FactoryBot.build(:user)
+    @user.avatar = fixture_file_upload('/files/test_avatar_a.png')
+    @user.save
+    @photo = FactoryBot.build(:photo, user_id: @user.id)
     @photo.image = fixture_file_upload('/files/test_image.jpg')
+
+    sleep 0.1
   end
 
   describe '写真の投稿' do
