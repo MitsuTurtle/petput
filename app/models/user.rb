@@ -26,8 +26,9 @@ class User < ApplicationRecord
   has_many :active_notifications, class_name: 'Notification', foreign_key: 'visitor_id', dependent: :destroy
   has_many :passive_notifications, class_name: 'Notification', foreign_key: 'visited_id', dependent: :destroy
 
+  NICKNAME_REGEX = /[a-zA-Z0-9_]{4,15}/.freeze
   with_options presence: true do
-    validates :nickname, uniqueness: { case_sensitive: true }
+    validates :nickname, uniqueness: { case_sensitive: true }, length: { minimum: 4, maximum: 15 }, format: { with: NICKNAME_REGEX }
     validates :avatar, presence: { message: 'を選択してください' }
   end
 
