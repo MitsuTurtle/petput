@@ -2,9 +2,15 @@ require 'rails_helper'
 
 RSpec.describe Comment, type: :model do
   before do
-    @comment = FactoryBot.build(:comment)
-    # @user = @comment.user
-    # @photo = @comment.photo
+    @user = FactoryBot.build(:user)
+    @user.avatar = fixture_file_upload('/files/test_avatar_a.png')
+    @user.save
+    @photo = FactoryBot.build(:photo)
+    @photo.image = fixture_file_upload('/files/test_image.jpg')
+    @photo.save
+    @comment = FactoryBot.build(:comment, user_id: @user.id, photo_id: @photo.id)
+
+    sleep 0.1
   end
 
   describe 'コメントの投稿' do
