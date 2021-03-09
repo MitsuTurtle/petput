@@ -75,7 +75,7 @@ class User < ApplicationRecord
   # ゲストユーザー
   def self.guest
     find_or_create_by!(email: 'guest@example.com') do |user|
-      user.password = Faker::Lorem.characters(number: rand(6..128), min_alpha: 1, min_numeric: 1)
+      user.password = SecureRandom.hex(5)
       user.nickname = 'ゲスト'
       user.avatar.attach(io: File.open(Rails.root.join("app/assets/images/guest_avatar.png")), filename: "guest_avatar.png")
     end
