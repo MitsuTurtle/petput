@@ -23,8 +23,8 @@ RSpec.describe User, type: :model do
         expect(@user_a).to be_valid
       end
 
-      it 'ニックネームが4文字だと登録できること' do
-        @user_a.nickname = Faker::Name.initials(number: 4)
+      it 'ニックネームが1文字だと登録できること' do
+        @user_a.nickname = Faker::Name.initials(number: 1)
         expect(@user_a).to be_valid
       end
 
@@ -41,11 +41,11 @@ RSpec.describe User, type: :model do
         expect(@user_a.errors.full_messages).to include('ユーザーネームを入力してください')
       end
 
-      it 'ニックネームが3文字だと登録できないこと' do
-        @user_a.nickname = Faker::Name.initials(number: 3)
-        @user_a.valid?
-        expect(@user_a.errors.full_messages).to include('ユーザーネームは4文字以上で入力してください')
-      end
+      # it 'ニックネームが3文字だと登録できないこと' do
+      #   @user_a.nickname = Faker::Name.initials(number: 3)
+      #   @user_a.valid?
+      #   expect(@user_a.errors.full_messages).to include('ユーザーネームは4文字以上で入力してください')
+      # end
 
       it 'ニックネームが16文字だと登録できないこと' do
         @user_a.nickname = Faker::Name.initials(number: 16)
