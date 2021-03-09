@@ -26,9 +26,9 @@ class User < ApplicationRecord
   has_many :active_notifications, class_name: 'Notification', foreign_key: 'visitor_id', dependent: :destroy
   has_many :passive_notifications, class_name: 'Notification', foreign_key: 'visited_id', dependent: :destroy
 
-  NICKNAME_REGEX = /[a-zA-Z0-9_]{4,15}/.freeze
+  # NICKNAME_REGEX = /[a-zA-Z0-9_]{4,15}/.freeze
   with_options presence: true do
-    validates :nickname, uniqueness: { case_sensitive: true }, length: { minimum: 4, maximum: 15 }, format: { with: NICKNAME_REGEX }
+    validates :nickname, uniqueness: { case_sensitive: true }, length: { maximum: 15 }
     validates :avatar, presence: { message: 'を選択してください' }
   end
 
@@ -69,6 +69,15 @@ class User < ApplicationRecord
         action: 'follow'
       )
       notification.save if notification.valid?
+    end
+  end
+
+  # ゲストユーザー
+  def self.guest
+    find_or_create_by!(email: 'guest@example.com') do |user|
+      user.password = Faker::Lorem.characters(number: rand(6..128), min_alpha: 1, min_numeric: 1)
+      user.nickname = 'ゲスト'
+      user.avatar.attach(io: File.open(Rails.root.join("app/assets/images/guest_avatar.png")), filename: "guest_avatar.png")
     end
   end
 end

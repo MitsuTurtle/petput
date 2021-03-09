@@ -170,6 +170,13 @@
 
         <% else %>
         <li class="link-box">
+          <%= link_to users_guest_sign_in_path,method: :post, class: "link guest-link" do %>
+          <i class="far fa-user-circle link-icon"></i>
+          <p class="link-title">ゲストログイン</p>
+          <% end %>
+        </li>
+
+        <li class="link-box">
           <%= link_to user_session_path, class: "link" do %>
           <i class="fas fa-sign-in-alt link-icon"></i>
           <p class="link-title">ログイン</p>
@@ -182,6 +189,7 @@
           <p class="link-title">新規登録</p>
           <% end %>
         </li>
+
 
         <% end %>
         <% end %>
