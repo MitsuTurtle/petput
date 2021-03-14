@@ -1,0 +1,20 @@
+.footer {
+  background-color: white;
+  border-top: 1px solid #eeeeee;
+  padding-top: 10px;
+  .petput-info {
+    display: flex;
+    justify-content: space-around;
+    .footer-link {
+      text-decoration: none;
+      color: #757575;
+      font-size: small;
+    }
+  }
+  .footer-bottom {
+    margin: 10px 0 10px;
+    color: #757575;
+    text-align: center;
+    font-size: smaller;
+  }
+}
