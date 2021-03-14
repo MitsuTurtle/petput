@@ -8,7 +8,7 @@ class PhotosController < ApplicationController
     @photos = Photo.order(created_at: 'DESC')
     # @photos = Photo.all.shuffle
     # ↓ページネーション用コード
-    # @photos = @photos.page(params[:page]).per(12)
+    @photos = @photos.page(params[:page]).per(12)
     @followings_photos = []
     if user_signed_in?
       current_user.followings.each do |following|
