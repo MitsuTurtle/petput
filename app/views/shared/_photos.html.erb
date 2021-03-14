@@ -3,28 +3,32 @@
       <div id="modal" class="hidden2">
         <p>モーダルウィンドウ<p>
       </div>
-    
-    <% if photos != nil %>
+
+      <% if photos != nil %>
       <% photos.each do |photo| %>
       <li class='list'>
         <%= link_to photo_path(photo.id), remote: true do %>
-          <%= image_tag photo.image.variant(gravity: :center, resize:"640x640^", crop:"640x640+0+0"), class: "photo-img" if photo.image.attached? %>
-        <% end %>
+        <%= image_tag photo.image.variant(gravity: :center, resize:"640x640^", crop:"640x640+0+0"), class: "photo-img" if photo.image.attached? %>
 
         <div class="vote-comment-symbol">
           <% if (count_votes = photo.votes.count) > 0 %>
-            <span><i class="far fa-heart"></i><%= count_votes %></span>
+          <span><i class="far fa-heart"></i><%= count_votes %></span>
+          <%# <span>&nbsp;</span> %>
           <% end %>
-          <% if (count_comments = photo.comments.count) > 0 %> 
-            <span><i class="far fa-comment"></i><%= count_comments %></span>
+          <% if (count_comments = photo.comments.count) > 0 %>
+          <span><i class="far fa-comment"></i><%= count_comments %></span>
           <% end %>
         </div>
 
+        <% end %>
+
+
       </li>
       <% end %>
+      <%= paginate photos %>
 
 
       <%# 写真がない場合 %>
-    <% else %>
+      <% else %>
       <%= 投稿写真がありません %>
-    <% end %>
+      <% end %>

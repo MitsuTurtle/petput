@@ -1,46 +1,48 @@
 .photo-contents {
-  padding: 15px 20px;
-  padding-top: 84px;
-  background-color: #FAFAFA;
+  height: 100%;
+  position: relative;
+  padding: 84px 5vw 0 5vw;
+  background-color: #fafafa;
+  margin-bottom: 20px;
   .title {
     color: #262626;
     font-weight: bold;
     margin-bottom: 16px;
-    padding: 0 6.3vw;
-    font-size: 1.3vw;
+    font-size: 15px;
   }
 }
 
-// ユーザーページの写真一覧でも使用
+// nav.pagination {
+//   display: none;
+// }
+
+// ユーザーページやお気に入りの写真一覧でも使用
 .photo-lists {
-  width: 96vw;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  padding: 0 5vw;
-  &:after {
-    content: "";
-    display: block;
-    width: 26vw;  /* .boxに指定したwidthと同じ幅を指定する */
-    height: 0;
-    margin: 0 1.3vw 2.6vw 1.3vw;
-  }
+  margin: 0 0 70px 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
   .list {
-    margin: 0 1.3vw 2.6vw 1.3vw;
-    width: 26vw;
-    height: 26vw;
+    position: relative;
     .photo-img {
       width: 100%;
       height: 100%;
       transition: 0s;
+      border-radius: 5px;
       &:hover {
         filter: brightness(80%);
       }
     }
     .vote-comment-symbol {
+      border-radius: 5px 0 0 0;
+      position: absolute;
+      top: 0%;
+      left: 0%;
       text-align: center;
-      color: #757575;
-      font-size: 1.3vw;
+      color: #ffffff;
+      background-color: rgba(0, 0, 0, 0.5);
+      font-size: 15px;
+      padding: 2px;
     }
   }
 }

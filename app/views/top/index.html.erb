@@ -3,10 +3,22 @@
 <div class='photo-contents'>
 
   <h2 class='title'>最新投稿</h2>
-  <ul class='photo-lists'>
+  <ul class='photo-lists jscroll'>
     <%= render partial:"shared/photos", locals: {photos: @photos} %>
   </ul>
 
 </div>
 
 <%= render 'shared/footer' %>
+
+<script>
+  // 無限スクロール用コード（うまくいかずペンディング）
+  // console.log("test")
+  // $(function () {
+  //   $('.jscroll').jscroll({
+  //     contentSelector: '.photo-lists',
+  //     nextSelector: 'span.next a',
+  //     loadingHtml: '読み込み中'
+  //   });
+  // });
+</script>

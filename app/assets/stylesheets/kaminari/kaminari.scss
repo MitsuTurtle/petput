@@ -1,0 +1,29 @@
+nav.pagination {
+  position: absolute;
+  text-align: left;
+  bottom: -50px;
+  left: 5vw;
+  a {
+    text-decoration: none;
+    color: #757575;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    margin-right: 6px;
+    border: 1px solid #757575;
+    border-radius: 2px;
+  }
+  .current {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    margin-right: 6px;
+    background-color: #eeeeee;
+    border: 1px solid #757575;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 2px;
+  }
+}

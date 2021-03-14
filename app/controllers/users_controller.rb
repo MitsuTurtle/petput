@@ -6,6 +6,9 @@ class UsersController < ApplicationController
   def show
     @nickname = @user.nickname
     @photos = @user.photos.order(created_at: 'DESC')
+    # ↓ページネーション用コード
+    @photos = @photos.page(params[:page]).per(12)
+
     @profile = @user.profile
     @favorite_photos = @user.favorite_photos.order(created_at: 'DESC')
 
@@ -46,6 +49,8 @@ class UsersController < ApplicationController
 
   def favorites
     @favorite_photos = @user.favorite_photos.order(created_at: 'DESC')
+    # ↓ページネーション用コード
+    @favorite_photos = @favorite_photos.page(params[:page]).per(12)
   end
 
   private
