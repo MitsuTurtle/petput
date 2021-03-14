@@ -1,22 +1,27 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Petput</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+<head>
+  <title>Petput</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-    <%# Font Awesome %>
-    <script src="https://kit.fontawesome.com/c6dc1c3b48.js" crossorigin="anonymous"></script>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 
-  </head>
+  <%# Font Awesome %>
+  <script src="https://kit.fontawesome.com/c6dc1c3b48.js" crossorigin="anonymous"></script>
 
-  <body>
-    <%= yield %>
-    
-    <%# <%= debug(params) if Rails.env.development? %>
+  <%# jScroll %>
+  <script src="//unpkg.com/jscroll/dist/jquery.jscroll.min.js"></script>
 
-  </body>
+</head>
+
+<body>
+  <%= yield %>
+
+  <%# <%= debug(params) if Rails.env.development? %>
+
+</body>
+
 </html>
