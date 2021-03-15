@@ -1,4 +1,4 @@
-# PetPut&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; :turtle:
+# PetPut
 ![](https://i.imgur.com/0VdWKA1.jpg)
 
 ## :turtle:概要
