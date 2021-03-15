@@ -16,165 +16,23 @@
 * 他の飼い主さんと交流したい
 
 との思いがあり、**PetPut**を作成することとしました。<br>
-投稿する人も、閲覧する人も、ペットの癒やしから元気をもらえる、そんなアプリをイメージし作成しています。
+投稿する人も、閲覧する人も、ペットの癒やしから元気をもらえる、そんなアプリをイメージし作成しました。
+
+## :turtle:実装内容
+### <u>コメント</u>
+[![Image from Gyazo](https://i.gyazo.com/de24879824cb94637d392796c41db466.gif)](https://gyazo.com/de24879824cb94637d392796c41db466)
+
+### <u>いいね、フォロー、お気に入り</u>
+[![Image from Gyazo](https://i.gyazo.com/4aa0f3671d4820c7cd336cd93b6360b7.gif)](https://gyazo.com/4aa0f3671d4820c7cd336cd93b6360b7)
+
+### <u>ダイレクトメッセージ</u>
+[![Image from Gyazo](https://i.gyazo.com/a21d2af97b71d60cd31b32aee3371326.gif)](https://gyazo.com/a21d2af97b71d60cd31b32aee3371326)
+
+### <u>お知らせ</u>
+[![Image from Gyazo](https://i.gyazo.com/a231b83a0d2a57d7d25a22ddcb3d6b5a.gif)](https://gyazo.com/a231b83a0d2a57d7d25a22ddcb3d6b5a)
+
+### <u>その他</u>
+検索、ハッシュタグ、カテゴリー
 
 
-
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-# テーブル設計
-
-## users テーブル
-| Column      | Type   | Options                   |
-| ------------| ------ | ------------------------- |
-| nickname    | string | null: false, unique: true |
-| email       | string | null: false               |
-| password    | string | null: false               |
-| (avatar)    |        |                           |
-| profile     | text   |                           |
-
-### Association
-- has_many :photos
-- has_many :comments
-- has_many :relationships
-- has_many :followings, through: :relationships, source: :follow
-- has_many :reverse_of_relationships, class_name: 'Relationship', foreign_key: 'follow_id'
-- has_many :followers, through: :reverse_of_relationships, source: :user
-- has_many :votes, dependent: :destroy
-- has_many :voted_photos, through: :votes, source: :photo
-- has_many :favorites, dependent: :destroy
-- has_many :favorite_photos, through: :favorites, source: :photo
-- has_many :messages, dependent: :destroy
-- has_many :entries, dependent: :destroy
-
-## photos テーブル
-| Column      | Type       | Options                        |
-| ------------| ---------- | ------------------------------ |
-| (image)     |            |                                |
-| caption     | text       | null: false                    |
-| category_id | integer    | null: false                    |
-| user        | references | null: false, foreign_key: true |
-
-### Association
-- belongs_to :user
-- has_many :comments
-- has_many :photo_hashtag_relations
-- has_many :hashtags, through: :photo_hashtag_relations
-- has_many :votes, dependent: :destroy
-- has_many :voters, through: :votes, source: :user
-
-## photo_hashtag_relations テーブル
-| Column  | Type       | Options                        |
-| --------| ---------- | ------------------------------ |
-| photo   | references | null: false, foreign_key: true |
-| hashtag | references | null: false, foreign_key: true |
-
-### Association
-belongs_to :photo
-belongs_to :hashtag
-
-## hashtags テーブル
-| Column   | Type   | Options     |
-| ---------| ------ | ----------- |
-| hashname | string | null: false |
-
- ### Association
-- has_many :photo_hashtag_relations
-- has_many :photos, through: :photo_hashtag_relations
-
-## comments テーブル
-| Column | Type       | Options                        |
-| -------| ---------- | ------------------------------ |
-| text   | text       | null: false                    |
-| user   | references | null: false, foreign_key: true |
-| photo  | references | null: false, foreign_key: true |
-
-### Association
-- belongs_to :user
-- belongs_to :photo
-
-## relationships テーブル
-| Column | Type       | Options                           |
-| -------| ---------- | --------------------------------- |
-| user   | references | foreign_key: true                 |
-| follow | references | foreign_key: { to_table: :users } |
-
-### Association
-- belongs_to :user
-- belongs_to :follow, class_name: 'User'
-
-## votes テーブル
-| Column | Type       | Options                        |
-| -------| ---------- | ------------------------------ |
-| user   | references | null: false, foreign_key: true |
-| photo  | references | null: false, foreign_key: true |
-
-### Association
-- belongs_to :user
-- belongs_to :photo
-
-## favorites テーブル
-| Column | Type       | Options                        |
-| -------| ---------- | ------------------------------ |
-| user   | references | null: false, foreign_key: true |
-| photo  | references | null: false, foreign_key: true |
-
-### Association
-- belongs_to :user
-- belongs_to :photo
-
-## Entries テーブル
-| Column | Type       | Options                        |
-| -------| ---------- | ------------------------------ |
-| user   | references | null: false, foreign_key: true |
-| room   | references | null: false, foreign_key: true |
-
-### Association
-- belongs_to :user
-- belongs_to :room
-
-## Messages テーブル
-| Column | Type        | Options                        |
-| --------| ---------- | ------------------------------ |
-| user    | references | null: false, foreign_key: true |
-| room    | references | null: false, foreign_key: true |
-| content | text       |                                |
-
-### Association
-- belongs_to :user
-- belongs_to :room
-
-## Rooms テーブル
-| Column | Type   | Options |
-| ------ | ------ | ------- |
-| name   | string |         |
-
-### Association
-- has_many :messages
-- has_many :entries
-
-
-
-
+# 工事中
