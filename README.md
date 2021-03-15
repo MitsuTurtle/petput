@@ -6,7 +6,7 @@
 
 ## :turtle:制作背景
 私には25年以上飼育しているカメがいます。
-表情や仕草で私たちに癒やしを与えてくれています。
+表情や仕草で一緒に生活している私たちに癒やしを与えてくれています。
 
 <img src="https://i.imgur.com/uWiMge8.jpg" width="250px"><br>
 そんなカメについて
@@ -16,7 +16,11 @@
 * 他の飼い主さんと交流したい
 
 との思いがあり、**PetPut**を作成することとしました。
+
 投稿する人も、閲覧する人も、ペットの癒やしから元気をもらえる、そんなアプリをイメージし作成しています。
+
+
+
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
