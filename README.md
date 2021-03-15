@@ -16,7 +16,6 @@
 * 他の飼い主さんと交流したい
 
 との思いがあり、**PetPut**を作成することとしました。
-
 投稿する人も、閲覧する人も、ペットの癒やしから元気をもらえる、そんなアプリをイメージし作成しています。
 
 This README would normally document whatever steps are necessary to get the
