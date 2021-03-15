@@ -1,4 +1,22 @@
-# README
+# PetPut
+![](https://i.imgur.com/0VdWKA1.jpg)
+
+## :turtle:概要
+ペット写真共有SNSです。
+
+## :turtle:制作背景
+私には25年以上飼育しているカメがいます。言葉はしゃべりませんが、表情や仕草で一緒に生活している私たちに癒やしを与えてくれています。
+
+<img src="https://i.imgur.com/uWiMge8.jpg" width="250px"><br>
+そんなカメについて
+* 記録を残してあげたい
+* かわいさを伝えたい
+* 他のカメの写真も見てみたい
+* 他の飼い主さんと交流したい
+
+との思いがあり、**PetPut**を作成することとしました。
+
+投稿する人も、閲覧する人も、ペットの癒やしから元気をもらえる、そんなアプリをイメージし作成しています:turtle:
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
