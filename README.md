@@ -7,7 +7,7 @@
 ## :turtle:制作背景
 私には25年以上飼育しているカメがいます。表情や仕草で癒やしを与えてくれます。
 
-<img src="https://i.imgur.com/uWiMge8.jpg" width="250px"><br>
+<img src="https://i.imgur.com/uWiMge8.jpg" width="250px">
 そんなカメの
 * 記録を残してあげたい
 * かわいさを伝えたい
@@ -25,6 +25,8 @@
 ## :turtle:実装内容
 ### <u>コメント</u>
 ![8a9a64c2bf35f47a49079bd5fcca6e90](https://user-images.githubusercontent.com/71766878/111304315-f0522b80-8698-11eb-809c-649b1932c4ef.gif)
+
+<img src="https://user-images.githubusercontent.com/71766878/111304315-f0522b80-8698-11eb-809c-649b1932c4ef.gif" width="400px">
 
 ### <u>いいね、フォロー、お気に入り</u>
 ![4aa0f3671d4820c7cd336cd93b6360b7](https://user-images.githubusercontent.com/71766878/111303426-d9f7a000-8697-11eb-876b-23591ab13f0a.gif)
