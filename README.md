@@ -1,5 +1,5 @@
 # PetPut
-https://www.petput.net/<br>
+https://www.petput.net/
 ヘッダーのゲストログインをクリックすることで、メールアドレスとパスワードを入力することなくログインできます。
 <br>
 ![c6ff0c08e5ea994b148921c8e923687c](https://user-images.githubusercontent.com/71766878/111303779-45da0880-8698-11eb-92df-dc754e6aeb69.jpg)
@@ -67,7 +67,7 @@ https://www.petput.net/<br>
 ## ER図
 ![petput](https://user-images.githubusercontent.com/71766878/111310672-b2590580-86a0-11eb-819a-c17cea40963d.png)
 
-## 今後実装したい機能
+## 今後実装したい内容
 * 無限スクロール<br>
 jScrollで実装を試みましたがビューが崩れてしまいペンディング中です。かわりにページネーションを実装しました。
 * ヘッダーアイコンのレスポンシブ対応
