@@ -1,5 +1,5 @@
 # PetPut
-[![Image from Gyazo](https://i.gyazo.com/c6ff0c08e5ea994b148921c8e923687c.jpg)](https://gyazo.com/c6ff0c08e5ea994b148921c8e923687c)
+![c6ff0c08e5ea994b148921c8e923687c](https://user-images.githubusercontent.com/71766878/111303779-45da0880-8698-11eb-92df-dc754e6aeb69.jpg)
 
 ## :turtle:概要
 ペット写真共有SNSです。
@@ -23,12 +23,10 @@
 ![822d3bfdb21e60f795069dc4e7ff4d0f](https://user-images.githubusercontent.com/71766878/111303273-acaaf200-8697-11eb-80e5-db5cd35ebc6d.gif)
 
 ### <u>いいね、フォロー、お気に入り</u>
-[![Image from Gyazo](https://i.gyazo.com/4aa0f3671d4820c7cd336cd93b6360b7.gif)](https://gyazo.com/4aa0f3671d4820c7cd336cd93b6360b7)
-[![Image from Gyazo](https://i.gyazo.com/4aa0f3671d4820c7cd336cd93b6360b7.gif)](https://gyazo.com/4aa0f3671d4820c7cd336cd93b6360b7)
-![いいね、フォロー、お気に入り](https://i.gyazo.com/4aa0f3671d4820c7cd336cd93b6360b7.gif)
+![4aa0f3671d4820c7cd336cd93b6360b7](https://user-images.githubusercontent.com/71766878/111303426-d9f7a000-8697-11eb-876b-23591ab13f0a.gif)
 
 ### <u>ダイレクトメッセージ</u>
-[![Image from Gyazo](https://i.gyazo.com/a21d2af97b71d60cd31b32aee3371326.gif)](https://gyazo.com/a21d2af97b71d60cd31b32aee3371326)
+![a21d2af97b71d60cd31b32aee3371326](https://user-images.githubusercontent.com/71766878/111303642-15926a00-8698-11eb-93ac-08f96199e934.gif)
 
 ### <u>お知らせ</u>
 [![Image from Gyazo](https://i.gyazo.com/a231b83a0d2a57d7d25a22ddcb3d6b5a.gif)](https://gyazo.com/a231b83a0d2a57d7d25a22ddcb3d6b5a)
