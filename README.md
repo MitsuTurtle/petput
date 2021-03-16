@@ -24,6 +24,8 @@
 
 ### <u>いいね、フォロー、お気に入り</u>
 [![Image from Gyazo](https://i.gyazo.com/4aa0f3671d4820c7cd336cd93b6360b7.gif)](https://gyazo.com/4aa0f3671d4820c7cd336cd93b6360b7)
+[![Image from Gyazo](https://i.gyazo.com/4aa0f3671d4820c7cd336cd93b6360b7.gif)](https://gyazo.com/4aa0f3671d4820c7cd336cd93b6360b7)
+![いいね、フォロー、お気に入り](https://i.gyazo.com/4aa0f3671d4820c7cd336cd93b6360b7.gif)
 
 ### <u>ダイレクトメッセージ</u>
 [![Image from Gyazo](https://i.gyazo.com/a21d2af97b71d60cd31b32aee3371326.gif)](https://gyazo.com/a21d2af97b71d60cd31b32aee3371326)
