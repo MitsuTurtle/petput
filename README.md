@@ -20,7 +20,7 @@
 
 ## :turtle:実装内容
 ### <u>コメント</u>
-![Image from Gyazo](https://i.gyazo.com/de24879824cb94637d392796c41db466.gif)
+[![Image from Gyazo](https://i.gyazo.com/031008906bd66d54cd18fd6905ec98e8.gif)](https://gyazo.com/031008906bd66d54cd18fd6905ec98e8)
 
 ### <u>いいね、フォロー、お気に入り</u>
 [![Image from Gyazo](https://i.gyazo.com/4aa0f3671d4820c7cd336cd93b6360b7.gif)](https://gyazo.com/4aa0f3671d4820c7cd336cd93b6360b7)
