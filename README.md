@@ -7,7 +7,7 @@
 ## :turtle:制作背景
 私には25年以上飼育しているカメがいます。表情や仕草で癒やしを与えてくれます。
 
-<img src="https://i.imgur.com/uWiMge8.jpg" width="250px">
+<img src="https://i.imgur.com/uWiMge8.jpg" width="250px"><br>
 そんなカメの
 * 記録を残してあげたい
 * かわいさを伝えたい
