@@ -62,5 +62,13 @@ https://www.petput.net/
 * ソースコードエディタ
     * VScode
 
+## ER図
+![petput](https://user-images.githubusercontent.com/71766878/111310672-b2590580-86a0-11eb-819a-c17cea40963d.png)
 
-# 工事中
+## 今後実装したい機能
+* 無限スクロール
+jScrollで実装を試みましたがビューが崩れてしまいペンディング中です。かわりにページネーションを実装しました。
+* ヘッダーアイコンのレスポンシブ対応
+* CircleCI（テスト、コード整形、デプロイの自動化）
+* Docker（コンテナ型実行環境）
+* Vue.jsによる見た目の向上
