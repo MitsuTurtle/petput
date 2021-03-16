@@ -29,7 +29,7 @@
 ![a21d2af97b71d60cd31b32aee3371326](https://user-images.githubusercontent.com/71766878/111303642-15926a00-8698-11eb-93ac-08f96199e934.gif)
 
 ### <u>お知らせ</u>
-[![Image from Gyazo](https://i.gyazo.com/a231b83a0d2a57d7d25a22ddcb3d6b5a.gif)](https://gyazo.com/a231b83a0d2a57d7d25a22ddcb3d6b5a)
+![a231b83a0d2a57d7d25a22ddcb3d6b5a](https://user-images.githubusercontent.com/71766878/111303866-61ddaa00-8698-11eb-9edc-d68e2daf13cc.gif)
 
 ### <u>その他</u>
 検索、ハッシュタグ、カテゴリー
