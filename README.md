@@ -1,4 +1,6 @@
 # PetPut
+https://www.petput.net/
+<br>
 ![c6ff0c08e5ea994b148921c8e923687c](https://user-images.githubusercontent.com/71766878/111303779-45da0880-8698-11eb-92df-dc754e6aeb69.jpg)
 
 ## :turtle:概要
@@ -23,22 +25,42 @@
 投稿する人も、閲覧する人も、ペットの癒やしから元気をもらえる、そんなアプリになればと思っています。
 
 ## :turtle:実装内容
-### <u>コメント</u>
-![8a9a64c2bf35f47a49079bd5fcca6e90](https://user-images.githubusercontent.com/71766878/111304315-f0522b80-8698-11eb-809c-649b1932c4ef.gif)
+### コメント
+<img src="https://user-images.githubusercontent.com/71766878/111304315-f0522b80-8698-11eb-809c-649b1932c4ef.gif" width="500px">
 
-<img src="https://user-images.githubusercontent.com/71766878/111304315-f0522b80-8698-11eb-809c-649b1932c4ef.gif" width="400px">
+### いいね、フォロー、お気に入り
+<img src="https://user-images.githubusercontent.com/71766878/111303426-d9f7a000-8697-11eb-876b-23591ab13f0a.gif" width="500px">
 
-### <u>いいね、フォロー、お気に入り</u>
-![4aa0f3671d4820c7cd336cd93b6360b7](https://user-images.githubusercontent.com/71766878/111303426-d9f7a000-8697-11eb-876b-23591ab13f0a.gif)
+### ダイレクトメッセージ
+<img src="https://user-images.githubusercontent.com/71766878/111303642-15926a00-8698-11eb-93ac-08f96199e934.gif" width="500px">
 
-### <u>ダイレクトメッセージ</u>
-![a21d2af97b71d60cd31b32aee3371326](https://user-images.githubusercontent.com/71766878/111303642-15926a00-8698-11eb-93ac-08f96199e934.gif)
+### お知らせ
+<img src="https://user-images.githubusercontent.com/71766878/111303866-61ddaa00-8698-11eb-9edc-d68e2daf13cc.gif" width="500px">
 
-### <u>お知らせ</u>
-![a231b83a0d2a57d7d25a22ddcb3d6b5a](https://user-images.githubusercontent.com/71766878/111303866-61ddaa00-8698-11eb-9edc-d68e2daf13cc.gif)
+### その他
+ユーザー登録（devise）、検索、ハッシュタグ、カテゴリー（ransack）、ページネーション（kaminari）
 
-### <u>その他</u>
-検索、ハッシュタグ、カテゴリー
+
+## 開発環境
+
+* フロントエンド
+    * HTML/CSS
+    * JavaScript
+* バックエンド
+    * Ruby 2.6.5
+    * Rails 6.0.3.4
+    * MySQL 5.6.47
+* インフラ
+    * AWS（EC2/S3/ALB/Route53）
+    * Nginx/Unicorn
+* テスト
+    * RSpec
+* CI/CD
+    * Capistrano
+* バージョン管理
+    * Git/GitHub
+* ソースコードエディタ
+    * VScode
 
 
 # 工事中
