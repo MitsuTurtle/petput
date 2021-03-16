@@ -66,7 +66,7 @@ https://www.petput.net/
 ![petput](https://user-images.githubusercontent.com/71766878/111310672-b2590580-86a0-11eb-819a-c17cea40963d.png)
 
 ## 今後実装したい機能
-* 無限スクロール
+* 無限スクロール<br>
 jScrollで実装を試みましたがビューが崩れてしまいペンディング中です。かわりにページネーションを実装しました。
 * ヘッダーアイコンのレスポンシブ対応
 * CircleCI（テスト、コード整形、デプロイの自動化）
