@@ -1,5 +1,5 @@
 # PetPut
-https://www.petput.net/<br><br>
+https://www.petput.net/<br>
 ヘッダーのゲストログインをクリックすることで、メールアドレスとパスワードを入力することなくログインできます。<br><br>
 
 ![c6ff0c08e5ea994b148921c8e923687c](https://user-images.githubusercontent.com/71766878/111303779-45da0880-8698-11eb-92df-dc754e6aeb69.jpg)
