@@ -211,3 +211,25 @@ $icon-color: #757575;
 .logout {
   margin-bottom: 0;
 }
+
+/* レスポンシブデザイン */
+/* small screen */
+@media (max-width: 600px) {
+  .top-page-header {
+    padding: 10.5px 10px;
+    .search-form {
+      display: none;
+    }
+    .category-search-form {
+      display: none;
+    }
+    .menu {
+      margin: 0;
+      width: auto;
+
+      .hidden-small-screen {
+        display: none;
+      }
+    }
+  }
+}
