@@ -65,6 +65,8 @@ class PhotosController < ApplicationController
     if params[:keyword].present?
       @photos = Photo.where('caption LIKE ?', "%#{params[:keyword]}%").order(created_at: 'DESC')
       @keyword = params[:keyword]
+      # ↓ページネーション用コード
+      @photos = @photos.page(params[:page]).per(12)
     else
       redirect_to request.referer
     end
@@ -80,6 +82,8 @@ class PhotosController < ApplicationController
   def category
     # ↓includesを記入するか検討
     @photos = @q.result.order(created_at: 'DESC')
+    # ↓ページネーション用コード
+    @photos = @photos.page(params[:page]).per(12)
     category_id = params[:q][:category_id_eq]
     if category_id.present?
       @category = Category.find_by(id: category_id)
