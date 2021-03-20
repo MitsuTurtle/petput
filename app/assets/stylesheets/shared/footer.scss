@@ -1,6 +1,8 @@
+$icon-color: #757575;
+
 .footer {
   background-color: white;
-  border-top: 1px solid #eeeeee;
+  border-top: x-small solid #eeeeee;
   padding-top: 10px;
   .petput-info {
     display: flex;
@@ -16,5 +18,82 @@
     color: #757575;
     text-align: center;
     font-size: smaller;
+  }
+  .hidden-large-screen {
+    display: none;
+  }
+}
+
+/* レスポンシブデザイン */
+/* small screen */
+@media (max-width: 600px) {
+  .footer {
+    .hidden-large-screen {
+      width: 100vw;
+      padding: 10.5px 10px;
+      background-color: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: fixed;
+      bottom: 0;
+    }
+    .search-icon {
+      width: 150%;
+    }
+    .search-button {
+      width: 25px;
+      height: 25px;
+    }
+
+    .search-form {
+      width: 40vw;
+      margin-bottom: 3px;
+      .input-box {
+        height: 25px;
+        font-size: x-small;
+      }
+    }
+    .category-search-form {
+      width: 40vw;
+      .category-input-box {
+        height: 25px;
+        font-size: x-small;
+      }
+    }
+  }
+
+  .menu {
+    display: flex;
+    justify-content: center;
+    .link-box {
+      position: relative;
+      .link {
+        text-decoration: none;
+        display: block;
+        width: 50px;
+        .link-icon {
+          color: $icon-color;
+          font-size: 1.5em;
+          display: flex;
+          justify-content: center;
+        }
+        .mark {
+          color: #ffc0cb;
+          font-size: 60%;
+          position: absolute;
+          top: -5px;
+          right: 12px;
+        }
+        .link-title {
+          color: $icon-color;
+          font-weight: normal;
+          font-size: x-small;
+          text-align: center;
+          line-height: 1.2;
+          margin-top: 3px;
+        }
+      }
+    }
   }
 }
