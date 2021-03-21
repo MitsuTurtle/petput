@@ -1,6 +1,6 @@
 $icon-color: #757575;
 
-.top-page-header {
+.top-home-page-header {
   width: 100vw;
   padding: 10.5px 20px;
   display: flex;
@@ -11,6 +11,9 @@ $icon-color: #757575;
   position: fixed;
   background-color: white;
   z-index: 1;
+  .hidden-large-screen {
+    display: none;
+  }
 
   .avatar-nickname {
     a {
@@ -82,7 +85,7 @@ $icon-color: #757575;
 
 /* キャプション検索 */
 .search-form {
-  width: 20vw;
+  width: 15vw;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -214,8 +217,8 @@ $icon-color: #757575;
 
 /* レスポンシブデザイン */
 /* small screen */
-@media (max-width: 600px) {
-  .top-page-header {
+@media (max-width: 1024px) {
+  .top-home-page-header {
     padding: 10.5px 10px;
     .search-form {
       display: none;
@@ -226,7 +229,23 @@ $icon-color: #757575;
     .menu {
       margin: 0;
       width: auto;
+    }
+  }
+}
 
+@media (max-width: 599px) {
+  .top-home-page-header {
+    // padding: 10.5px 10px;
+    .hidden-small-screen {
+      display: none;
+    }
+    .hidden-large-screen {
+      display: block;
+    }
+    .petput-icon {
+      width: 30px;
+    }
+    .menu {
       .hidden-small-screen {
         display: none;
       }

@@ -25,9 +25,10 @@ $icon-color: #757575;
 }
 
 /* レスポンシブデザイン */
-/* small screen */
-@media (max-width: 600px) {
+/* medium screen */
+@media (max-width: 1024px) {
   .footer {
+    padding-top: 0;
     .hidden-large-screen {
       width: 100vw;
       padding: 10.5px 10px;
@@ -39,27 +40,53 @@ $icon-color: #757575;
       bottom: 0;
     }
     .search-icon {
-      width: 150%;
+      width: 15px;
     }
     .search-button {
       width: 25px;
       height: 25px;
     }
 
+    .search-container {
+      display: flex;
+      width: 100vw;
+      justify-content: space-between;
+    }
     .search-form {
-      width: 40vw;
-      margin-bottom: 3px;
+      width: 45vw;
       .input-box {
         height: 25px;
         font-size: x-small;
       }
     }
     .category-search-form {
-      width: 40vw;
+      width: 45vw;
       .category-input-box {
         height: 25px;
         font-size: x-small;
       }
+    }
+  }
+
+  .menu {
+    display: none;
+  }
+}
+
+/* small screen */
+@media (max-width: 599px) {
+  .footer {
+    padding-top: 10px;
+    .search-container {
+      display: block;
+      width: none;
+    }
+    .search-form {
+      width: 40vw;
+      margin-bottom: 3px;
+    }
+    .category-search-form {
+      width: 40vw;
     }
   }
 
