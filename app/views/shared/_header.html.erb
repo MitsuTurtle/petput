@@ -1,5 +1,9 @@
-<header class='top-page-header'>
-  <%= link_to image_tag("petput-logo.png", class:"petput-icon"), photos_path %>
+<header class='top-home-page-header'>
+  <%#= link_to image_tag("petput-logo.png", class:"petput-icon hidden-small-screen"), photos_path %>
+
+  <a href="/photos" class="hidden-small-screen"><%= image_tag("petput-logo.png", class:"petput-icon") %></a>
+
+  <a href="/photos" class="hidden-large-screen"><%= image_tag("petput-logo-fold.png", class:"petput-icon") %></a>
 
   <%# トップページには表示しない（ここから） %>
   <% if request.path_info != "/" %>
