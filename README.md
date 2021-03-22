@@ -45,7 +45,6 @@ https://www.petput.net/<br><br>
 ### その他
 ユーザー登録（devise）、検索、ハッシュタグ、カテゴリー（ransack）、ページネーション（kaminari）
 
-
 ## 開発環境
 
 * フロントエンド
