@@ -28,7 +28,8 @@ $icon-color: #757575;
 /* medium screen */
 @media (max-width: 1024px) {
   .footer {
-    padding-top: 0;
+    // padding-top: 0px;
+    margin-top: 50px;
     .hidden-large-screen {
       width: 100vw;
       padding: 10.5px 10px;
@@ -39,86 +40,63 @@ $icon-color: #757575;
       position: fixed;
       bottom: 0;
     }
-    .search-icon {
-      width: 15px;
+    .petput-info,
+    .footer-bottom {
+      display: none;
     }
-    .search-button {
-      width: 25px;
-      height: 25px;
-    }
-
-    .search-container {
+    .menu {
+      width: 100%;
       display: flex;
-      width: 100vw;
-      justify-content: space-between;
-    }
-    .search-form {
-      width: 45vw;
-      .input-box {
-        height: 25px;
-        font-size: x-small;
+      justify-content: space-around;
+      .link-box {
+        position: relative;
+        .link {
+          text-decoration: none;
+          display: block;
+          .link-icon {
+            color: $icon-color;
+            font-size: 1.5em;
+            display: flex;
+            justify-content: center;
+          }
+          .mark {
+            color: #ffc0cb;
+            font-size: 60%;
+            position: absolute;
+            top: -5px;
+            right: 5px;
+          }
+          .link-title {
+            color: $icon-color;
+            font-weight: normal;
+            font-size: x-small;
+            text-align: center;
+            line-height: 1.2;
+            margin-top: 3px;
+          }
+        }
       }
     }
-    .category-search-form {
-      width: 45vw;
-      .category-input-box {
-        height: 25px;
-        font-size: x-small;
-      }
-    }
-  }
-
-  .menu {
-    display: none;
   }
 }
 
 /* small screen */
 @media (max-width: 599px) {
   .footer {
-    padding-top: 10px;
-    .search-container {
-      display: block;
-      width: none;
-    }
-    .search-form {
-      width: 40vw;
-      margin-bottom: 3px;
-    }
-    .category-search-form {
-      width: 40vw;
-    }
-  }
-
-  .menu {
-    display: flex;
-    justify-content: center;
-    .link-box {
-      position: relative;
-      .link {
-        text-decoration: none;
-        display: block;
-        width: 50px;
-        .link-icon {
-          color: $icon-color;
-          font-size: 1.5em;
-          display: flex;
-          justify-content: center;
-        }
-        .mark {
-          color: #ffc0cb;
-          font-size: 60%;
-          position: absolute;
-          top: -5px;
-          right: 12px;
-        }
-        .link-title {
-          color: $icon-color;
-          font-weight: normal;
-          font-size: x-small;
-          text-align: center;
-          line-height: 1.2;
-          margin-top: 3px;
+    .menu {
+      .link-box {
+        .link {
+          // width: 42px;
+          .link-icon {
+            // font-size: 1.2em;
+          }
+          .mark {
+            top: -5px;
+            right: -4px;
+          }
+          .link-title {
+            display: none;
+          }
         }
       }
     }

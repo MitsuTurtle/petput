@@ -80,6 +80,7 @@ class PhotosController < ApplicationController
   end
 
   def category
+    # binding.pry
     # ↓includesを記入するか検討
     @photos = @q.result.order(created_at: 'DESC')
     # ↓ページネーション用コード
