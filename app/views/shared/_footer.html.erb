@@ -13,35 +13,47 @@
   <%# スクリーンを小さくすると表示 %>
   <% if request.path_info != "/" %>
   <div class="hidden-large-screen">
-    <%# 検索 %>
 
-    <div class="search-container">
-      <%# キャプション検索 %>
-      <%= form_with url: search_photos_path, local: true, method: :get, class: "search-form", id: "search-button-id" do |form| %>
-      <%= form.text_field :keyword, class: "input-box", placeholder: "検索" %>
-      <button form="search-button-id" , class="search-button">
-        <%= image_tag "search.png", class:"search-icon" %>
-      </button>
-      <%= form.submit "検索", class: "hidden-search-button" %>
-      <% end %>
-
-      <%# カテゴリー検索 %>
-      <%= search_form_for @q, url: photo_category_path, class: "category-search-form", id: "category-search-button-id" do |f| %>
-      <%= f.collection_select :category_id_eq, Category.where.not(id: 0), :id, :name, {include_blank: "カテゴリー検索"}, class: "category-input-box" %>
-
-      <button form="category-search-button-id" , class="search-button">
-        <%= image_tag "search.png", class:"search-icon" %>
-      </button>
-
-      <%= f.submit '検索', class: "hidden-search-button" %>
-      <% end %>
-    </div>
-
-
+    <%# トップページには表示しない（ここから） %>
     <% if user_signed_in? %>
     <ul class="menu">
+      <li class="link-box hidden-med-screen">
+        <%= link_to new_photo_path, class: "link" do %>
+        <i class="far fa-plus-square link-icon"></i>
+        <p class="link-title">新規投稿</p>
+        <% end %>
+      </li>
 
-      <li class="link-box hidden-small-screen">
+      <li class="link-box hidden-med-screen">
+        <%= link_to photos_path, class: "link" do %>
+        <%# <i class="far fa-clock link-icon"></i> %>
+        <i class="fas fa-home link-icon"></i>
+        <p class="link-title">タイムライン</p>
+        <% end %>
+      </li>
+
+      <li class="link-box hidden-med-screen">
+        <%= link_to favorites_user_path(current_user), class: "link" do %>
+        <i class="far fa-star bookmark-icon link-icon"></i>
+        <p class="link-title">お気に入り</p>
+        <% end %>
+      </li>
+
+      <% if request.fullpath != "/notifications" %>
+      <li class="link-box hidden-med-screen">
+        <%= link_to notifications_path, class: "link" do %>
+        <div>
+          <i class="far fa-bell link-icon bell"></i>
+          <% if unchecked_notifications.any? %>
+          <i class="fas fa-circle mark"></i>
+          <% end %>
+        </div>
+        <p class="link-title">お知らせ</p>
+        <% end %>
+      </li>
+      <% end %>
+
+      <li class="link-box">
         <% if user_signed_in? && current_user.entries.present? %>
         <%= link_to "/rooms/#{@cu_latest_room_id}", class: "link" do %>
         <i class="far fa-envelope dm-icon link-icon"></i>
@@ -55,12 +67,12 @@
         <% end %>
       </li>
 
-      <li class="link-box">
-        <%= link_to root_path, class: "link" do %>
-        <i class="fas fa-door-open link-icon"></i>
-        <p class="link-title">入り口</p>
-        <% end %>
-      </li>
+      <%# <li class="link-box"> %>
+      <%#= link_to root_path, class: "link" do %>
+      <%# <i class="fas fa-door-open link-icon"></i> %>
+      <%# <p class="link-title">入り口</p> %>
+      <%# end %>
+      <%# </li> %>
 
       <li class="link-box">
         <%= link_to edit_user_registration_path, class: "link" do %>
@@ -70,7 +82,7 @@
       </li>
 
       <li class="link-box">
-        <%= link_to destroy_user_session_path, method: :delete, class: "link" do %>
+        <%= link_to destroy_user_session_path, method: :delete, class: "link", data: {confirm:'ログアウトしますか？'} do %>
         <i class="fas fa-sign-out-alt link-icon"></i>
         <p class="link-title">ログアウト</p>
         <% end %>
@@ -78,5 +90,7 @@
     </ul>
     <% end %>
   </div>
+
   <% end %>
+  <%# トップページには表示しない（ここまで） %>
 </footer>

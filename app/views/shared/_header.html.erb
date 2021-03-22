@@ -1,9 +1,9 @@
 <header class='top-home-page-header'>
   <%#= link_to image_tag("petput-logo.png", class:"petput-icon hidden-small-screen"), photos_path %>
 
-  <a href="/photos" class="hidden-small-screen"><%= image_tag("petput-logo.png", class:"petput-icon") %></a>
+  <a href="/" class="hidden-small-screen"><%= image_tag("petput-logo.png", class:"petput-icon") %></a>
 
-  <a href="/photos" class="hidden-large-screen"><%= image_tag("petput-logo-fold.png", class:"petput-icon") %></a>
+  <a href="/" class="hidden-large-screen"><%= image_tag("petput-logo-fold.png", class:"petput-icon") %></a>
 
   <%# トップページには表示しない（ここから） %>
   <% if request.path_info != "/" %>
@@ -47,23 +47,23 @@
   </div>
 
   <%# メニュー %>
-  <ul class="menu">
-    <li class="link-box">
+  <ul class="home-menu">
+    <li class="link-box hidden-med-screen">
       <%= link_to new_photo_path, class: "link" do %>
       <i class="far fa-plus-square link-icon"></i>
       <p class="link-title">新規投稿</p>
       <% end %>
     </li>
 
-    <li class="link-box">
+    <li class="link-box hidden-med-screen">
       <%= link_to photos_path, class: "link" do %>
       <%# <i class="far fa-clock link-icon"></i> %>
       <i class="fas fa-home link-icon"></i>
-      <p class="link-title">ホーム</p>
+      <p class="link-title">タイムライン</p>
       <% end %>
     </li>
 
-    <li class="link-box">
+    <li class="link-box hidden-med-screen">
       <%= link_to favorites_user_path(current_user), class: "link" do %>
       <i class="far fa-star bookmark-icon link-icon"></i>
       <p class="link-title">お気に入り</p>
@@ -71,7 +71,7 @@
     </li>
 
     <% if request.fullpath != "/notifications" %>
-    <li class="link-box">
+    <li class="link-box hidden-med-screen">
       <%= link_to notifications_path, class: "link" do %>
       <div>
         <i class="far fa-bell link-icon bell"></i>
@@ -84,7 +84,7 @@
     </li>
     <% end %>
 
-    <li class="link-box hidden-small-screen">
+    <li class="link-box hidden-med-screen">
       <% if user_signed_in? && current_user.entries.present? %>
       <%= link_to "/rooms/#{@cu_latest_room_id}", class: "link" do %>
       <i class="far fa-envelope dm-icon link-icon"></i>
@@ -98,21 +98,21 @@
       <% end %>
     </li>
 
-    <li class="link-box hidden-small-screen">
-      <%= link_to root_path, class: "link" do %>
-      <i class="fas fa-door-open link-icon"></i>
-      <p class="link-title">入り口</p>
-      <% end %>
-    </li>
+    <%# <li class="link-box hidden-med-screen"> %>
+    <%#= link_to root_path, class: "link" do %>
+    <%# <i class="fas fa-door-open link-icon"></i> %>
+    <%# <p class="link-title">入り口</p> %>
+    <%# end %>
+    <%# </li> %>
 
-    <li class="link-box hidden-small-screen">
+    <li class="link-box hidden-med-screen">
       <%= link_to edit_user_registration_path, class: "link" do %>
       <i class="far fa-address-card link-icon"></i>
       <p class="link-title">登録変更</p>
       <% end %>
     </li>
 
-    <li class="link-box hidden-small-screen">
+    <li class="link-box hidden-med-screen">
       <%= link_to destroy_user_session_path, method: :delete, class: "link" do %>
       <i class="fas fa-sign-out-alt link-icon"></i>
       <p class="link-title">ログアウト</p>
@@ -163,12 +163,12 @@
           <%= link_to photos_path, class: "link" do %>
           <%# <i class="far fa-clock link-icon"></i> %>
           <i class="fas fa-home link-icon"></i>
-          <p class="link-title">ホーム</p>
+          <p class="link-title">タイムライン</p>
           <% end %>
         </li>
 
         <li class="link-box">
-          <%= link_to destroy_user_session_path, method: :delete, class: "link" do %>
+          <%= link_to destroy_user_session_path, method: :delete, class: "link", data: {confirm:'ログアウトしますか？'} do %>
           <i class="fas fa-sign-out-alt link-icon"></i>
           <p class="link-title">ログアウト</p>
           <% end %>

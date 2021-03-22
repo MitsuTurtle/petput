@@ -2,7 +2,7 @@ $icon-color: #757575;
 
 .top-home-page-header {
   width: 100vw;
-  padding: 10.5px 20px;
+  padding: 10.5px 5vw;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -32,7 +32,8 @@ $icon-color: #757575;
     }
   }
 
-  .menu {
+  .home-menu,
+  .menu-in-top {
     display: flex;
     justify-content: center;
     width: 360px;
@@ -43,7 +44,7 @@ $icon-color: #757575;
       .link {
         text-decoration: none;
         display: block;
-        width: 50px;
+        width: 60px;
         .link-icon {
           color: $icon-color;
           font-size: 1.5em;
@@ -97,6 +98,7 @@ $icon-color: #757575;
   border-style: solid;
   text-align: center;
   outline: none;
+  border-radius: 2px 0 0 2px;
 }
 /* カテゴリー検索でも使用 */
 .search-button {
@@ -109,6 +111,7 @@ $icon-color: #757575;
   align-items: center;
   outline: none;
   cursor: pointer;
+  border-radius: 0 2px 2px 0;
 }
 /* カテゴリー検索でも使用 */
 .search-icon {
@@ -136,106 +139,36 @@ $icon-color: #757575;
   outline: none;
   color: #757575;
   padding: 1px 2px;
+  border-radius: 5px 0 0 5px;
   /* ↓セレクトボックスの矢印を消す */
   -webkit-appearance: none; /* ベンダープレフィックス(Google Chrome、Safari用) */
   -moz-appearance: none; /* ベンダープレフィックス(Firefox用) */
   appearance: none; /* 標準のスタイルを無効にする */
 }
 
-// .header-link {
-//   display: flex;
-//   align-items: center;
-// }
-// .login,
-// .nickname {
-//   text-decoration: none;
-//   color: #757575;
-// }
-// .signup {
-//   margin-left: 20px;
-//   text-decoration: none;
-//   color: #757575;
-// }
-// .new-photo {
-//   margin-right: 20px;
-//   text-decoration: none;
-//   color: #757575;
-// }
-
-/* ハンバーガーメニュー */
-// .menu {
-//   margin-left: 20px;
-// }
-// #input {
-//   display: none;
-// }
-// .three-lines {
-//   cursor: pointer;
-// }
-// .line {
-//   width: 20px;
-//   height: 3px;
-//   background-color: black;
-//   margin: 3px;
-// }
-// #content {
-//   background-color: white;
-//   width: auto;
-//   height: auto;
-//   transform: translateY(-50vh);
-//   position: fixed;
-//   top: 150px;
-//   right: 0;
-//   padding: 5px;
-//   /* -webkit-transition: 0.5s; */
-//   /* transition: all 0.2s ; */
-//   /* border: 1px solid #333333; */
-//   border-radius: 2px;
-//   box-shadow: 0 10px 25px 0 rgba(0, 0, 0, 0.5);
-// }
-// #input:checked ~ #content {
-//   transform: translateY(-100px);
-// }
-/* #input:checked ~ .back {
-  position: absolute;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0,0,0,0.8);
-} */
-
-// .logout, .user_edit {
-//   text-decoration: none;
-//   color: #757575;
-//   display: block;
-//   margin-bottom: 10px;
-//   text-align: right;
-// }
-
 .logout {
   margin-bottom: 0;
 }
 
 /* レスポンシブデザイン */
-/* small screen */
+/* medium screen */
 @media (max-width: 1024px) {
   .top-home-page-header {
-    padding: 10.5px 10px;
     .search-form {
-      display: none;
+      width: 30vw;
     }
     .category-search-form {
-      display: none;
+      width: 30vw;
     }
-    .menu {
-      margin: 0;
-      width: auto;
+    .home-menu {
+      display: none;
     }
   }
 }
 
+/* small screen */
 @media (max-width: 599px) {
   .top-home-page-header {
-    // padding: 10.5px 10px;
     .hidden-small-screen {
       display: none;
     }
@@ -243,10 +176,22 @@ $icon-color: #757575;
       display: block;
     }
     .petput-icon {
-      width: 30px;
+      width: 35px;
     }
-    .menu {
-      .hidden-small-screen {
+
+    .search-form {
+      input {
+        font-size: x-small;
+      }
+    }
+    .category-search-form {
+      select {
+        font-size: x-small;
+      }
+    }
+
+    .avatar-nickname {
+      .nickname {
         display: none;
       }
     }
