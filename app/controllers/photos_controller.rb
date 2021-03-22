@@ -76,7 +76,8 @@ class PhotosController < ApplicationController
     @user = current_user
     @tag = Hashtag.find_by(hashname: params[:name])
     @photos = @tag.photos.order(created_at: 'DESC')
-    # @photo = @tag.photos.page(params[:page])
+    # ↓ページネーション用コード
+    @photos = @photos.page(params[:page]).per(12)
   end
 
   def category
