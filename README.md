@@ -39,7 +39,7 @@ https://www.petput.net/<br><br>
 <img src="https://user-images.githubusercontent.com/71766878/111303866-61ddaa00-8698-11eb-9edc-d68e2daf13cc.gif" width="500px">
 
 ### レスポンシブデザイン（改善中）
-レスポンシブデザイン化を進めております。
+レスポンシブデザイン化を進めております。<br><br>
 <img src="https://user-images.githubusercontent.com/71766878/111987472-9ea31880-8b52-11eb-9ee1-255e804ebdb9.png" width="500px">
 
 ### その他
