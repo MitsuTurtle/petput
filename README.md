@@ -88,7 +88,7 @@ https://www.petput.net/<br><br>
 * ソースコードエディタ
     * VScode
 * 開発環境
-   Docker/Docker Compose
+    * Docker/Docker Compose
 
 
 ## ER図
