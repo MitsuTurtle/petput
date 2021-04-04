@@ -3,9 +3,10 @@
 ペットの写真を共有したり、他の飼い主さんと交流することができます。
 
 アプリURL：https://www.petput.net/
+
 アプリGitHub：https://github.com/MitsuTurtle/petput
 
-<br><br>
+<br>
 
 ヘッダーのゲストログインをクリックすることで、メールアドレスとパスワードを入力することなくログインできます。<br><br>
 
