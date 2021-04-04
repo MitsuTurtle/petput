@@ -1,11 +1,19 @@
 # PetPut
-https://www.petput.net/<br><br>
+ペット写真共有SNSです。
+ペットの写真を共有したり、他の飼い主さんと交流することができます。
+
+アプリURL：https://www.petput.net/
+アプリGitHub：https://github.com/MitsuTurtle/petput
+
+<br><br>
+
 ヘッダーのゲストログインをクリックすることで、メールアドレスとパスワードを入力することなくログインできます。<br><br>
 
 ![c6ff0c08e5ea994b148921c8e923687c](https://user-images.githubusercontent.com/71766878/111303779-45da0880-8698-11eb-92df-dc754e6aeb69.jpg)
 
-## :turtle:概要
-ペット写真共有SNSです。
+## :turtle:作者情報
+Twitter：https://twitter.com/MitsuTurtle
+Quiita：https://qiita.com/MitsuTurtle
 
 ## :turtle:制作背景
 私には25年以上飼育しているカメがいます。表情や仕草で癒やしを与えてくれます。
