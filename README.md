@@ -10,7 +10,8 @@
 ![c6ff0c08e5ea994b148921c8e923687c](https://user-images.githubusercontent.com/71766878/111303779-45da0880-8698-11eb-92df-dc754e6aeb69.jpg)
 
 ## :turtle:作者情報
-Twitter：https://twitter.com/MitsuTurtle
+Wantedly：https://www.wantedly.com/id/mitsuo3<br>
+Twitter：https://twitter.com/MitsuTurtle<br>
 Quiita：https://qiita.com/MitsuTurtle
 
 ## :turtle:制作背景
