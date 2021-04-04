@@ -25,11 +25,14 @@ https://www.petput.net/<br><br>
 ペットの飼い主さんには、きっと、同じ思いをもっている人がいるのではと思い、このたびペット写真共有SNSアプリ&ensp;**PetPut**&ensp;を作成することにしました。
 投稿する人も閲覧する人も、ペットの癒やしから元気をもらえる、そんなアプリになればと思っています。
 
-## :turtle:実装内容<br>
+## :turtle:実装内容
+
+<br>
+
 ### Docker
 <img width="489" alt="864bb77939fe27c145cf62eb30a4d275" src="https://user-images.githubusercontent.com/71766878/113496304-4d702d00-9533-11eb-8b71-9fcbd9da61d0.png">
 
-<br><br>
+<br>
 
 ### コメント
 <img src="https://user-images.githubusercontent.com/71766878/111304315-f0522b80-8698-11eb-809c-649b1932c4ef.gif" width="500px">
