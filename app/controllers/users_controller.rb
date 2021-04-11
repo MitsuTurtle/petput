@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :favorites]
   before_action :search_category_photo, only: [:show, :favorites]
-  before_action :set_dm_room_id, only: [:show, :favorites]
+  before_action :set_dm_room_id, only: :show
 
   def show
     @nickname = @user.nickname
