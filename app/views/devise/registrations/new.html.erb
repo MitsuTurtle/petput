@@ -10,45 +10,46 @@
     <p class="or">または</p>
 
     <%= form_with model: @user, url: user_registration_path, local: true do |f| %>
-      <%= render "devise/shared/error_messages", model: f.object %>
+    <%= render "devise/shared/error_messages", model: f.object %>
 
-      <div class="field">
-        <%= f.text_field :nickname, placeholder: "ユーザーネーム（4文字以上15文字以下）", autofocus: true, autocomplete: "off", class: "field-box" %>
+    <div class="field">
+      <%= f.text_field :nickname, placeholder: "ユーザーネーム（15文字以下）", autofocus: true, autocomplete: "off", class: "field-box" %>
+    </div>
+
+    <div class="field">
+      <div class="profile-pic-btn field-box">
+        プロフィール画像を選択
+        <%= f.file_field :avatar, class: "profile-pic-input" %>
       </div>
-
-      <div class="field">
-        <div class="profile-pic-btn field-box">
-          プロフィール画像を選択
-          <%= f.file_field :avatar, class: "profile-pic-input" %>
-        </div>
-      </div>
+    </div>
 
 
-      <div class="field">
-        <%# <%= f.label :email %>
-        <%# <br /> %>
-        <%= f.email_field :email, autofocus: true, placeholder: "メールアドレス", autocomplete: "email", class: "field-box" %>
-      </div>
+    <div class="field">
+      <%# <%= f.label :email %>
+      <%# <br /> %>
+      <%= f.email_field :email, autofocus: true, placeholder: "メールアドレス", autocomplete: "email", class: "field-box" %>
+    </div>
 
-      <div class="field">
-        <%# <%= f.label :password %>
-        <% if @minimum_password_length %>
-        <%# <em>(<%= @minimum_password_length %> <%# characters minimum)</em> %>
-        <% end %><%# <br /> %>
-        <%= f.password_field :password, placeholder: "パスワード（英数字混合6文字以上）", autocomplete: "new-password", class: "field-box" %>
-      </div>
+    <div class="field">
+      <%# <%= f.label :password %>
+      <% if @minimum_password_length %>
+      <%# <em>(<%= @minimum_password_length %> <%# characters minimum)</em> %>
+      <% end %><%# <br /> %>
+      <%= f.password_field :password, placeholder: "パスワード（英数字混合6文字以上）", autocomplete: "new-password", class: "field-box" %>
+    </div>
 
-      <div class="field">
-        <%# <%= f.label :password_confirmation %><%# <br /> %>
-        <%= f.password_field :password_confirmation, placeholder: "パスワード（確認用）", autocomplete: "new-password", class: "field-box" %>
-      </div>
+    <div class="field">
+      <%# <%= f.label :password_confirmation %><%# <br /> %>
+      <%= f.password_field :password_confirmation, placeholder: "パスワード（確認用）", autocomplete: "new-password", class: "field-box" %>
+    </div>
 
-      <div class="actions">
-        <%= f.submit "登録する", class: "signup-button" %>
-      </div>
+    <div class="actions">
+      <%= f.submit "登録する", class: "signup-button" %>
+    </div>
     <% end %>
 
-    <p class="registration-consent">登録することで、<span class="font_bold">Facenoteの利用規約、データに関するポリシー、Cookieポリシー</span>に同意するものとします。</p>
+    <p class="registration-consent">登録することで、<span
+        class="font_bold">Facenoteの利用規約、データに関するポリシー、Cookieポリシー</span>に同意するものとします。</p>
 
   </div>
 
