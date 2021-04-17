@@ -3,22 +3,30 @@
 
     <%= link_to image_tag("petput-logo.png", class:"registration-petput-icon"), root_path %>
 
-    <h2 class="registration-catchword">登録して友達の写真や動画をチェックしよう</h2>
+    <h2 class="registration-catchword">登録してかわいいペット写真をチェックしよう</h2>
 
-    <%= link_to 'Facenoteでログイン', "#", class: 'facebook-link' %>
 
-    <p class="or">または</p>
+    <%#= link_to 'Facenoteでログイン', "#", class: 'facebook-link' %>
+
+    <%# <p class="or">または</p> %>
+
 
     <%= form_with model: @user, url: user_registration_path, local: true do |f| %>
     <%= render "devise/shared/error_messages", model: f.object %>
 
     <div class="field">
-      <%= f.text_field :nickname, placeholder: "ユーザーネーム（15文字以下）", autofocus: true, autocomplete: "off", class: "field-box" %>
+      <%= f.label :nickname, class: "label" do %>
+      ユーザーネーム <span class="required-btn">必須</span>
+      <% end %>
+      <%= f.text_field :nickname, placeholder: "例）ペット太郎", autofocus: true, autocomplete: "off", class: "field-box" %>
     </div>
 
     <div class="field">
+      <%= f.label :avatar, class: "label" do %>
+      プロフィール写真を選択 <span class="required-btn">必須</span>
+      <% end %>
       <div class="profile-pic-btn field-box">
-        プロフィール画像を選択
+        <i class="fas fa-user"></i>
         <%= f.file_field :avatar, class: "profile-pic-input" %>
       </div>
     </div>
@@ -27,7 +35,10 @@
     <div class="field">
       <%# <%= f.label :email %>
       <%# <br /> %>
-      <%= f.email_field :email, autofocus: true, placeholder: "メールアドレス", autocomplete: "email", class: "field-box" %>
+      <%= f.label :email, class: "label" do %>
+      メールアドレス <span class="required-btn">必須</span>
+      <% end %>
+      <%= f.email_field :email, autofocus: true, placeholder: "例）kame@petput.com", autocomplete: "email", class: "field-box" %>
     </div>
 
     <div class="field">
@@ -35,12 +46,18 @@
       <% if @minimum_password_length %>
       <%# <em>(<%= @minimum_password_length %> <%# characters minimum)</em> %>
       <% end %><%# <br /> %>
-      <%= f.password_field :password, placeholder: "パスワード（英数字混合6文字以上）", autocomplete: "new-password", class: "field-box" %>
+      <%= f.label :password, class: "label" do %>
+      パスワード <span class="required-btn">必須</span>
+      <% end %>
+      <%= f.password_field :password, placeholder: "英数字混合6文字以上", autocomplete: "new-password", class: "field-box" %>
     </div>
 
     <div class="field">
       <%# <%= f.label :password_confirmation %><%# <br /> %>
-      <%= f.password_field :password_confirmation, placeholder: "パスワード（確認用）", autocomplete: "new-password", class: "field-box" %>
+      <%= f.label :password_confirmation, class: "label" do %>
+      パスワード（確認用）<span class="required-btn">必須</span>
+      <% end %>
+      <%= f.password_field :password_confirmation, placeholder: "", autocomplete: "new-password", class: "field-box" %>
     </div>
 
     <div class="actions">
@@ -48,14 +65,14 @@
     </div>
     <% end %>
 
-    <p class="registration-consent">登録することで、<span
-        class="font_bold">Facenoteの利用規約、データに関するポリシー、Cookieポリシー</span>に同意するものとします。</p>
+    <%# <p class="registration-consent">登録することで、<br><br><span
+        class="font_bold">PetPutの利用規約、データポリシー、Cookieポリシー</span>に同意するものとします。</p> %>
 
   </div>
 
   <div class="login-link-wrap">
     <%# <%= render "devise/shared/links" %>
-    <p class="registraion-question">アカウントをお持ちですか？</p>
+    <p class="registraion-question">アカウントをお持ちですか？<span>　</span></p>
     <%= link_to "ログインする", new_session_path(resource_name), class: "login-link" %>
   </div>
 
