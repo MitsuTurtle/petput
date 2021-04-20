@@ -26,7 +26,9 @@
       プロフィール写真を選択 <span class="required-btn">必須</span>
       <% end %>
       <div class="profile-pic-btn field-box">
+        <%= f.label :avatar do %>
         <i class="fas fa-user"></i>
+        <% end %>
         <%= f.file_field :avatar, class: "profile-pic-input" %>
       </div>
     </div>
