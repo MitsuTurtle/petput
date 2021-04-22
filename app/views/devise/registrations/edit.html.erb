@@ -1,4 +1,4 @@
-<div class="registration-edit-page">
+<div class="registration-page">
   <div class="registration-form-wrap">
 
     <%= link_to image_tag("petput-logo.png", class:"registration-petput-icon"), photos_path %>
@@ -26,9 +26,13 @@
     </div>
 
     <div class="field">
-      <%= f.label :avatar, "プロフィール写真を選択", class: "label" %>
+      <%= f.label :avatar, class: "label" do %>
+      プロフィール写真を選択
+      <% end %>
       <div class="profile-pic-btn field-box">
-        プロフィール写真を選択
+        <%= f.label :avatar do %>
+        <i class="fas fa-user"></i>
+        <% end %>
         <%= f.file_field :avatar, class: "profile-pic-input" %>
       </div>
     </div>
@@ -65,14 +69,14 @@
     <div class="field">
       <%# <%= f.label :current_password %> <%# <i>(we need your current password to confirm your changes)</i><br /> %>
       <%= f.label :current_password, class: "label" do %>
-      現在のパスワード<span class="required-btn">必須</span>
+      現在のパスワード <span class="required-btn">必須</span>
       <% end %>
       <%= f.password_field :current_password, placeholder: "現在のパスワード", autocomplete: "current-password", class: "field-box" %>
     </div>
 
     <div class="profile-field">
       <%= f.label :profile, "自己紹介", class: "label" %>
-      <%= f.text_area :profile, placeholder: "自己紹介", autocomplete: "off", class: "profile-field-box" %>
+      <%= f.text_area :profile, placeholder: "自己紹介", autocomplete: "off", class: "field-box profile-field-box" %>
     </div>
 
     <div class="actions">
