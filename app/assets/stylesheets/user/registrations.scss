@@ -14,6 +14,16 @@ $form_width: 600px;
     margin: 0 auto;
     background-color: #ffffff;
     border-radius: 2px;
+
+    // エラーメッセージ
+    #error_explanation,
+    .login-flash-message {
+      color: #ea352d;
+      width: 80%;
+      font-size: 14px;
+      line-height: 2;
+      margin: 0 auto 18px;
+    }
     .registration-petput-icon {
       height: 31px;
       display: block;
