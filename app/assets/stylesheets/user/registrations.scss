@@ -183,6 +183,11 @@ $form_width: 600px;
 /* small screen */
 @media (max-width: 599px) {
   .registration-page {
-    width: 160vw;
+    .registration-form-wrap {
+      width: 375px;
+    }
+    .login-link-wrap {
+      width: 375px;
+    }
   }
 }
