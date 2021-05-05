@@ -6,6 +6,6 @@ ja:
         avatar: プロフィール画像
         email: メールアドレス
       photo:
-        image: 画像
-        caption: キャプション
+        image: ペット写真
+        caption: 写真の説明
         category_id: カテゴリー
