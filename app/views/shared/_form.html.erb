@@ -1,22 +1,26 @@
 <%= render "shared/error_messages", model: f.object %>
 
-      <%# 投稿写真 %>
-      <div class="click-upload">
-        <div class="click-block">
-          <label for="file-button" class="click-part">
-            ファイルを選択
-          </label>
-          <%= f.file_field :image, id: "file-button", class:"hidden" %>
-        </div>
-        <div id="image-list">
-          <%= image_tag @photo.image, id: 'image', class: "preview-img" if @photo.image.present? %>
-        </div>
+<%# 投稿写真 %>
+<div class="click-upload">
+  <div class="click-block">
+    <label for="file-button" class="click-part label">
+      <i class="fas fa-camera"></i>
+      ペット写真を選択 <span class="required-btn">必須</span>
+    </label>
+    <%= f.file_field :image, id: "file-button", class:"hidden" %>
+  </div>
+  <div id="image-list">
+    <%= image_tag @photo.image, id: 'image', class: "preview-img" if @photo.image.present? %>
+  </div>
 
-        <%= f.text_area :caption, class:"photo-caption", id:"photo-info", placeholder:"キャプションを書く" ,rows:"7" ,maxlength:"1000" %>
-      </div>
-      <%# //投稿写真 %>
-      
-      <label for="category-button" class="click-part">
-          カテゴリーを選択
-      </label>
-      <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"category-box", id:"category-button"}) %>
+  <%= f.label :caption, class: "label" do %>
+  写真の説明 <span class="required-btn">必須</span>
+  <% end %>
+  <%= f.text_area :caption, class:"photo-caption field-box", id:"photo-info", placeholder:"ハッシュタグも使えます   例）#かめ" ,rows:"7" ,maxlength:"1000" %>
+</div>
+<%# //投稿写真 %>
+
+<label for="category-button" class="category-button label">
+  カテゴリー <span class="required-btn">必須</span>
+</label>
+<%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"field-box", id:"category-button"}) %>

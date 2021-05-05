@@ -1,23 +1,24 @@
-<div class="photo-new">
-  <div class="header">
-    <div class="title-box">
-      <h2 class="photo-new-title">情報を編集</h2>
-    </div>
-  </div>
+<div class="photo-new-page">
+  <div class="photo-new">
+    <div>
+      <%= link_to image_tag("petput-logo.png", class:"photo-new-petput-icon"), photos_path %>
+      <h2 class="photo-new-title">投稿写真を編集</h2>
 
-  <div class="form">
-    <div class="click-home">
-      <%= link_to '戻る', root_path, class: "home-button" %>
-    </div>
 
-    <%= form_with model: @photo, local: true do |f| %>
+      <div class="form">
+        <%# <div class="click-home"> %>
+        <%#= link_to '戻る', :back, class: "home-button" %>
+        <%# </div> %>
 
-    <%= render partial: "shared/form", locals: {f: f} %>
+        <%= form_with model: @photo, local: true do |f| %>
 
-       <div class="click-submit">
-        <%= f.submit "完了", class: "submit-button" %>
+        <%= render partial: "shared/form", locals: {f: f} %>
+
+
+        <div class="click-submit">
+          <%= f.submit "完了", class: "submit-button" %>
+        </div>
+        <% end %>
       </div>
-
-    <% end %>
+    </div>
   </div>
-</div>

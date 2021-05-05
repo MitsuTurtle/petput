@@ -1,0 +1,122 @@
+$form_width: 600px;
+
+.photo-new-page {
+  background-color: rgb(250, 250, 250);
+  padding-top: 20px;
+  padding-bottom: 20px;
+  min-height: 100vh;
+  .photo-new {
+    // height: 100vh;
+    // background-color: white;
+    // padding-top: 20px;
+    width: $form_width;
+    height: 100%;
+    padding: 20px 0;
+    border: 1px solid #dddddd;
+    // text-align: center;
+    margin: 0 auto;
+    background-color: #ffffff;
+    border-radius: 2px;
+    .photo-new-petput-icon {
+      height: 31px;
+      display: block;
+      margin: 0 auto 14px;
+    }
+    .photo-new-title {
+      color: #757575;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 16px;
+    }
+    .form {
+      .error-alert {
+        color: #ea352d;
+        width: 80%;
+        font-size: 14px;
+        line-height: 1.5;
+        margin: 0 auto 18px;
+      }
+      .submit-button {
+        text-decoration: none;
+        color: #ffffff;
+        background-color: rgba(var(--d69, 0, 149, 246), 1);
+        display: block;
+        margin: 0 auto 0;
+        line-height: 30px;
+        width: 80%;
+        height: 45px;
+        border-radius: 4px;
+        font-size: 14px;
+        font-weight: bold;
+        border: none;
+        cursor: pointer;
+      }
+      .label {
+        display: block;
+        margin-left: 10%;
+        margin-bottom: 8px;
+        font-weight: bold;
+        text-align: left;
+        font-size: 14px;
+        .required-btn {
+          background-color: red;
+          color: white;
+          border-radius: 2px;
+          font-size: 12px;
+          padding: 2px;
+          font-weight: normal;
+        }
+      }
+      .hidden {
+        display: none;
+      }
+      .fa-camera {
+        font-size: 200%;
+        cursor: pointer;
+        color: #757575;
+      }
+      #category-button {
+        cursor: pointer;
+      }
+      .field-box {
+        width: 80%;
+        height: 45px;
+        border-radius: 4px;
+        display: block;
+        margin: 0 auto 18px;
+        border: 1px solid #dddddd;
+        background-color: rgb(250, 250, 250);
+        padding: 8px;
+        font-size: 14px;
+        outline: none;
+      }
+      #image-list {
+        width: 80%;
+        height: 150px;
+        border-radius: 4px;
+        margin: 0 auto 18px;
+        border: 1px solid #dddddd;
+        padding: 5px;
+
+        .preview-img {
+          height: 138px;
+          // width: 200px;
+          // object-fit: contain;
+        }
+      }
+      .photo-caption {
+        height: 150px;
+      }
+    }
+  }
+}
+
+// レスポンシブデザイン
+/* small screen */
+@media (max-width: 599px) {
+  .photo-new-page {
+    .photo-new {
+      width: 375px;
+    }
+  }
+}
