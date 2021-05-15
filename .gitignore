@@ -31,3 +31,5 @@ yarn-debug.log*
 .yarn-integrity
 app/.DS_Store
 .DS_Store
+db/mysql/volumes/ib_logfile0
+db/mysql/volumes/ibdata1
