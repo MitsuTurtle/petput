@@ -33,3 +33,7 @@ app/.DS_Store
 .DS_Store
 db/mysql/volumes/ib_logfile0
 db/mysql/volumes/ibdata1
+*.ibd
+*.frm
+db/mysql/volumes/mysql/innodb_index_stats.ibd
+db/mysql/volumes/mysql/innodb_table_stats.ibd
