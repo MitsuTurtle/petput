@@ -37,3 +37,6 @@ db/mysql/volumes/ibdata1
 *.frm
 db/mysql/volumes/mysql/innodb_index_stats.ibd
 db/mysql/volumes/mysql/innodb_table_stats.ibd
+*.ibd
+*.ibd
+db/mysql/volumes/petput2_development/notifications.ibd

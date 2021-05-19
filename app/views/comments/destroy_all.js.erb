@@ -1,2 +1,5 @@
 <%# コメントを削除 %>
 document.getElementById("comment-wrap").innerHTML = "";
+
+document.getElementById("vote-comment-symbol-<%= @photo.id %>").innerHTML =
+'<%= escape_javascript(render partial: 'shared/vote_comment_symbol.html', locals: { photo: @photo }) %>';

@@ -1,7 +1,12 @@
-document.getElementById("right-box-comments").innerHTML = '<%= escape_javascript(render partial: 'shared/comments', locals: { photo: @photo, comments: @comments }) %>';
+document.getElementById("right-box-comments").innerHTML =
+'<%= escape_javascript(render partial: 'shared/comments', locals: { photo: @photo, comments: @comments }) %>';
 
-document.getElementById("right-box-new-comment").innerHTML = '<%= escape_javascript(render partial: 'shared/new_comment', locals: { photo: @photo, comment: @comment }) %>';
+document.getElementById("right-box-new-comment").innerHTML =
+'<%= escape_javascript(render partial: 'shared/new_comment', locals: { photo: @photo, comment: @comment }) %>';
 
 <%# 下端の（最新の）コメントを表示させる %>
 var target = document.getElementById('comment-wrap');
 target.scrollIntoView({behavior: "smooth", block: "end"});
+
+document.getElementById("vote-comment-symbol-<%= @photo.id %>").innerHTML =
+'<%= escape_javascript(render partial: 'shared/vote_comment_symbol.html', locals: { photo: @photo }) %>';

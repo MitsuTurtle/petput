@@ -1,0 +1,11 @@
+<% if photo.votes.present? || photo.comments.present? %>
+<div class="vote-comment-symbol">
+    <% if (count_votes = photo.votes.count) > 0 %>
+    <span><i class="far fa-heart"></i><span><%= count_votes %></span></span>
+    <%# <span>&nbsp;</span> %>
+    <% end %>
+    <% if (count_comments = photo.comments.count) > 0 %>
+    <span><i class="far fa-comment"></i><span id="count_comments"><%= count_comments %></span></span>
+    <% end %>
+</div>
+<% end %>
