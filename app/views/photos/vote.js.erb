@@ -1,5 +1,8 @@
-document.getElementById("vote-box").innerHTML = '<%= escape_javascript(render partial: 'shared/votes', locals: { photo: @photo }) %>'
+document.getElementById("vote-box").innerHTML =
+'<%= escape_javascript(render partial: 'shared/votes', locals: { photo: @photo }) %>';
 
+document.getElementById("vote-comment-symbol-<%= @photo.id %>").innerHTML =
+'<%= escape_javascript(render partial: 'shared/vote_comment_symbol.html', locals: { photo: @photo }) %>';
 
 <%# ↓jQueryで書いた場合のコード %>
 <%
