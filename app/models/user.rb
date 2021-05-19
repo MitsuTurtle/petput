@@ -77,7 +77,7 @@ class User < ApplicationRecord
     find_or_create_by!(email: 'guest@example.com') do |user|
       user.password = SecureRandom.hex(5)
       user.nickname = 'ゲスト'
-      user.avatar.attach(io: File.open(Rails.root.join("app/assets/images/guest_avatar.png")), filename: "guest_avatar.png")
+      user.avatar.attach(io: File.open(Rails.root.join('app/assets/images/guest_avatar.png')), filename: 'guest_avatar.png')
     end
   end
 end
